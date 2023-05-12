@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[zod_singlereply.plugin]]></item>
+	<item id="RevisionID"><![CDATA[27411]]></item>
+	<item id="SN"><![CDATA[2022051611nRJO8589Sb]]></item>
+	<item id="RevisionDateline"><![CDATA[1452175201]]></item>
+	<item id="Data">
+		<item id="/singlereply.class.php"><![CDATA[0f7cabd60d52115385833bbcd6dd8daa]]></item>
+		<item id="/discuz_plugin_zod_singlereply_SC_UTF8.xml"><![CDATA[1cd0a89c5c59c73007ea50a6d5136db7]]></item>
+		<item id="/discuz_plugin_zod_singlereply_TC_UTF8.xml"><![CDATA[04710d442b21cb0cf98aeff8c5b4c26d]]></item>
+	</item>
+</root>

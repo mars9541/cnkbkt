@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[addon_seo_rewrite.plugin]]></item>
+	<item id="RevisionID"><![CDATA[62812]]></item>
+	<item id="SN"><![CDATA[2022042908SzLykL3p4f]]></item>
+	<item id="RevisionDateline"><![CDATA[1673521625]]></item>
+	<item id="Data">
+		<item id="/installlang.lang.php"><![CDATA[3ee454c93d2170d95eb8eef5fcd5c11f]]></item>
+		<item id="/template/index.htm"><![CDATA[cb3fd3a1aa5c31cfd7d7cb1c3fda76d2]]></item>
+		<item id="/template/index.html"><![CDATA[cb3fd3a1aa5c31cfd7d7cb1c3fda76d2]]></item>
+		<item id="/template/faq.htm"><![CDATA[561f40fa28c3d7a4221c35be9829d617]]></item>
+		<item id="/demo.php"><![CDATA[ee8f3f8860441ffe48adf1d776b5d3eb]]></item>
+		<item id="/upgrade.php"><![CDATA[1cf1ae92087714945b63d4afdee58e13]]></item>
+		<item id="/morerewrite.inc.php"><![CDATA[e9f8085a2a6ef7bad8d8cdf3a1c7104c]]></item>
+		<item id="/discuz_plugin_addon_seo_rewrite_SC_UTF8.xml"><![CDATA[8a0c7a8168a29762b3b48cdb63c49bba]]></item>
+		<item id="/check.php"><![CDATA[3f8b9df3f9e52e628d192d9c125d2627]]></item>
+		<item id="/install.php"><![CDATA[9bdb84e15eecac299d8ecec3538a409f]]></item>
+		<item id="/enable.php"><![CDATA[ad5c5f9714eea7e6d7cd97ebc33122b5]]></item>
+		<item id="/changelog.inc.php"><![CDATA[cc6f47a564a339cd1042f803b74dc368]]></item>
+		<item id="/index.htm"><![CDATA[cb3fd3a1aa5c31cfd7d7cb1c3fda76d2]]></item>
+		<item id="/hook.class.php"><![CDATA[f68761247109b023f669ef14151847fc]]></item>
+		<item id="/uninstall.php"><![CDATA[4919e661bb32bc51c585adbbbcc1ac50]]></item>
+		<item id="/index.html"><![CDATA[cb3fd3a1aa5c31cfd7d7cb1c3fda76d2]]></item>
+		<item id="/config.inc.php"><![CDATA[935f9607461276086caf3b163253e45f]]></item>
+		<item id="/thank.inc.php"><![CDATA[dd867e1e163031ccac99688e296dc41f]]></item>
+		<item id="/pluginvar.func.php"><![CDATA[d14dae6e6c956af3b6519278e1f2a66e]]></item>
+		<item id="/images/manage.css"><![CDATA[187cb1475ec00faba10dca8e4eaa63a7]]></item>
+		<item id="/images/index.htm"><![CDATA[cb3fd3a1aa5c31cfd7d7cb1c3fda76d2]]></item>
+		<item id="/images/index.html"><![CDATA[cb3fd3a1aa5c31cfd7d7cb1c3fda76d2]]></item>
+		<item id="/images/bg_tab_mid.gif"><![CDATA[ad6cc306f70136cbd16c2aa38a4ed8df]]></item>
+		<item id="/images/faq.gif"><![CDATA[8de0e92c39199930694d6189fa5ef373]]></item>
+		<item id="/images/bg_tab.gif"><![CDATA[cd442a419939292ca4d25d6473b8f667]]></item>
+		<item id="/disable.php"><![CDATA[a7e8f1a3bedfb8bf84e5525d2ef3460c]]></item>
+		<item id="/discuz_plugin_addon_seo_rewrite_TC_UTF8.xml"><![CDATA[eb63309004f7f1cd3787a750a77bc15a]]></item>
+		<item id="/addon.inc.php"><![CDATA[4ad38910b46d763040827d72033c13c4]]></item>
+		<item id="/faq.inc.php"><![CDATA[f5c86af7acc454faf48057f4afccd002]]></item>
+		<item id="/rewrite.inc.php"><![CDATA[65099e8c0d7320c4bf7a238e70a7735b]]></item>
+		<item id="/feedback.inc.php"><![CDATA[bd65a326e8b2ae5e0d8c5eba38cbb63c]]></item>
+		<item id="/source/index.htm"><![CDATA[cb3fd3a1aa5c31cfd7d7cb1c3fda76d2]]></item>
+		<item id="/source/class/class_admin.php"><![CDATA[3a37872e730803ecaf019c38acda0096]]></item>
+		<item id="/source/index.html"><![CDATA[cb3fd3a1aa5c31cfd7d7cb1c3fda76d2]]></item>
+		<item id="/source/include/include_config.php"><![CDATA[d98fd2e2ddae23c7bc2d3b4376fec3cb]]></item>
+		<item id="/source/include/include_rewrite.php"><![CDATA[d7807602250d5aa3b01dc8a7ae2f724f]]></item>
+		<item id="/source/include/include_rewrite2.php"><![CDATA[63d09f3de6d61896284a93b68a45accb]]></item>
+		<item id="/source/function/function_core.php"><![CDATA[e50b07cccc760a0902b003d9820cbf63]]></item>
+		<item id="/source/function/index.htm"><![CDATA[cb3fd3a1aa5c31cfd7d7cb1c3fda76d2]]></item>
+		<item id="/source/function/function_var.php"><![CDATA[d14dae6e6c956af3b6519278e1f2a66e]]></item>
+		<item id="/source/function/index.html"><![CDATA[cb3fd3a1aa5c31cfd7d7cb1c3fda76d2]]></item>
+		<item id="/source/function/function_core3.php"><![CDATA[75eab10b9f5d0b7fd5dcc8dded9c2fd6]]></item>
+		<item id="/source/function/function_core2.php"><![CDATA[42fd522f6eccd5cc90c4a67ee2239d69]]></item>
+		<item id="/common.php"><![CDATA[d14dae6e6c956af3b6519278e1f2a66e]]></item>
+		<item id="/hook.inc.php"><![CDATA[92c82413702426f77e2d9e91575eeecb]]></item>
+	</item>
+</root>

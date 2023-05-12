@@ -1,0 +1,210 @@
+<!--{template common/header}-->
+<style>
+.floatwraps{
+    overflow: auto;
+    overflow-x: hidden;
+}
+.lists{
+    margin: 0 auto 10px;
+    width: 480px;
+    border-top: 2px solid #CDCDCD;
+}
+.titles{
+    padding: 10px;
+    margin-bottom: 10px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.titles em{
+	color:#FF5722;
+	font-weight:700;
+}
+.titles p{
+    line-height: 26px;
+    height: 26px;
+    color: #666;
+    font-size: 15px;
+}
+.pay_type{
+    position:relative;
+    overflow: auto;
+    overflow-x: hidden;
+    padding: 10px 0px;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    text-align: center;
+}
+.pay_type li{
+    display: inline-flex;
+    font-size: 15px;
+    color: #666;
+    line-height: 28px;
+	margin: 0px 15px;
+}
+.ck8-radios {
+    line-height: 25px;
+    display: inline-block;
+    position: relative;
+    top: -3px;
+}
+label {
+    cursor: pointer;
+}
+.ck8-radios input {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    position: relative;
+    overflow: visible;
+    border: 0;
+    background: none;
+    -webkit-appearance: none;
+    outline: none;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.ck8-radios input:before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #dfe0e1;
+    border-radius: 13px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    position: absolute;
+    left: 0px;
+    top: 0;
+}
+.ck8-radios input:checked:after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: #18b4ed;
+    border-radius: 7px;
+    position: absolute;
+    left: 6px;
+    top: 6px;
+}
+.titles p.tss{
+    line-height: 45px;
+    height: 45px;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #FF9800;
+    background-color: rgba(205, 242, 255, 0.95);
+    border-radius: 20px;
+    margin: 10px 0px;
+}
+.ck8-btns{
+    height: 25px;
+    line-height: 25px;
+    padding: 0 12px;
+    min-width: 55px;
+    font-size: 15px;
+    background-color: #FF9800;
+    color: #f7fafd !important;
+    border-radius: 15px;
+    float: right;
+    position: relative;
+    top: 10px;
+}
+.pay_select{
+    display: inline-block;
+    font-size: 15px;
+    color: #666;
+    position: relative;
+    top: -5px;
+}
+</style>
+<!--{if empty($_GET['infloat'])}-->
+<div id="pt" class="bm cl">
+	<div class="z"><a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em>{lang ck8_view:langview008}</div>
+</div>
+<div id="ct" class="wp cl">
+	<div class="mn">
+		<div class="bm bw0">
+<!--{/if}-->
+<form id="paydisposeform" method="post" autocomplete="off" action="plugin.php?id=ck8_view:ck8_pay&action=payview&paydisposesubmit=yes&infloat=yes" {if !empty($_GET['infloat'])} onsubmit="ajaxpost('paydisposeform', 'return_$_GET['handlekey']', 'return_$_GET['handlekey']', 'onerror');return false;"{/if} style="width: 500px;">
+	<div class="f_c">
+		<h3 class="flb">
+			<em id="return_$_GET['handlekey']">{lang ck8_view:langview008}</em>
+			<span>
+			<!--{if !empty($_GET['infloat'])}--><a href="javascript:;" class="flbc" onclick="hideWindow('$_GET['handlekey']')" title="{lang close}">{lang close}</a><!--{/if}-->
+			</span>
+		</h3>
+		<input type="hidden" name="formhash" value="{FORMHASH}" />
+		<input type="hidden" name="tid" value="{$tid}" />
+		<input type="hidden" name="pid" value="{$pid}" />
+		<input type="hidden" name="token" value="{$token}" />
+		<!--{if !empty($_GET['infloat'])}--><input type="hidden" name="handlekey" value="$_GET['handlekey']" /><!--{/if}-->
+		<div class="c floatwraps">
+			<div class="lists">
+				<div class="titles">
+					<p>{lang ck8_view:langview009}<em>{$credits}</em>&nbsp;{$creditstitle}</p>
+					<!--{if in_array(1,$pay_type)}-->
+					    <p>{lang ck8_view:langview010}<em>{$money}</em>&nbsp;{$creditstitle}</p>
+						<!--{if $credits < $money}-->
+					    <p class="tss">{lang ck8_view:langview011}<a href="{$config['credits_url']}" class="ck8-btns">{lang ck8_view:langview012}</a></p>
+						<!--{/if}-->
+					<!--{/if}-->
+					<!--{if in_array(2,$pay_type) || in_array(3,$pay_type)}-->
+					<p>{lang ck8_view:langview013}<em>{eval echo round(($money / $config['credits_percentage']),2);}</em>&nbsp;{lang ck8_view:langview014}</p>
+					<!--{/if}-->
+				</div>
+				<!--{if isset($pay_type)}-->
+				<span class="pay_select">{lang ck8_view:langview015}</span>
+				<div class="pay_type">
+					<ul>
+					<!--{if in_array(1,$pay_type)}-->
+					<li><label class="ck8-radios" for="zffs"><input type="radio" name="zffs" id="jfzf" value="jfzf" checked="checked"></label>{lang ck8_view:langview017}</li>
+					<!--{/if}-->
+					<!--{if in_array(2,$pay_type)}-->
+					<li><label class="ck8-radios" for="zffs"><input type="radio" name="zffs" id="wxzf" value="wxzf"></label>{lang ck8_view:langview018}</li>
+					<!--{/if}-->
+					<!--{if in_array(3,$pay_type)}-->
+					<li><label class="ck8-radios" for="zffs"><input type="radio" name="zffs" id="zfbzf" value="zfbzf"></label>{lang ck8_view:langview019}</li>
+					<!--{/if}-->
+					<li><label class="ck8-radios" for="zffs"><input type="radio" name="zffs" id="wx001" value="wx001"></label>
+					  微信支付
+					</li>
+					</ul>
+				</div>
+				<!--{/if}-->
+			</div>
+		</div>
+	</div>
+	<div class="o pns">
+		<button class="pn pnc y" type="submit" value="true" name="paydisposesubmit"><span>{lang ck8_view:langview016}</span></button>
+	</div>
+</form>
+<!--{if !empty($_GET['infloat'])}-->
+<script type="text/javascript" reload="1">
+	function succeedhandle_$_GET['handlekey'](url,msg,arr){
+		if (url && arr.p_id && arr.pay_type == 'wxzf'){
+			showWindow('superaddition',url +'&formhash={FORMHASH}');
+		}else if(url && arr.p_id){
+			window.location = url;
+		}else if(url){
+			window.setTimeout("window.location='"+url+"'",3000);
+		}
+		hideWindow('$_GET['handlekey']');
+	}
+	function errorhandle_$_GET['handlekey'](msg,arr){
+		hideWindow('$_GET['handlekey']');
+	}
+</script>
+<!--{/if}-->
+<!--{if empty($_GET['infloat'])}-->
+		</div>
+	</div>
+</div>
+<!--{/if}-->
+<!--{template common/footer}-->

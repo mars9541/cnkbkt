@@ -1,0 +1,40 @@
+<!--{block return}-->
+<script type="text/javascript">
+EXTRAFUNC['showEditorMenu']['view']='e_viewfn';
+function e_viewfn(e,v){
+	if(e != 'view' && v != 1){return false;}
+	var text = $('e_view_param_1').value;
+	var credits = parseInt($('e_view_param_2').value);
+	if (!text){
+	    showPrompt(null, null, '<div id="picUploadpromptdiv"><i style="font-size:15px;">{lang ck8_view:langview001}</i></div>', 3000,"popuptext");
+		doane();
+	    return false;
+	}else if(!credits || credits == 0){
+	    showPrompt(null, null, '<div id="picUploadpromptdiv"><i style="font-size:15px;">{lang ck8_view:langview002}</i></div>', 3000,"popuptext");
+		doane();
+	    return false;
+	}
+	var txt = '[ck8_view='+ credits +']' + text + '[/ck8_view]';
+	insertText(txt, strlen(txt), 0);
+	$('e_view_param_1').value='';
+	$('e_view_param_2').value='';
+	doane();
+}
+</script>
+<div class="p_pof" id="e_view_menu" style="width:380px;display:none">
+	<div class="p_opt cl"><span class="y" style="margin:-10px -15px 0px 0px;">
+	<a onclick="hideMenu();return false;" class="flbc" href="javascript:;">{lang ck8_view:langview003}</a></span>
+		<div>
+			<p>{lang ck8_view:langview004}</p>
+			<p style="margin:5px 0px;"><textarea id="e_view_param_1" name="e_view_param_1" style="width:99%" cols="50" rows="5" class="txtarea" placeholder="{lang ck8_view:langview001}" ></textarea></p>
+			<p style="margin:10px 0px;">
+				<span>{lang ck8_view:langview005}&nbsp;&nbsp;</span><input type="text" size="10" name="e_view_param_2" id="e_view_param_2" class="px"/>&nbsp;&nbsp;<label>$credits</label>
+			</p>
+			<!--{if $config['announce_charge']}-->
+			<p class="mt" style="border-top:1px solid #eaeaea;"><span style="color:#FF0000;">{lang ck8_view:langview006}</span><span style="font-size:15px;">{$config['announce_charge']}</span></p>
+			<!--{/if}-->
+		</div>
+		<div class="pns mtn y"><button type="submit" id="e_view_submit" class="pn pnc"><strong>{lang ck8_view:langview007}</strong></button></div>
+	</div>
+</div>
+<!--{/block}-->

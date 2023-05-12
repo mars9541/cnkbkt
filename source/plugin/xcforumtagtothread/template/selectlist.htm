@@ -1,0 +1,61 @@
+<!--{block return}-->
+<style>
+<!--
+.slectlist{
+	height:35px;
+}
+.slectlist select{
+	width:100px;
+}
+-->
+</style>
+<script type="text/javascript">
+<!--
+function mbars(id){
+	 var seles=document.getElementById("subject");
+	 var tag=document.getElementById("tags");
+	 var ids="id_"+id;
+	 var tabname="";
+	 var textvalue=seles.value;
+	 var tagvalue=tag.value;
+	 if(document.getElementById(ids).value!=0){
+		 
+	 		var idvalue=document.getElementById(ids).value;
+		  tabname="$leftsign"+ idvalue+"$righsign";
+		  if(("aa"+textvalue).indexOf(tabname)>0){
+		 		 textvalue=textvalue.replace(tabname,'');
+		 		 if($positions==1){
+					 seles.value=textvalue;
+				 }else{
+					 seles.value=textvalue;
+				 }
+	 		}else{
+		  		if($positions==1){
+					 seles.value=tabname+textvalue;
+				 }else{
+					 seles.value=textvalue+tabname;
+				 }
+	 		}
+		  
+		  if(('aa'+tagvalue).indexOf(idvalue)>0){
+			  tag.value=tagvalue.replace(idvalue+',','');
+		  }else{
+			  tag.value=tagvalue+idvalue+',';
+		  }
+	 }
+}
+//-->
+</script>
+<!--{if $pagekwlist}-->
+<div class="slectlist" >
+<!--{loop $pagekwlist $key $items}-->
+	<select onchange="mbars($items['ordernum'])" id="id_$items['ordernum']">
+	<option value=0>$items['title']</option>
+		<!--{loop $items['kw'] $i $item}-->
+			<option value=$item>$item</option>
+			<!--{/loop}-->
+	</select>
+	<!--{/loop}-->
+	</div>
+<!--{/if}-->
+<!--{/block}-->

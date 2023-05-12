@@ -1,0 +1,90 @@
+<!--{template common/header}-->
+
+<link rel="stylesheet" type="text/css" id="time_diy" href="template/elec_20220314_miaoly/portal/index.css" />
+<link rel="stylesheet" type="text/css" id="time_diy" href="template/elec_20220314_miaoly/portal/menhu.css" />
+<link rel="stylesheet" type="text/css" id="time_diy" href="template/elec_20220314_miaoly/portal/containers-Home-f69b2f80.css" />
+<link rel="stylesheet" type="text/css" id="time_diy" href="template/elec_20220314_miaoly/portal/containers-Home_containers-ImLiveList-f69b2f80.css" />
+<link rel="stylesheet" type="text/css" id="time_diy" href="template/elec_20220314_miaoly/portal/animate.css" />
+
+<style id="diy_style" type="text/css"></style>
+
+<style type="text/css">
+@media (max-width: 1200px) {
+.section .wp { width: 100% !important}
+.index_right { display: none}
+.b_left { float: none !important; width: 100% !important; height: 220px !important; margin: 0 !important}
+.b_right { display: none}
+.banner {
+	position: relative;
+	width: 100%;
+	height: 220px;
+	border-radius: 0;
+	overflow: hidden;
+}
+.banner .pic a { display: block; height: 220px !important; overflow: hidden}
+.banner .pic li { height: 220px !important; overflow: hidden}
+.banner .pic img { width: 100% !important; height: auto !important}
+.boxx1 { width: 100% !important}
+.banner_r { width: 100% !important}
+.tabBar .hd { width: 100% !important; padding: 12px 0 0 0 !important; margin-bottom: 0 !important}
+.tabBar .hd ul { float: left !important; margin: 10px 0 0 0 !important}
+.tabBar .hd li { margin: 0 5.5% 0 0 !important; border: 0 !important}
+.tabBar .hd li:last-child { margin: 0 !important}
+.tabBar .hd li.on { height: 24px !important}
+.get-mod-more a, .more_box a { width: 100% !important; box-sizing: border-box}
+}
+</style>
+
+<script src="template/elec_20220314_miaoly/style/js/jquery.superslide.js" type="text/javascript"></script>
+<script src="template/elec_20220314_miaoly/style/js/more.js" type="text/javascript"></script>
+<script src="template/elec_20220314_miaoly/style/js/sticky.js" type="text/javascript"></script>
+</div>
+
+<!--[diy=diy_top]--><div id="diy_top" class="area"></div><!--[/diy]-->
+<div class="focusbox"><div class="wp"><h1 class="focusbox-title">喵领域</h1></div></div>
+<div class="section">
+<div class="wp cl" style="margin: 0 auto; margin-top: 20px;">
+<!--{eval include TPLDIR.'/portal/get_forum_data.php';}-->
+<!--{eval $photo = fetch_photo($fids, $_G['page'], $pagenum, $order)}-->
+<div class="wp cl">
+<div class="cl">
+<!--{if $photo['threadlist']}-->
+            <ul class="miao_list">
+            <!--{loop $photo['threadlist'] $thread}-->
+		    <!--{eval $thread['coverpath'] = get_thread_cover($thread['tid'], $thread['cover']);}-->
+                <li>
+            <a href="forum.php?mod=viewthread&tid=$thread[tid]" title="$thread[subject]" target="_blank" class="img_box">
+					<img src="{eval echo(getforumimg($thread[aid],0,224,330))}" title="$thread[subject]" style="width: auto; height: 330px;">
+            </a>
+            <div class="info_box cl">
+            <h3>
+                <a href="forum.php?mod=viewthread&tid=$thread[tid]" target="_blank">$thread[subject]</a>
+            </h3>
+            <div class="time cl"><!--{echo date("Y-m-d", $thread[dateline])}--></div>
+            </div>
+        </li>
+        <!--{/loop}-->
+                        </ul>
+<!--{else}-->
+	<!--{/if}-->
+        </div>
+</div>
+
+<!--{eval $multipage = multi($photo['count'], $pagenum, $_G['page'], $url);}-->
+<!--{if $multipage}-->
+	<div class="pagex cl" style="padding: 20px 0 40px 0;">
+			$multipage
+	</div>
+<!--{/if}-->
+   <!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]--> 
+</div>
+</div>
+<script type="text/javascript">
+   jQuery(".elecom_banner").slide({ mainCell:".bd ul",effect:"fold",autoPlay:true,delayTime:300});
+</script>
+<script type="text/javascript">
+      jQuery(".right-tags").sticky({ topSpacing: 20,bottomSpacing: 580});
+</script>
+<script src="misc.php?mod=diyhelp&action=get&type=index&diy=yes&r={echo random(4)}" type="text/javascript"></script> 
+
+<!--{template common/footer}-->

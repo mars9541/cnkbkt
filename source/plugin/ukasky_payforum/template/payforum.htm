@@ -1,0 +1,72 @@
+<!--{if $_G['gp_fid']}-->
+<table width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;">
+	<tr>
+    	<td colspan="2" align="center" style="background:#F0F0F0; padding:10px;"><h2>{lang ukasky_payforum:payinfo}</h2></td>
+    </tr>
+	<tr>
+        <td width="100" style=" font-weight:bold; background:#f0f0f0; padding:5px 5px 5px 20px; border-bottom:1px #f0f0f0 dashed;">{lang ukasky_payforum:forumname} : </td>
+		<td style="padding:5px; border-bottom:1px #f0f0f0 dashed;"><a href="forum.php?mod=forumdisplay&fid={$_G['gp_fid']}" target="_blank">{$forumlist[$_G['gp_fid']]['name']}</a></td>
+	</tr>
+    <tr>
+        <td width="100" style=" font-weight:bold; background:#f0f0f0; padding:5px 5px 5px 20px; border-bottom:1px #f0f0f0 dashed;">{lang ukasky_payforum:paynum} : </td>
+		<td style="padding:5px; border-bottom:1px #f0f0f0 dashed;">{$payforum['paynum']} {$_G['setting']['extcredits'][$payforum[paycredit]]['title']}</td>
+    </tr>
+    <tr>
+        <td width="100" style=" font-weight:bold; background:#f0f0f0; padding:5px 5px 5px 20px; border-bottom:1px #f0f0f0 dashed;">{lang ukasky_payforum:validdays} : </td>
+		<td style="padding:5px; border-bottom:1px #f0f0f0 dashed;">
+        <!--{if $payforum['paydays'] == 0}-->
+       {lang ukasky_payforum:forever}
+        <!--{else}-->
+        {$payforum['paydays']} {lang ukasky_payforum:day}
+        <!--{/if}-->
+        </td>
+    </tr>
+    <tr>
+        <td width="100" style=" font-weight:bold; background:#f0f0f0; padding:5px 5px 5px 20px; border-bottom:1px #f0f0f0 dashed;">{lang ukasky_payforum:myuser} : </td>
+		<td style="padding:5px; border-bottom:1px #f0f0f0 dashed;">$_G['username']</td>
+    </tr>
+    <tr>
+        <td width="100" style=" font-weight:bold; background:#f0f0f0; padding:5px 5px 5px 20px; border-bottom:1px #f0f0f0 dashed;">{lang ukasky_payforum:myhave} : </td>
+		<td style="padding:5px; border-bottom:1px #f0f0f0 dashed;"><!--{eval echo getuserprofile('extcredits'.$payforum[paycredit]);}--> {$_G['setting']['extcredits'][$payforum[paycredit]]['title']} <a href="home.php?mod=spacecp&ac=credit" target="_blank">{lang ukasky_payforum:clickhere}</a></td>
+    </tr>
+    <tr>
+        <td width="100" style=" font-weight:bold; background:#f0f0f0; padding:5px 5px 5px 20px; border-bottom:1px #f0f0f0 dashed;"> </td>
+		<td style="padding:5px; border-bottom:1px #f0f0f0 dashed;"></td>
+    </tr>
+    <tr>
+    	<td colspan="2" align="center" style="padding:5px;"><h2><a href="home.php?mod=spacecp&ac=plugin&id=ukasky_payforum:payforum&fid={$_G['gp_fid']}&do=payforum"><img src="{$_G['siteurl']}source/plugin/ukasky_payforum/images/button.jpg" /></a></h2></td>
+    </tr>
+</table>
+<!--{else}-->
+
+<!--{if is_array($list)}-->
+<table width="100%" cellpadding="0" cellspacing="0" style="font-size:14px; text-align:center">
+	<tr>
+    	<td colspan="6" align="center" style="background:#F0F0F0; padding:10px;"><h2>{lang ukasky_payforum:myrecord}</h2></td>
+    </tr>
+	<tr>
+        <td style=" font-weight:bold; background:#f0f0f0; padding:5px; border-bottom:1px #f0f0f0 dashed;">{lang ukasky_payforum:number}</td>
+		<td style=" font-weight:bold; background:#f0f0f0; padding:5px; border-bottom:1px #f0f0f0 dashed;">{lang ukasky_payforum:forumname}</td>
+        <td style=" font-weight:bold; background:#f0f0f0; padding:5px; border-bottom:1px #f0f0f0 dashed;">{lang ukasky_payforum:paynum}</td>
+        <td style=" font-weight:bold; background:#f0f0f0; padding:5px; border-bottom:1px #f0f0f0 dashed;">{lang ukasky_payforum:validdays}</td>
+        <td style=" font-weight:bold; background:#f0f0f0; padding:5px; border-bottom:1px #f0f0f0 dashed;">{lang ukasky_payforum:paytime}</td>
+        <td style=" font-weight:bold; background:#f0f0f0; padding:5px; border-bottom:1px #f0f0f0 dashed;">{lang ukasky_payforum:endtime}</td>
+	</tr>
+<!--{loop $list $val}-->
+	<tr>
+        <td style="padding:5px; border-bottom:1px #f0f0f0 dashed;">$val[id]</td>
+		<td style="padding:5px; border-bottom:1px #f0f0f0 dashed;"><a href="forum.php?mod=forumdisplay&fid={$val[fid]}" target="_blank">{$forumlist[$val[fid]][name]}</a></td>
+        <td style="padding:5px; border-bottom:1px #f0f0f0 dashed;">$val[paynum] $_G['setting']['extcredits'][$val[paycredit]]['title']</td>
+        <td style="padding:5px; border-bottom:1px #f0f0f0 dashed;">
+        <!--{if $val[validdays] == 0}-->{lang ukasky_payforum:forever}<!--{else}-->$val[validdays] {lang ukasky_payforum:day}<!--{/if}--></td>
+        <td style="padding:5px; border-bottom:1px #f0f0f0 dashed;"><!--{eval echo date('Y-m-d H:m:s',$val[dateline]);}--></td>
+        <td style="padding:5px; border-bottom:1px #f0f0f0 dashed;"><!--{eval echo date('Y-m-d H:m:s',$val[dateend]);}--></td>
+	</tr>
+<!--{/loop}-->
+</table>
+
+<!--{else}-->
+<h2>{lang ukasky_payforum:noinfo}</h2>
+<!--{/if}-->
+
+<!--{/if}-->

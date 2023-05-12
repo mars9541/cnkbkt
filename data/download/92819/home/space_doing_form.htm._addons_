@@ -1,0 +1,65 @@
+<script type="text/javascript">
+var msgstr = '$defaultstr';
+function handlePrompt(type) {
+	var msgObj = $('message');
+	if(type) {
+		if(msgObj.value == msgstr) {
+			msgObj.value = '';
+			msgObj.className = 'xg2';
+		}
+		if($('message_menu')) {
+			if($('message_menu').style.display == 'block') {
+				showFace('message', 'message', msgstr);
+			}
+		}
+		if(BROWSER.firefox || BROWSER.chrome) {
+			showFace('message', 'message', msgstr);
+		}
+	} else {
+		if(msgObj.value == ''){
+			msgObj.value = msgstr;
+			msgObj.className = 'xg1';
+		}
+	}
+}
+</script>
+
+<div id="moodfm">
+	<form method="post" autocomplete="off" id="mood_addform" action="home.php?mod=spacecp&ac=doing&view=$_GET[view]" onsubmit="if($('message').value == msgstr){return false;}">
+		<table cellspacing="0" cellpadding="0">
+			<tr>
+             <div class="cl">
+				<div id="mood_statusinput" class="moodfm_input" style="float: left; padding-bottom: 22px;">
+					<textarea name="message" id="message" class="xg1" onfocus="handlePrompt(1);" onclick="showFace(this.id, 'message', msgstr);" onblur="handlePrompt(0);" onkeyup="strLenCalc(this, 'maxlimit')" onkeydown="ctrlEnter(event, 'add');" rows="4" style="width: 780px; border: 1px solid #EEEEEE;">$defaultstr</textarea>
+				</div>
+				<div class="moodfm_btn" style="float: right; background: none;">
+					<button type="submit" name="add" id="add" style="width: 100px;
+    height: 36px;
+    background: #0080ff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 36px;
+    border-radius: 4px;
+    color: white;
+    border: 0;
+    box-shadow: none; font-weight: 400; opacity: 1;">{lang publish}</button>
+				</div>
+                </div>
+			</tr>
+			<tr>
+				<td class="moodfm_f">
+					<div id="return_doing" class="xi1 xw1"></div>
+					<span class="y">{lang doing_maxlimit_char}</span>
+					<!--{if $_G['group']['maxsigsize']}-->
+					<label for="to_sign"><input type="checkbox" name="to_signhtml" id="to_sign" class="pc" value="1" />{lang doing_update_personal_signature}</label>
+					<!--{/if}-->
+				</td>
+				<td></td>
+			</tr>
+		</table>
+		<input type="hidden" name="addsubmit" value="true" />
+		<input type="hidden" name="refer" value="$theurl" />
+		<input type="hidden" name="topicid" value="$topicid" />
+		<input type="hidden" name="formhash" value="{FORMHASH}" />
+	</form>
+</div>

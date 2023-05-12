@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[ukasky_payforum.plugin]]></item>
+	<item id="RevisionID"><![CDATA[1661]]></item>
+	<item id="SN"><![CDATA[2022041013PHRvrsvfvF]]></item>
+	<item id="RevisionDateline"><![CDATA[1371550434]]></item>
+	<item id="Data">
+		<item id="/payforum_mobile.class.php"><![CDATA[17d40a0f64f3eda9a14bd8730ddb9f49]]></item>
+		<item id="/template/payforum.htm"><![CDATA[e6ddf3c45773bb01c027c08c24ca35ca]]></item>
+		<item id="/discuz_plugin_ukasky_payforum_SC_UTF8.xml"><![CDATA[1d4b2b1f19931f7d3176e4e7dc10b089]]></item>
+		<item id="/install.php"><![CDATA[54dd59641a11af44fdea7a3c9d919371]]></item>
+		<item id="/payforum.inc.php"><![CDATA[0676be82149883e68209a39ed90f82f9]]></item>
+		<item id="/payforum.class.php"><![CDATA[565de90cfdc2672fd5a486facfaa0922]]></item>
+		<item id="/uninstall.php"><![CDATA[e608809208799e3b36096eaaeaa8958a]]></item>
+		<item id="/class/payforum.class.php"><![CDATA[ae3050d16558f1a5fafadde1e625fb2d]]></item>
+		<item id="/images/button.jpg"><![CDATA[db6e5f0f38b1da80c9187db10cee2759]]></item>
+		<item id="/discuz_plugin_ukasky_payforum_TC_UTF8.xml"><![CDATA[d0af84d5891c4495e9820248be4ff8f7]]></item>
+		<item id="/table/table_ukasky_payforum.php"><![CDATA[86adde70376430ddef8ef40beb591bc0]]></item>
+	</item>
+</root>

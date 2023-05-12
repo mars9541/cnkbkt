@@ -1,0 +1,170 @@
+<!--{block return}-->
+<style>
+input, textarea{outline:medium;}
+.ck8-button-ts{
+    border-radius: 20px;
+    display: block;
+    font-size: 16px;
+    height: 38px;
+    line-height: 38px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    color: #656B79;
+    background-color: #F6F8F9;
+    padding: 0px 10px;
+    margin: 5px;
+}
+.ck8-danger {
+    width: 45%;
+    margin-top: 15px;
+	background: {$config['bj_colour']} !important;
+    color: {$config['font_colour']} !important;
+}
+.ck8-center-title{
+    position: relative;
+    margin-top: 15px;
+    padding: 10px 10px;
+}
+.closep{
+    display: inline-block;
+    text-align: center;
+    background: #f8f8f8;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 50px;
+    position: absolute;
+    top: -18px;
+    right: -16px;
+    width: 32px;
+    height: 32px;
+    line-height: 30px;
+    border: 2px solid rgba(224, 224, 224, 0.55);
+    box-shadow: 0 0 25px 0 rgba(12, 12, 12, 0.09);
+}
+.ck8-forms-item {
+    position: relative;
+    font-size: 16px;
+    height: 44px;
+    line-height: 44px;
+}
+.ck8-forms-item label{
+    width: 30%;
+    position: absolute;
+    text-align: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.ck8-forms-item-show label {
+    color: #777;
+}
+.ck8-forms-item textarea{
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border: 0;
+    background: none;
+    padding-left: 60%;
+}
+.ck8-forms-item input{
+    width: 110px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border: 0;
+    background: none;
+    margin-left: 31%;
+    border-bottom: 1px solid #bebebd;
+}
+.ck8-dialog {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    background: rgba(0, 0, 0, 0.22);
+    display: none;
+}
+.ck8-dialog-cnt {
+    border-radius: 6px;
+    width: 90%;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    pointer-events: auto;
+    background-color: rgba(253, 253, 253, 0.95);
+    position: relative;
+    font-size: 16px;
+    margin: 150px auto;
+}
+.title{
+    line-height: 30px;
+    height: 30px;
+    color: #666;
+}
+.ck8-cr{
+    margin-top: 15px;
+    background: {$config['bj_colour']} !important;
+    color: {$config['font_colour']} !important;
+}
+.mts{
+    border-top:1px solid #eaeaea;
+	margin:5px 0px;
+	padding:5px 0px;
+    overflow: hidden;
+}
+</style>
+<div class="ck8-dialog" id="e_view_menu">
+	<div class="ck8-dialog-cnt">
+	    <a class="closep" href="javascript:;" style="color:#FF5722;z-index:100;">{lang ck8_view:langview003}</a>
+		<div class="ck8-center-title">
+			<p class="title">{lang ck8_view:langview004}</p>
+			<p style="margin:5px 0px;"><textarea id="e_view" name="e_view" cols="50" rows="5" class="txtarea" placeholder="{lang ck8_view:langview034}" ></textarea></p>
+			<p class="ck8-forms-item ck8-forms-item-show ck8-border-b">
+				<label for="javascript:;">{lang ck8_view:langview035}</label><input type="text" id="credits" name="credits" value="" placeholder="{lang ck8_view:langview033}">&nbsp;&nbsp;$credits
+			</p>
+			<!--{if $config['announce_charge']}-->
+			<p class="mts">
+			<span style="color:#FF0000;">{lang ck8_view:langview006}</span>
+			<span style="font-size:15px;">{$config['announce_charge']}</span>
+			</p>
+			<!--{/if}-->
+			<a class="ck8-button-ts ck8-cr" href="javascript:;">{lang ck8_view:langview007}</a>
+		</div>
+	</div>
+</div>
+<div class="ck8-button ck8-danger y" id="bnts">{lang ck8_view:langview036}</div>
+<script type="text/javascript">
+$('#bnts, .closep').click(function(){
+    var obj = $('#e_view_menu');
+	if(obj.css('display') == 'none'){
+		obj.show();
+	}else{
+		obj.hide();
+	}
+})
+$('.ck8-cr').click(function(){
+    var obj = $('#e_view').val();
+    var Cobj = $('#credits').val();
+    var Hobj = $('#e_view_menu');
+    if(!obj){
+	    Hobj.hide();
+        popup.open('{lang ck8_view:langview001}', 'alert');
+		return false;
+    }
+    if(!Cobj || Cobj == 0){
+	    Hobj.hide();
+        popup.open('{lang ck8_view:langview002}', 'alert');
+		return false;
+    }
+    var txt = '[ck8_view='+ Cobj +']' + obj + '[/ck8_view]';
+    $('#needmessage').val($('#needmessage').val()+txt);
+    Hobj.hide();
+})
+</script>
+<!--{/block}-->

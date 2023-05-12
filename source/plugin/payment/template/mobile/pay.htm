@@ -1,0 +1,85 @@
+<style type="text/css">
+.paytb {
+    width: 100%;
+    margin: 0 auto
+}
+
+.paytb th {
+    font-weight: bold;
+    text-align: right;
+    width: 100px;
+}
+
+.method {
+    height: 30px;
+}
+</style>
+<header class="header">
+    <div class="nav">
+        <span class="category">
+            <span class="name">{lang payment:order_pay}</span>
+        </span>
+    </div>
+</header>
+<form method="post">
+    <input type="hidden" name="formhash" value="{FORMHASH}">
+    <table class="paytb">
+        <tbody>
+            <tr>
+                <th>{lang payment:order_id}</th>
+                <td>{$order_id}</td>
+            </tr>
+            <tr>
+                <th>{lang payment:subject}</th>
+                <td>{if $order['url']}<a href="{$order['url']}" class="xi2">{$order['subject']}</a>{else}{$order['subject']}{/if}</td>
+            </tr>
+            {if $order['body']}
+            <tr>
+                <th>{lang payment:body}</th>
+                <td>{$order['body']}</td>
+            </tr>
+            {/if}
+            <tr>
+                <th>{lang payment:amount}</th>
+                <td class="oragne">{echo payment::amount($order['amount'])}{lang payment:yuan}</td>
+            </tr>
+            <tr>
+                <th>{lang payment:create_time}</th>
+                <td>{echo dgmdate($order['create_time'],'Y-m-d H:i:s')}</td>
+            </tr>
+            <tr>
+                <th>{lang payment:expire_time}</th>
+                <td>{echo dgmdate($order['expire_time'],'Y-m-d H:i:s')}</td>
+            </tr>
+            {if $order['amount']>0}
+            <tr>
+                <th>{lang payment:method}</th>
+                <td>
+                    {lang payment:choose}
+                </td>
+            </tr>
+            {else}
+            <tr>
+                <th></th>
+                <td id="pagearea">
+                    <form method="post">
+                        <input type="hidden" name="formhash" value="{FORMHASH}">
+                        <input type="hidden" name="freesubmit" value="true">
+                        <button class="dqzhiyu-btn dqzhiyu-btn-blue dqzhiyu-btn-sm">{lang payment:paynow}</button>
+                    </form>
+                </td>
+            </tr>
+            {/if}
+        </tbody>
+    </table>
+    {if $methods}
+    <div class="sub_forum bm_c" style="display: block;">
+        <ul>
+            {loop $methods $k $method}
+            <li><a href="plugin.php?id=payment:pay&order_id={$order_id}&method_id={$method['method_id']}"><img src="source/plugin/payment/method/{$method['method_id']}/logo.png" align="absmiddle" class="method" title="{$method['title']}" alt="{$method['title']}" />{$method['title']}</a></li>
+            {/loop}
+        </ul>
+    </div>
+    {/if}
+</form>
+{$wap}

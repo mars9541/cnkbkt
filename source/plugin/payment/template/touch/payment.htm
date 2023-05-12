@@ -1,0 +1,160 @@
+<link rel="stylesheet" type="text/css" href="./source/plugin/csu_base/css/common.css">
+<style type="text/css">
+.paytb {
+    width: 100%;
+    margin: 0 auto
+}
+
+.paytb th {
+    font-weight: bold;
+    text-align: right;
+    width: 100px;
+    padding-right:5px;
+}
+
+.method {
+    height: 30px;
+}
+</style>
+{if $order_id}
+<header class="header">
+    <div class="nav">
+        <span class="category">
+            <span class="name"><a href="{$baseurl}" class="orange">{lang payment:tolist}</a></span>
+        </span>
+    </div>
+</header>
+<table class="paytb">
+    <tbody>
+        <tr>
+            <th>{lang payment:list_order_id}</th>
+            <td>{$order['order_id']}</td>
+        </tr>
+        <tr>
+            <th>{lang payment:list_subject}</th>
+            <td>{if $order['url']}<a href="{$order['url']}" class="xi2" target="_blank">{$order['subject']}</a>{else}{$order['subject']}{/if}</td>
+        </tr>
+        {if $order['body']}
+        <tr>
+            <th>{lang payment:list_body}</th>
+            <td>{$order['body']}</td>
+        </tr>
+        {/if}
+        <tr>
+            <th>{lang payment:list_amount}</th>
+            <td>{if $order['is_refund']}+{else}-{/if}{echo payment::amount($order['amount'])}{lang payment:yuan}</td>
+        </tr>
+        <tr>
+            <th>{lang payment:list_status}</th>
+            <td>{echo payment::status_color($order['status'])}{if $order['plugin_status']==2}<span class="orange">{lang payment:notify_fail}</span>{/if}</td>
+        </tr>
+        <tr>
+            <th>{lang payment:list_create_time}</th>
+            <td>{echo dgmdate($order['create_time'],'Y-m-d H:i:s')}</td>
+        </tr>
+        {if $order['status']==1||$order['status']==3}
+        <tr>
+            <th>{lang payment:list_expire_time}</th>
+            <td>{echo dgmdate($order['expire_time'],'Y-m-d H:i:s')}</td>
+        </tr>
+        {elseif $order['status']==2||$order['status']==5}
+        <tr>
+            <th>{lang payment:list_finish_time}</th>
+            <td>{echo dgmdate($order['finish_time'],'Y-m-d H:i:s')}</td>
+        </tr>
+        {elseif $order['status']==4}
+        <tr>
+            <th>{lang payment:list_cancel_time}</th>
+            <td>{echo dgmdate($order['cancel_time'],'Y-m-d H:i:s')}</td>
+        </tr>
+        {/if}
+        {if $method}
+        <tr>
+            <th>{lang payment:list_method}</th>
+            <td>{$method}</td>
+        </tr>
+        {/if}
+        {if $order['finish_id']}
+        <tr>
+            <th>{$method}{lang payment:list_transcation_id}</th>
+            <td>{$order['finish_id']}</td>
+        </tr>
+        {/if}
+        
+        {if $ops}
+        <tr>
+            <th>{lang payment:list_op}</th>
+            <td>
+                {$ops}
+            </td>
+        </tr>
+        {/if}
+    </tbody>
+</table>
+{else}
+<style type="text/css">
+.paylist th {
+    font-weight: bold;
+}
+</style>
+<header class="header">
+    <div class="nav">
+        <span class="category">
+            <span class="name">{lang payment:listlogs}</span>
+        </span>
+    </div>
+</header>
+<div style="width:100%;overflow-x:scroll;">
+    <table style="min-width:800px" class="paylist">
+        <thead>
+            <tr>
+                <th class="xw1" width="150">{lang payment:list_order_id}</th>
+                <th class="xw1" width="160">{lang payment:list_subject}</th>
+                <th class="xw1" width="60">{lang payment:list_amount}</th>
+                <th class="xw1" width="60">{lang payment:list_status}</th>
+                <th class="xw1" width="130">{lang payment:list_create_time}</th>
+                <th class="xw1" width="130">{lang payment:list_finish_time}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {if $list}
+            {loop $list $item}
+            <tr>
+                <td>
+                    <a href="{$baseurl}&order_id={$item['order_id']}" class="blue">{$item['order_id']}</a>
+                </td>
+                <td>{$item['subject']}</td>
+                <td>{if $item['is_refund']}+{else}-{/if}{echo payment::amount($item['amount'])}{lang payment:yuan}</td>
+                <td>{echo payment::status_color($item['status'])}{if $item['plugin_status']==2}<br><span class="orange">{lang payment:notify_fail}</span>{/if}</td>
+                <td>{echo dgmdate($item['create_time'],'Y-m-d H:i:s')}</td>
+                <td>{if $item['finish_time']}{echo dgmdate($item['finish_time'],'Y-m-d H:i:s')}{else}{echo payment::status_ops($item);}{/if}</td>
+            </tr>
+            {/loop}
+            {else}
+            <tr>
+                <td colspan="6">{lang payment:no_order}</td>
+            </tr>
+            {/if}
+        </tbody>
+    </table>
+</div>
+{$multi}
+{/if}
+<script type="text/javascript">
+function cancel_order(order_id) {
+    popup.open('{lang payment:confirm}','confirm','javascript:ajax_cancel(\''+order_id+'\');');
+}
+function ajax_cancel(order_id){
+    jQuery.post('{$baseurl}', {
+        order_id: order_id,
+        formhash: '{FORMHASH}',
+        cancel_submit: true
+    }, function(res) {
+        if (res == 200) {
+            popup.open('{lang payment:cancel_success}','confirm','{$baseurl}&order_id='+order_id);
+        } else {
+            popup.open('{lang payment:confirm_result}','alert');
+        }
+    })
+}
+</script>

@@ -1,0 +1,22 @@
+{
+    "method_id": "wepay",
+    "user_agent": "MicroMessenger",
+    "name": "微信支付",
+    "title": "微信支付",
+    "version": "2.0.0",
+    "description": "微信支付是腾讯公司的支付业务品牌，微信支付商户平台支持线下场所、公众号、小程序、PC网站、APP、企业微信等经营场景快速接入微信支付。微信支付全面打通O2O生活消费领域，提供专业的互联网+行业解决方案，微信支付支持微信红包和微信理财通，是移动支付的首选。",
+    "install": 0,
+    "uninstall": 0,
+    "urls": [
+        {
+            "text": "官网",
+            "url": "https:\/\/pay.weixin.qq.com\/",
+            "type": "blank"
+        },
+        {
+            "text": "申请说明",
+            "url": "https:\/\/www.kancloud.cn\/dqzhiyu\/dzcsu\/1514165",
+            "type": "blank"
+        }
+    ]
+}

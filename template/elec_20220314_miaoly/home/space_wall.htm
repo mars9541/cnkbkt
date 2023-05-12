@@ -1,0 +1,99 @@
+<!--{eval $_G['home_tpl_titles'] = array('{lang message}');}-->
+
+<!--{template home/space_header_cont_2}-->
+
+<!--{template home/space_menu}-->
+<style type="text/css">
+.liuyanban { display: none}
+</style>
+<div class="image_contain">
+	<div class="space_boxs">
+		<div class="centerbox1">
+			<div class="cl">
+				<div class="cl">
+					<!--{if helper_access::check_module('wall')}-->
+					<form action="home.php?mod=spacecp&ac=comment" id="quickcommentform_$space[uid]" name="quickcommentform_$space[uid]" method="post" autocomplete="off" onsubmit="ajaxpost('quickcommentform_$space[uid]', 'return_commentwall_$space[uid]');doane(event);">
+						<div class="cl">
+							<input type="hidden" name="refer" value="home.php?mod=space&uid=$space[uid]">
+							<input type="hidden" name="id" value="$space[uid]">
+							<input type="hidden" name="idtype" value="uid">
+							<input type="hidden" name="commentsubmit" value="true">
+							<div class="cl">
+								<textarea name="message" id="comment_message" class="leave_msg" placeholder="快给小伙伴留个言吧"></textarea>
+							</div>
+							<div class="cl" style="padding-top: 22px;">
+								<input type="hidden" name="handlekey" value="commentwall_$space[uid]">
+								<span id="return_commentwall_$space[uid]" class="v-wall-ttp"></span>
+								<input type="hidden" name="formhash" value="{FORMHASH}">
+								<a id="comment_face" href="javascript:;" title="{lang insert_emoticons}" onclick="showFace(this.id, 'comment_message');return false;" style="font-size: 14px; color: #666666; padding-left: 20px;">添加表情</a>
+								<button type="submit" name="commentsubmit_btn" value="true" id="commentsubmit_btn" class="y" style="width: 100px;
+    height: 36px;
+    background-color: #0080ff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 36px;
+    border-radius: 4px;
+    color: white; border: 0; box-shadow: none;">留言</button>
+							</div>
+						</div>
+						</form>
+					<!--{/if}-->
+
+
+									<ul class="comment_list">
+										<!--{loop $list $k $value}-->
+										<li class="cl">
+											<div class="comment-list-box gbook-list-box">
+												<a href="home.php?mod=space&uid=$value[authorid]" class="com_head z">
+													<img src="{echo avatar($value[authorid],'big',1);}" alt="">
+												</a>
+                                                <div class="conmment-info z">
+                                <div class="conmment-info-name">
+                                    <a href="home.php?mod=space&uid=$value[authorid]" target="_blank" class="re_person">$value[author]</a>
+                                    <span class="time"><!--{echo date('Y-m-d ',$value[dateline]);}--></span>
+                                </div>
+                                <p class="detail">$value[message]</p>
+                            </div>
+												<!--{if $_G[uid]}-->
+												<div class="commenticons" style="float: right;">
+													<div class="ricons">
+														<!--{if $value[authorid]==$_G[uid]}-->
+														<span class="report comment-report">
+															<a href="home.php?mod=spacecp&ac=comment&op=edit&cid=$value[cid]&handlekey=editcommenthk_{$value[cid]}" id="c_$value[cid]_edit" onclick="showWindow(this.id, this.href, 'get', 0);" style="color: #BBBBBB;">{lang edit}</a>
+														</span>
+														<!--{/if}-->
+														<!--{if $value[authorid]==$_G[uid] || $value[uid]==$_G[uid] || checkperm('managecomment')}-->
+														<span class="report comment-report">
+															<a href="home.php?mod=spacecp&ac=comment&op=delete&cid=$value[cid]&handlekey=delcommenthk_{$value[cid]}" id="c_$value[cid]_delete" onclick="showWindow(this.id, this.href, 'get', 0);" style="color: #BBBBBB;">{lang delete}</a>
+														</span>
+														<!--{/if}-->
+													</div>
+												</div>
+												<!--{/if}-->
+											</div>
+											</li>
+										<!--{/loop}-->
+									</ul>
+								<!--{if $multi}-->
+								<div class="more-comment more-gbook-div" style="padding-bottom: 0;">
+									<div class="page-discuz">$multi</div>
+								</div>
+								<!--{/if}-->
+
+
+				</div>
+			</div>
+
+			<script type="text/javascript">
+
+				function succeedhandle_qcwall_{$space[uid]}(url, msg, values) {
+					wall_add(values['cid']);
+				}
+			</script>
+
+		</div>
+	</div>
+</div>
+
+<!--{template home/space_footer_cont_2}-->
+

@@ -1,0 +1,166 @@
+<link rel="stylesheet" type="text/css" href="./source/plugin/csu_base/css/common.css">
+<style type="text/css">
+.paytb {
+    width: 600px;
+    margin: 0 auto
+}
+
+.paytb th {
+    font-weight: bold;
+    text-align: right;
+    width: 150px;
+}
+
+.method{
+    display:inline-block;
+    border:1px solid #e3e3e3;
+    border-radius:3px;
+    margin-right:5px;
+    padding:5px 10px;
+}
+.method,.method:hover{
+    text-decoration: none;
+}
+.method.choose{
+    background-color:#f3f3f3;
+}
+.method img{
+    height:30px;
+}
+</style>
+<div class="bm">
+    <div class="bm_h cl">
+        <h2>{lang payment:order_pay}</h2>
+    </div>
+    <div class="bm_c cl">
+        <table class="paytb">
+            <tbody>
+                <tr>
+                    <th>{lang payment:order_id}</th>
+                    <td>{$order_id}</td>
+                </tr>
+                <tr>
+                    <th>{lang payment:subject}</th>
+                    <td>{if $order['url']}<a href="{$order['url']}" class="xi2" target="_blank">{$order['subject']}</a>{else}{$order['subject']}{/if}</td>
+                </tr>
+                {if $order['body']}
+                <tr>
+                    <th>{lang payment:body}</th>
+                    <td>{$order['body']}</td>
+                </tr>
+                {/if}
+                <tr>
+                    <th>{lang payment:amount}</th>
+                    <td class="xi1">{echo payment::amount($order['amount'])}{lang payment:yuan}</td>
+                </tr>
+                <tr>
+                    <th>{lang payment:create_time}</th>
+                    <td>{echo dgmdate($order['create_time'],'Y-m-d H:i:s')}</td>
+                </tr>
+                <tr>
+                    <th>{lang payment:expire_time}</th>
+                    <td>{echo dgmdate($order['expire_time'],'Y-m-d H:i:s')}</td>
+                </tr>
+                {if $order['amount']>0}
+                <tr>
+                    <th>{lang payment:method}</th>
+                    <td>
+                        <input type="hidden" id="method" value="">
+                    	{loop $methods $method}
+                        <a class="method" id="method_{$method['method_id']}" href="javascript:chooseType('{$method['method_id']}')">
+                    	    <img src="source/plugin/payment/method/{$method['method_id']}/logo.png" align="absmiddle" title="{$method['title']}" alt="{$method['title']}" />
+                            {$method['title']}
+                        </a>
+                    	{/loop}
+                    </td>
+                </tr>
+                <tr id="payloading">
+                    <td></td>
+                    <td><img class="vm" src="./static/image/common/loading.gif">{lang payment:loading}</td>
+                </tr>
+                <tr id="pagerow">
+                	<td></td>
+                	<td id="pagearea"></td>
+                </tr>
+                <tr id="paycheck" style="display: none;">
+                    <td></td>
+                    <td>
+                        <a class="dqzhiyu-btn dqzhiyu-btn-sm" href="javascript:void(0)" onclick="checkPay(true)">{lang payment:pay_check}</a>
+                    </td>
+                </tr>
+                {else}
+                <tr>
+                    <td></td>
+                    <td id="pagearea">
+                        <form method="post">
+                            <input type="hidden" name="formhash" value="{FORMHASH}">
+                            <input type="hidden" name="freesubmit" value="true">
+                            <button class="dqzhiyu-btn dqzhiyu-btn-blue dqzhiyu-btn-sm">{lang payment:paynow}</button>
+                        </form>
+                    </td>
+                </tr>
+                {/if}
+            </tbody>
+        </table>
+        {$var['tips_pay']}
+    </div>
+</div>
+<script type="text/javascript" src="source/plugin/csu_base/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    var interval = null;
+	jQuery(function(){
+        interval = setInterval(function(){
+            checkPay();
+        },$var['interval']);
+        chooseType(jQuery('.method')[0].id.substr(7));
+	})
+    function checkPay(force=false){
+        jQuery.post(window.location.href,{
+            'checksubmit':true,
+            'formhash':'{FORMHASH}',
+            'order_id':'{$order_id}',
+            'force':force,
+            'method_id':jQuery('#method').val(),
+        },function(res){
+            if(res.code==200){
+                clearInterval(interval);
+                showDialog(res.msg,'right','{lang payment:payresult}',function(){
+                    if(res.url) window.location.href = res.url;
+                });
+            }else if(force){
+                showDialog(res.msg,'alert','{lang payment:payresult}')
+            }
+        });
+    }
+    function chooseType(method_id){
+        jQuery("a[id^='method_']").removeClass('choose');
+        jQuery("#method_"+method_id).addClass('choose');
+        jQuery('#method').val(method_id);
+        showType();
+    }
+    function showType(){
+        if(!jQuery('#method').val()) return;
+        jQuery('#paycheck').hide();
+        jQuery('#pagerow').hide();
+        jQuery('#pagearea').empty();
+        jQuery('#payloading').show();
+        jQuery.post(window.location.href,{
+            method_id:jQuery('#method').val(),
+            formhash:'{FORMHASH}',
+            pagesubmit:true
+        },function(res){
+            jQuery('#payloading').hide();
+            if(res.paycheck){
+                jQuery('#paycheck').show();
+            }
+
+            if(res.msg){
+                jQuery('#pagerow').show();
+                jQuery('#pagearea').html(res.msg);
+            }
+            if(res.eval){
+                eval(res.eval);
+            }
+        })
+    }
+</script>

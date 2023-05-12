@@ -1,0 +1,73 @@
+{template dev8133_integralpaypal:admin_header}
+<table cellspacing="0" cellpadding="0" class="dt valt">
+<tbody>
+<tr>
+		<th class="xw1">{lang dev8133_integralpaypal:admin04}</th>
+		<th class="xw1">{lang dev8133_integralpaypal:admin06}</th>
+		<th class="xw1">{lang dev8133_integralpaypal:admin066}</th>
+		<th class="xw1">{lang dev8133_integralpaypal:admin07}</th>
+		<th class="xw1">{lang dev8133_integralpaypal:admin08}</th>
+		<th class="xw1">{lang dev8133_integralpaypal:admin081}</th>
+		<th class="xw1">{lang dev8133_integralpaypal:admin083}</th>
+		<th class="xw1">{lang dev8133_integralpaypal:admin084}</th>
+		<th class="xw1">{lang dev8133_integralpaypal:admin087}</th>
+		<th class="xw1">{lang dev8133_integralpaypal:admin088}</th>
+</tr>
+<!--{loop  $uidccfadata  $uidvalue}-->
+<tr>
+		<td>$uidvalue['username']</td>
+		
+		<td>{$uidvalue['intcount']}{$_G['setting']['extcredits'][$uidvalue['intetype']]['title']}</td>
+		<td>$uidvalue['price'] {$uidvalue['payCode']}</td>
+		<td>
+		{$uidvalue['zsintcount']}{$_G['setting']['extcredits'][$uidvalue['zsintetype']]['title']}
+		</td>
+		
+		<td>
+			$uidvalue['payname']
+		</td>
+		<td>
+			<!--{if $uidvalue['payno']}-->
+				{$uidvalue['payno']}
+			<!--{else}-->
+				N/A
+			<!--{/if}-->
+		</td>
+		
+
+		
+		<td>
+		
+			<!--{if $uidvalue['ostatus']==1}-->
+				<span style='color:red'>{lang dev8133_integralpaypal:adminstr005}</span>
+			<!--{elseif $uidvalue['ostatus']==2}-->
+				<span style='color:green'>{lang dev8133_integralpaypal:adminstr004}</span>
+			<!--{/if}-->
+		</td>
+			<td>
+			<!--{if $uidvalue['shdateline']}-->
+				{eval echo dgmdate($uidvalue['shdateline'])}
+			<!--{else}-->
+				N/A
+			<!--{/if}-->
+			</td>
+			<td>{eval echo dgmdate($uidvalue['dateline'])}</td>
+		
+		<td>
+
+		
+			<a style='color:#359;' href="javascript:if(confirm('{lang dev8133_integralpaypal:admin13}'))location='plugin.php?id=dev8133_integralpaypal&modac=sh&submodac=delete&aid={$uidvalue['orderid']}&page={$_GET['page']}&formhash={FORMHASH}'" >{lang dev8133_integralpaypal:common_03}</a>
+		</td>
+</tr>
+<!--{/loop}-->
+<!--{if  $multipage}-->
+<tr>
+		<td colspan=13>$multipage</td>
+</tr>
+<!--{/if}-->
+
+</tbody>
+</table>
+<br/>
+<br/>
+{template common/footer}

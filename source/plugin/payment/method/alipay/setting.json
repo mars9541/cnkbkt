@@ -1,0 +1,30 @@
+[
+    {
+        "title": "接口地址",
+        "key": "gateway",
+        "type": "text",
+        "default": "https:\/\/openapi.alipay.com\/gateway.do",
+        "comment": "正式环境为https:\/\/openapi.alipay.com\/gateway.do<br>沙箱环境为https:\/\/openapi.alipaydev.com\/gateway.do"
+    },
+    {
+        "title": "APPID",
+        "key": "appid",
+        "type": "text",
+        "default": "",
+        "comment": "该项为申请支付宝应用后由支付宝提供"
+    },
+    {
+        "title": "RSA2(SHA256)应用私钥",
+        "key": "app_private_key",
+        "type": "textarea",
+        "default": "",
+        "comment": "该项为使用证书生成工具后生成"
+    },
+    {
+        "title": "RSA2(SHA256)支付宝公钥",
+        "key": "alipay_public_key",
+        "type": "textarea",
+        "default": "",
+        "comment": "该项为申请支付宝应用后在设置加签方式后由支付宝提供"
+    }
+]

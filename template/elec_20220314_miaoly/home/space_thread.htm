@@ -1,0 +1,214 @@
+{eval
+	$filter = array( 'common' => '{lang have_posted}', 'save' => '{lang draft}', 'close' => '{lang closed}', 'aduit' => '{lang pending}', 'ignored' => '{lang ignored}', 'recyclebin' => '{lang recyclebin}');
+	$_G[home_tpl_spacemenus][] = "<a href=\"home.php?mod=space&uid=$space[uid]&do=thread&view=me\">{lang they_thread}</a>";
+}
+
+<!--{if $diymode}-->
+
+<!--{template home/space_header_cont_2}-->
+
+<!--{template home/space_menu}-->
+
+<div class="image_contain">
+	<div class="space_boxs">
+		<div class="centerbox1">
+
+<!--{else}-->
+	<!--{template home/space_header_cont_2}-->
+
+	<style id="diy_style" type="text/css"></style>
+	<div class="wp">
+		<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+	</div>
+
+<div class="cl">
+
+	<div class="container-area-left">
+		<!--{subtemplate home/space_my_nav}-->
+	</div>
+
+	<div class="container-area-right cl">
+		<!--[diy=diycontenttop]--><div id="diycontenttop" class="area"></div><!--[/diy]-->
+
+
+
+		<div class="bg-box-radius">
+			<div class="middle-title-wrap border-bottom">
+				<h2 class="middle-title">我的{lang thread}</h2>
+			</div>
+			<div class="tab-menu-info">
+				<ul class="sort-show-wrap">
+					<li>
+						<span>分类</span>
+						<div class="sort-list-box">
+							<a href="home.php?mod=space&do=thread&view=we" $actives[we]>{lang friend_post}</a>
+							<a href="home.php?mod=space&do=thread&view=me" $actives[me]>{lang my_post}</a>						
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+<br/>
+<div class="bg-box-radius">
+
+	<div class="centerbox1 border-bottom">
+
+<!--{/if}-->
+		<style>
+		.tl .num {width: 80px;}
+		.tl .by, .tl .num {line-height: 22px;}
+		.tl .th {background: transparent;}
+		.tl tr:hover th, .tl tr:hover td {background-color: #FFF;}
+		.tl table {border-collapse: collapse;}
+		.tl th, .tl td {padding: 12px 0;}
+		</style>
+		<!--{if !$diymode && $space[self]}-->
+			<!--{if $_GET['view'] == 'me'}-->
+			<p class="tbmu bw0">
+				<!--{if $viewtype != 'postcomment'}-->
+					<span class="y">
+					<a href="home.php?mod=space&uid=$space[uid]&do=thread&view=me&type=$viewtype&from=$_GET[from]&filter=" {if !$_GET[filter]}class="a"{/if}>{lang all}</a>
+					<!--{loop $filter $key $name}--><span class="pipe">|</span><a href="home.php?mod=space&do=thread&view=me&type=$viewtype&from=$_GET[from]&filter=$key" {if $key == $_GET[filter]}class="a"{/if}>$name</a><!--{/loop}--> &nbsp;
+						<select name="forumlist" id="forumlist" class="ps vm" onchange="viewforumthread(this.value);" style="width: 120px; word-wrap: normal;">
+							<option value="0">{lang follow_select_forum}</option>
+							$forumlist
+						</select>
+					</span>
+				<!--{/if}-->
+				<a href="home.php?mod=space&do=thread&view=me&type=thread" $orderactives[thread]>{lang topic}</a><span class="pipe">|</span>
+				<a href="home.php?mod=space&do=thread&view=me&type=reply" $orderactives[reply]>{lang reply}</a><span class="pipe">|</span>
+				<a href="home.php?mod=space&do=thread&view=me&type=postcomment" $orderactives[postcomment]>{lang post_comment}</a>
+				<!--{if $viewtype != 'reply' && $viewtype != 'postcomment'}-->&nbsp; <input type="text" id="searchmypost" class="px vm" size="15" /> <button class="pn vm" onclick="searchpostbyusername($('searchmypost').value, '$_G[username]');"><em>{lang search}</em></button><!--{/if}-->
+			</p>
+			<!--{elseif $_GET['view'] == 'all'}-->
+			<p class="tbmu bw0">
+				<a href="home.php?mod=space&do=thread&view=all&order=dateline" $orderactives[dateline]>{lang newest_thread}</a><span class="pipe">|</span>
+				<a href="home.php?mod=space&do=thread&view=all&order=hot" $orderactives[hot]>{lang top_thread}</a>
+			</p>
+			<!--{/if}-->
+		<!--{/if}-->
+		
+		<!--{if $diymode && !$_G[setting][homepagestyle] }-->
+			<p class="tbmu" style="display: none;">
+				<a href="home.php?mod=space&uid=$space[uid]&do=thread&view=me&from=space&type=thread" $orderactives[thread]>{lang topic}</a>
+				<span class="pipe">|</span>
+				<a href="home.php?mod=space&uid=$space[uid]&do=thread&view=me&from=space&type=reply" $orderactives[reply]>{lang reply}</a>
+			</p>
+		<!--{/if}-->
+		
+		<!--{if $userlist}-->
+			<p class="tbmu bw0">
+				{lang view_by_friend}
+				<select name="fuidsel" onchange="fuidgoto(this.value);" class="ps">
+					<option value="">{lang all_friends}</option>
+					<!--{loop $userlist $value}-->
+					<option value="$value[fuid]"{$fuid_actives[$value[fuid]]}>$value[fusername]</option>
+					<!--{/loop}-->
+				</select>
+			</p>
+		<!--{/if}-->
+		<div class="tl">
+			<form method="post" autocomplete="off" name="delform" id="delform" action="home.php?mod=space&do=thread&view=all&order=dateline" onsubmit="showDialog('{lang del_select_thread_confirm}', 'confirm', '', '$(\'delform\').submit();'); return false;">
+					<input type="hidden" name="formhash" value="{FORMHASH}" />
+					<input type="hidden" name="delthread" value="true" />
+
+					<table cellspacing="0" cellpadding="0">
+						<tr class="th" style="display: none;">
+							<td class="icn">&nbsp;</td>
+							<!--{if $_GET['view'] == 'all' && $pruneperm && !$_GET['archiveid']}-->
+								<td class="o">&nbsp;</td>
+							<!--{/if}-->
+							<th><!--{if $viewtype == 'reply' || $viewtype == 'postcomment'}-->{lang post}<!--{else}-->{lang topic}<!--{/if}--></th>
+							<td class="frm">{lang forum}<!--{if $actives[me] && $space['uid'] == $_G['uid']}-->/{lang group}<!--{/if}--></td>
+							<!--{if $viewtype != 'postcomment'}-->
+								<!--{if !$actives[me]}-->
+								<td class="by">{lang author}</td>
+								<!--{/if}-->
+								<td class="num">{lang replies}</td>
+								<!--{if $actives[me]}-->
+								<td class="by"><cite>{lang last_post}</cite></td>
+								<!--{/if}-->
+							<!--{/if}-->
+						</tr>
+
+					<!--{if $list}-->
+                    <ul class="post post-works cl" id="itemContainer">
+						<!--{loop $list $stid $thread}-->
+						<!--{eval $quater_get_id = substr($thread[tid], -1); $cover = DB::result(DB::query("SELECT count(*) FROM ".DB::table('forum_attachment_'.$quater_get_id.'')." WHERE tid = '$thread[tid]' and isimage = '1'"));}-->	
+<li>
+      <div class="shade"></div>
+      <div class="cover pos">
+      <!--{if $cover >= 1}-->		  
+		  
+		  <!--{eval $quater_get_id = substr($thread[tid], -1); $tupian = DB::fetch_all("SELECT * FROM ".DB::table('forum_attachment_'.$quater_get_id.'')." WHERE tid = '$thread[tid]' AND isimage = '1' ORDER BY 'aid' DESC LIMIT 1");}-->
+      <!--{loop $tupian $tp}-->
+<!--{eval $imagelistkey = getforumimg($tp[aid], 0, 280, 172); }-->
+<a href="forum.php?mod=viewthread&tid=$thread[tid]&{if $_GET['archiveid']}archiveid={$_GET['archiveid']}&{/if}extra=$extra"{$thread[highlight]}$thread[highlight]{if $thread['isgroup'] == 1 || $thread['forumstick']} target="_blank"{else} onclick="atarget(this)"{/if} style="color: #333333;"><!--{if $thread['displayorder'] == -1}--><img class="imgloadinglater" src="template/elec_20220314_miaoly/style/nophoto2.jpg" width="280" height="172" style="width: 280px; height: auto;"><em>已删除</em><!--{else}--><img class="imgloadinglater" src="$imagelistkey"><!--{/if}--></a>
+<!--{/loop}-->
+<!--{else}-->
+<a href="forum.php?mod=viewthread&tid=$thread[tid]&{if $_GET['archiveid']}archiveid={$_GET['archiveid']}&{/if}extra=$extra"{$thread[highlight]}$thread[highlight]{if $thread['isgroup'] == 1 || $thread['forumstick']} target="_blank"{else} onclick="atarget(this)"{/if} style="color: #333333;"><!--{if $thread['displayorder'] == -1}--><img class="imgloadinglater" src="template/elec_20220314_miaoly/style/nophoto2.jpg" width="280" height="172" style="width: 280px; height: auto;"><em>已删除</em><!--{else}--><img class="imgloadinglater" src="template/elec_20220314_miaoly/style/nophoto2.jpg" width="280" height="172" style="width: 280px; height: auto;"><!--{/if}--></a>
+<!--{/if}-->
+      </div>
+      <div class="info">
+        <h4 class="tits ellipsis download">$thread[subject]</h4>
+        <div class="msg mtn cl"><span style="color: rgba(0,0,0,.5); font-family: PingFang SC,Hiragino Sans GB,Microsoft YaHei,STHeiti,WenQuanYi Micro Hei,Helvetica,Arial,sans-serif;">$thread[views] 浏览</span> <span></div>
+      </div>
+      <div class="line"></div>
+    </li>
+						<!--{/loop}-->
+                        </ul>
+					<!--{else}-->
+						<tr>
+							<td colspan="{if $viewtype != 'postcomment'}{if ($_GET['view'] == 'all' && $pruneperm && !$_GET['archiveid'])}6{else}5{/if}{else}3{/if}"><p class="emp">{lang no_related_posts}</p></td>
+						</tr>
+					<!--{/if}-->
+					</table>
+
+					<!--{if $_GET['view'] == 'all' && $pruneperm && !$_GET['archiveid'] && $list}-->
+						<p class="mtm pns">
+							<label for="chkall" onclick="checkall(this.form, 'moderate')"><input type="checkbox" name="chkall" id="chkall" class="pc vm" />{lang select_all}</label>
+							<button type="submit" name="delsubmit" value="true" class="pn vm"><em>{lang del_select_thread}</em></button>
+						</p>
+					<!--{/if}-->
+				</form>
+
+				<!--{if $hiddennum}-->
+					<p class="mtm" style="display: none;">{lang hide_thread}</p>
+				<!--{/if}-->
+			</div>
+			<!--{if $multi}--><div class="pgs cl mtm">$multi</div><!--{/if}-->		
+		
+		<script type="text/javascript">
+		function fuidgoto(fuid) {
+			window.location.href = 'home.php?mod=space&do=thread&view=we&fuid='+fuid;
+		}
+		function viewforumthread(fid) {
+			window.location.href = '{$forumurl}&fid='+fid;
+		}
+		</script>
+		
+		<!--{if !$_G[setting][homepagestyle]}--><!--[diy=diycontentbottom]--><div id="diycontentbottom" class="area"></div><!--[/diy]--><!--{/if}-->
+
+		<!--{if $diymode}-->
+
+		</div>
+	</div>
+</div>
+		<!--{else}-->
+
+		</div>
+	</div>
+
+		</div>
+	</div>
+		<!--{/if}-->
+
+
+<!--{if !$_G[setting][homepagestyle]}-->
+	<div class="wp mtn">
+		<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+	</div>
+<!--{/if}-->
+
+<!--{template home/space_footer_cont_2}-->
+

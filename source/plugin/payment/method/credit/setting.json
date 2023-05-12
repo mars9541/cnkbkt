@@ -1,0 +1,23 @@
+[
+    {
+        "title": "使用的积分id",
+        "key": "credit",
+        "type": "number",
+        "default": "1",
+        "comment": "全局-积分设置<br>找到对应的积分，extcredits后面的数字为id"
+    },
+    {
+        "title": "积分现金比例",
+        "key": "fee",
+        "type": "text",
+        "default": "1",
+        "comment": "1元钱=多少积分"
+    },
+    {
+        "title": "积分充值地址",
+        "key": "payurl",
+        "type": "text",
+        "default": "",
+        "comment": "余额不足时显示此地址"
+    }
+]

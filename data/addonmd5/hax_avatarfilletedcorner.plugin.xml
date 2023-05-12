@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[hax_avatarfilletedcorner.plugin]]></item>
+	<item id="RevisionID"><![CDATA[92534]]></item>
+	<item id="SN"><![CDATA[2022041618vdZLeOvIZx]]></item>
+	<item id="RevisionDateline"><![CDATA[1642251505]]></item>
+	<item id="Data">
+		<item id="/about.inc.php"><![CDATA[9b02c1e85e54f60467a171b1db5c9aee]]></item>
+		<item id="/template/img/gras.jpg"><![CDATA[65bc379566b5f8c6788942656f8847f0]]></item>
+		<item id="/template/about.htm"><![CDATA[143643d5ea321764283a2e463b1800d8]]></item>
+		<item id="/hook_mobile.class.php"><![CDATA[b7583cd7b81a364888a141cb603acc43]]></item>
+		<item id="/install.php"><![CDATA[519c02ecc032ec790005546bb77b44d3]]></item>
+		<item id="/hook.class.php"><![CDATA[7fc93b9c515fc8b87c8b4586a113d931]]></item>
+		<item id="/uninstall.php"><![CDATA[519c02ecc032ec790005546bb77b44d3]]></item>
+		<item id="/discuz_plugin_hax_avatarfilletedcorner_SC_UTF8.xml"><![CDATA[5eadcde45e2c58d42374057982f49891]]></item>
+		<item id="/discuz_plugin_hax_avatarfilletedcorner_TC_UTF8.xml"><![CDATA[2cbe3f6a44fa05a630f65f3d77ab60aa]]></item>
+	</item>
+</root>

@@ -1,0 +1,25 @@
+{block it618editor_block}
+
+<a id="it618postdisplay" style="width:19px; height:19px"  title="{lang it618_postdisplay:it618_postdisplay1}" href="javascript:;" onclick="insertit618postdisplay()"></a>
+<script type="text/javascript">
+function insertit618postdisplay() {
+	if(isUndefined(selection)) {
+		var selection = getSel();
+		if(selection === false) {
+			selection = '';
+		} else {
+			selection += '';
+		}
+	}
+	
+	var opentag = '[' + 'it618postdisplay>0' + ']';
+
+	var closetag = '[/' + 'it618postdisplay' + ']';
+	var text = opentag + selection + closetag;
+
+	insertText(text, strlen(opentag), strlen(closetag), true);
+}
+
+document.getElementById("it618postdisplay").style.backgroundImage="url('source/plugin/it618_postdisplay/images/postdisplay1.png')";
+</script>
+{/block}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[ck8_view.plugin]]></item>
+	<item id="RevisionID"><![CDATA[79423]]></item>
+	<item id="SN"><![CDATA[2022041022jE1EKm8wh9]]></item>
+	<item id="RevisionDateline"><![CDATA[1562514379]]></item>
+	<item id="Data">
+		<item id="/template/pay.htm"><![CDATA[ffb70e02daaa47cac89de03f4d9887a7]]></item>
+		<item id="/template/pay_view.htm"><![CDATA[a66e78e14807ff18f2a88d87eb032d4e]]></item>
+		<item id="/template/touch/pay.htm"><![CDATA[aa8e315807d4d02cb3d92831069bee82]]></item>
+		<item id="/template/touch/pay_view.htm"><![CDATA[3886b0f574d1446894b8244bb4f5cbdd]]></item>
+		<item id="/template/touch/insertion.htm"><![CDATA[99faa0f65c28882af5b6f1238687259f]]></item>
+		<item id="/template/insertion.htm"><![CDATA[b9499ac74b9beb8484ea2f36d92a3c2d]]></item>
+		<item id="/lang.inc.php"><![CDATA[c14f4df622687239bbf872895a8b3f92]]></item>
+		<item id="/discuz_plugin_ck8_view_SC_UTF8.xml"><![CDATA[24e61e98c5d13be28694312e23e88706]]></item>
+		<item id="/notify/return_url.php"><![CDATA[4e2f2c406a917f5b4750e6c30eefefd3]]></item>
+		<item id="/notify/notify_url.php"><![CDATA[9f0efd898f8536a4aee9c5561edea9e5]]></item>
+		<item id="/notify/wx_notify.php"><![CDATA[45e84fcc45869ec479873476b0bd8985]]></item>
+		<item id="/install.php"><![CDATA[45926fa8287e1116b10893feb114338e]]></item>
+		<item id="/static/img/cr2.png"><![CDATA[77ec178710125c5f144f2a8e4ec29c11]]></item>
+		<item id="/static/img/cr1.png"><![CDATA[92973700b129e941ca43910cc6d89e97]]></item>
+		<item id="/static/css/style.css"><![CDATA[1f7c25e9e9b4c539657c54a884e22679]]></item>
+		<item id="/uninstall.php"><![CDATA[eea223100093d5a841f235f7965fffc0]]></item>
+		<item id="/ck8_pay.inc.php"><![CDATA[67c6dd870a3f3dc6aafcf263723c9bc5]]></item>
+		<item id="/admin_buylist.inc.php"><![CDATA[c20b09738cec10370a308f5f860c6d48]]></item>
+		<item id="/function.php"><![CDATA[9b3fef9b36a2cac1a2d4924480c478d0]]></item>
+		<item id="/hook_view.class.php"><![CDATA[af82ea68b2673251465415ab17688ec7]]></item>
+		<item id="/app_other.inc.php"><![CDATA[efed9626ccd2c8a86758ace36b99a185]]></item>
+		<item id="/discuz_plugin_ck8_view_TC_UTF8.xml"><![CDATA[b575188c7e6f532d5ac4627759d7cfe1]]></item>
+		<item id="/table/table_ck8_view_buy_log.php"><![CDATA[2fa88c20cac9e228a2178495751d870a]]></item>
+	</item>
+</root>

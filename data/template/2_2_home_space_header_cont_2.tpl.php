@@ -1,0 +1,2 @@
+<?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('space_header_cont_2');?>
+<?php include TPLDIR.'/home/function/getdata.php';?><?php include template('common/header'); include template('home/space_header_common_2'); ?>

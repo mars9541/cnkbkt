@@ -1,0 +1,36 @@
+<form method="post">
+    <input type="hidden" name="formhash" value="{FORMHASH}">
+    <input type="hidden" name="creditsubmit" value="true">
+    <table cellspacing="0" cellpadding="0" class="tfm mtn">
+        <caption>{$var['tips']}</caption>
+        <tbody>
+            <tr id="paybox">
+                <th>{lang csu_pay_credit:pay}</th>
+                <td class="pns">
+                    <input type="number" class="px" style="width:80px;" id="amount" name="amount" value="0" onkeyup="addcalcredit()">
+                    &nbsp;{lang csu_pay_credit:cny}&nbsp;
+                    {lang csu_pay_credit:canget}&nbsp; <span id="desamount">0</span> {$_G['setting']['extcredits'][$var['credit']]['title']}
+                </td>
+                <td width="300" class="d">
+                    {lang csu_pay_credit:cash} <strong>1</strong> {lang csu_pay_credit:cny} = <strong>{$var['fee']}</strong> {$_G['setting']['extcredits'][$var['credit']]['title']}
+                    {if $var['min']>0}<br>{lang csu_pay_credit:min} <strong>{$var['min']}</strong> {lang csu_pay_credit:cny}{/if}
+                    {if $var['max']>0}<br>{lang csu_pay_credit:max} <strong>{$var['max']}</strong> {lang csu_pay_credit:cny}{/if}
+                </td>
+            </tr>
+            <tr>
+                <th>&nbsp;</th>
+                <td colspan="2">
+                    <button type="submit" class="pn" value="true"><em>{lang csu_pay_credit:pay}</em></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<script type="text/javascript">
+function addcalcredit() {
+    var amount = $('amount').value.replace(/^0/, '');
+    var amount = parseInt(amount);
+    $('desamount').innerHTML = !isNaN(amount) ? (amount * {$var['fee']}): 0;
+    $('amount').value = !isNaN(amount) ? amount: 0;
+}
+</script>

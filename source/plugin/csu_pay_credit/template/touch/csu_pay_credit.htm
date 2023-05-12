@@ -1,0 +1,59 @@
+<link rel="stylesheet" type="text/css" href="./source/plugin/csu_base/css/common.css">
+<style type="text/css">
+.paytb {
+    width: 100%;
+    margin: 0 auto
+}
+
+.paytb th {
+    font-weight: bold;
+    text-align: right;
+    width: 100px;
+    padding-right:10px;
+}
+</style>
+<header class="header">
+    <div class="nav">
+        <span class="category">
+            <span class="name">{lang csu_pay_credit:pay}</span>
+        </span>
+    </div>
+</header>
+<form method="post">
+    <input type="hidden" name="formhash" value="{FORMHASH}">
+    <input type="hidden" name="creditsubmit" value="true">
+    <table class="paytb">
+        <caption>{$var['tips']}</caption>
+        <tbody>
+            <tr>
+                <th>{lang csu_pay_credit:pay}</th>
+                <td>
+                    <input type="number" class="px" style="width:80px;" id="amount" name="amount" value="0" onkeyup="addcalcredit()">
+                    &nbsp;{lang csu_pay_credit:cny}&nbsp;
+                    {lang csu_pay_credit:canget}&nbsp; <span id="desamount">0</span> {$_G['setting']['extcredits'][$var['credit']]['title']}
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>{lang csu_pay_credit:cash} <strong>1</strong> {lang csu_pay_credit:cny} = <strong>{$var['fee']}</strong> {$_G['setting']['extcredits'][$var['credit']]['title']}
+                    {if $var['min']>0}<br>{lang csu_pay_credit:min} <strong>{$var['min']}</strong> {lang csu_pay_credit:cny}{/if}
+                    {if $var['max']>0}<br>{lang csu_pay_credit:max} <strong>{$var['max']}</strong> {lang csu_pay_credit:cny}{/if}</td>
+            </tr>
+            <tr>
+                <th></th>
+                <td id="pagearea">
+                    <button class="dqzhiyu-btn dqzhiyu-btn-blue dqzhiyu-btn-sm">{lang csu_pay_credit:pay}</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<script type="text/javascript">
+function addcalcredit() {
+    var amount = $('#amount').val().replace(/^0/, '');
+    var amount = parseInt(amount);
+    $('#desamount').html(!isNaN(amount) ? (amount * {$var['fee']}): 0);
+    $('#amount').val(!isNaN(amount) ? amount: 0);
+}
+</script>
+{$wap}

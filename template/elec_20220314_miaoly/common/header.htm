@@ -1,0 +1,825 @@
+<!--{subtemplate common/header_common}-->
+<meta name="application-name" content="$_G['setting']['bbname']" />
+<meta name="msapplication-tooltip" content="$_G['setting']['bbname']" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+
+<!--{if $_G['setting']['portalstatus']}-->
+<meta name="msapplication-task" content="name=$_G['setting']['navs'][1]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['portal']) ? 'http://'.$_G['setting']['domain']['app']['portal'] : $_G[siteurl].'portal.php'};icon-uri={$_G[siteurl]}{IMGDIR}/portal.ico" />
+<!--{/if}-->
+
+<meta name="msapplication-task" content="name=$_G['setting']['navs'][2]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['forum']) ? 'http://'.$_G['setting']['domain']['app']['forum'] : $_G[siteurl].'forum.php'};icon-uri={$_G[siteurl]}{IMGDIR}/bbs.ico" />
+
+<!--{if $_G['setting']['groupstatus']}-->
+<meta name="msapplication-task" content="name=$_G['setting']['navs'][3]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['group']) ? 'http://'.$_G['setting']['domain']['app']['group'] : $_G[siteurl].'group.php'};icon-uri={$_G[siteurl]}{IMGDIR}/group.ico" />
+<!--{/if}-->
+
+<!--{if helper_access::check_module('feed')}-->
+<meta name="msapplication-task" content="name=$_G['setting']['navs'][4]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['home']) ? 'http://'.$_G['setting']['domain']['app']['home'] : $_G[siteurl].'home.php'};icon-uri={$_G[siteurl]}{IMGDIR}/home.ico" />
+<!--{/if}-->
+
+<!--{if $_G['basescript'] == 'forum' && $_G['setting']['archiver']}-->
+
+<link rel="archives" title="$_G['setting']['bbname']" href="{$_G[siteurl]}archiver/" />
+
+<!--{/if}-->
+
+<!--{if !empty($rsshead)}-->
+$rsshead<!--{/if}-->
+
+<!--{if widthauto()}-->
+
+<link rel="stylesheet" id="css_widthauto" type="text/css" href='{$_G['setting']['csspath']}{STYLEID}_widthauto.css?{VERHASH}' />
+<script type="text/javascript">HTMLNODE.className += ' widthauto'</script>
+
+<!--{/if}-->
+
+<!--{if $_G['basescript'] == 'forum' || $_G['basescript'] == 'group'}-->
+
+<script type="text/javascript" src="{$_G[setting][jspath]}forum.js?{VERHASH}"></script>
+
+<!--{elseif $_G['basescript'] == 'home' || $_G['basescript'] == 'userapp'}-->
+
+<script type="text/javascript" src="{$_G[setting][jspath]}home.js?{VERHASH}"></script>
+
+<!--{elseif $_G['basescript'] == 'portal'}-->
+
+<script type="text/javascript" src="{$_G[setting][jspath]}portal.js?{VERHASH}"></script>
+
+<!--{/if}-->
+
+<!--{if $_G['basescript'] != 'portal' && $_GET['diy'] == 'yes' && check_diy_perm($topic)}-->
+
+<script type="text/javascript" src="{$_G[setting][jspath]}portal.js?{VERHASH}"></script>
+
+<!--{/if}-->
+
+<!--{if $_GET['diy'] == 'yes' && check_diy_perm($topic)}-->
+
+<link rel="stylesheet" type="text/css" id="diy_common" href="{$_G['setting']['csspath']}{STYLEID}_css_diy.css?{VERHASH}" />
+
+<!--{/if}-->
+
+</head><body id="nv_{$_G[basescript]}" class="pg_{CURMODULE}{if $_G['basescript'] === 'portal' && CURMODULE === 'list' && !empty($cat)} {$cat['bodycss']}{/if}" onkeydown="if(event.keyCode==27) return false;">
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+
+<!--{if $_GET['diy'] == 'yes' && check_diy_perm($topic)}--> 
+
+<!--{template common/header_diy}--> 
+
+<!--{/if}--> 
+
+<!--{if check_diy_perm($topic)}--> 
+
+<!--{template common/header_diynav}--> 
+
+<!--{/if}--> 
+
+<!--{if CURMODULE == 'topic' && $topic && empty($topic['useheader']) && check_diy_perm($topic)}--> 
+
+$diynav 
+
+<!--{/if}--> 
+
+<!--{if empty($topic) || $topic['useheader']}--> 
+
+<!--{if $_G['setting']['mobile']['allowmobile'] && (!$_G['setting']['cacheindexlife'] && !$_G['setting']['cachethreadon'] || $_G['uid']) && ($_GET['diy'] != 'yes' || !$_GET['inajax']) && ($_G['mobile'] != '' && $_G['cookie']['mobile'] == '' && $_GET['mobile'] != 'no')}-->
+
+<div class="xi1 bm bm_c"> {lang your_mobile_browser}<a href="{$_G['siteurl']}forum.php?mobile=yes">{lang go_to_mobile}</a> <span class="xg1">|</span> <a href="$_G['setting']['mobile']['nomobileurl']">{lang to_be_continue}</a> </div>
+
+<!--{/if}--> 
+
+<!--{if $_G['setting']['shortcut'] && $_G['member'][credits] >= $_G['setting']['shortcut']}-->
+
+<div id="shortcut"> <span><a href="javascript:;" id="shortcutcloseid" title="{lang close}">{lang close}</a></span> {lang shortcut_notice} <a href="javascript:;" id="shortcuttip">{lang shortcut_add}</a> </div>
+<script type="text/javascript">setTimeout(setShortcut, 2000);</script>
+
+<!--{/if}--> 
+
+<style type="text/css">
+#nv_vip #pt { display: none}
+#nv_vip .mn { float: none !important; margin: 0 auto; margin-top: 20px; margin-bottom: 30px}
+#nv_vip .sd { display: none}
+#nv_vip #ct { border: 0}
+#nv_vip .tb { padding: 0; border-bottom: 0}
+#nv_vip .tb a { padding: 2px 15px; margin: 0; border: 0; font-size: 15px; background: none}
+#nv_vip .tb li:last-child a { margin: 0}
+#nv_vip .tb .a a { color: #FFFFFF; font-weight: 400; background: #FF6651; border-radius: 3px}
+#nv_vip .orights p { padding-bottom: 10px; border-bottom: 1px dashed #EEEEEE}
+#nv_vip .btn, #nv_vip .btn span { background: #999999 !important; border-radius: 3px}
+#nv_vip .pay { border-radius: 3px}
+
+.header1 .menu ul li a { font-family: 'Microsoft Yahei','Helvetica Neue',Helvetica,Arial,sans-serif}
+#scbar_type_menu { left: 0 !important}
+.nfl .f_c { width: 466px; padding: 20px 0 0 0}
+#messagelogin .flb { padding-left: 40px}
+.unchk { background-position: 0 4px}
+.chked { background-position: 0 -36px}
+.focusbox {
+    text-align: center;
+    background-color: #384047;
+    color: #eee;
+    padding: 45px 0;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.focusbox .focusbox-title {
+    font-weight: normal;
+    font-size: 21px;
+    margin: 0;
+	font-family: 'Microsoft Yahei','Helvetica Neue',Helvetica,Arial,sans-serif
+}
+.focusbox .wp { width: 100%}
+.footer-main, .footer-main a { font-size: 12px; color: #BBBBBB}
+.pbg { height: 10px; overflow: hidden; background: #F3F3F3}
+.pbr { overflow: hidden; background: #5AAF4A !important}
+.pm_o { width: auto !important}
+#nv_home .ct2_a .mn .tb li.y a { padding-right: 20px !important}
+.miao_list li { float: left; position: relative !important; left: auto !important; top: auto !important; width: 18.5%; margin: 0 1.875% 2.5% 0; overflow: hidden}
+.miao_list li:nth-child(5n) { margin: 0 0 30px 0}
+.miao_list .info_box { font-family: 'Microsoft Yahei','Helvetica Neue',Helvetica,Arial,sans-serif}
+.miao_list h3 { height: 42px; line-height: 21px; overflow: hidden}
+.miao_list h3 a { font-size: 15px; color: #555555; font-weight: bold}
+.miao_list .img_box { display: block; margin-bottom: 10px; overflow: hidden}
+.miao_list .time { color: #BBBBBB; margin-top: 8px}
+.xh-btn {
+    box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.xh-btn-sm {
+    padding: 4px 16px;
+	margin: 0 5px;
+    font-size: 14px;
+    line-height: 1.33;
+    border-radius: 3px;
+}
+.xh-btn-warning {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+a.xh-btn:link {
+    text-decoration: none;
+    color: #fff;
+}
+@media (max-width: 1200px) {
+.section { width: 94%; margin: 0 auto}
+.section .wp { width: 100% !important}
+#ct { width: 94% !important}
+.searchform { padding: 0 !important}
+#nv_search .ptw { padding-top: 0 !important}
+#nv_search #scform, #nv_search #scform_form { width: 100% !important}
+#nv_search .td_srchtxt { width: 80% !important; box-sizing: border-box}
+#nv_search .td_srchbtn { width: 20% !important; box-sizing: border-box}
+#nv_search .slst { width: 100% !important}
+.tl .th .by { display: block !important}
+#atarget { display: none}
+.thread_rec { display: block !important}
+.th .tf a#filter_dateline { display: none}
+.focusbox { padding: 4% 0 !important}
+.focusbox .focusbox-title { padding: 0 3%; font-size: 18px !important}
+#nv_vip .mn { width: 100% !important}
+#nv_vip .tb a { padding: 0 10px; font-size: 13px}
+.vipindex, .orights { border: 1px solid #E3E3E3; border-radius: 3px; background: none}
+.vipindex .title, .orights h3.title, .orights { background: none}
+.vipindex .content, .vipblock .content { border: 0}
+.sright { display: none}
+.orights h3.title { padding-left: 25px; line-height: 48px}
+.orights li { width: 50%}
+.pay ul li span { width: 120px}
+.pay_btn { padding-left: 120px}
+}
+@media (max-width: 1000px) {
+.miao_list li { float: left; width: 23.5% !important; margin: 0 2% 2.5% 0 !important; overflow: hidden}
+.miao_list li:nth-child(5n) { margin: 0 2% 2.5% 0 !important}
+.miao_list li:nth-child(4n) { margin: 0 0 2.5% 0 !important}
+.miao_list .img_box { height: 320px; overflow: hidden}
+.miao_list .img_box img { height: 320px !important}
+}
+@media (max-width: 700px) {
+.miao_list li { float: left; width: 32% !important; margin: 0 2% 2.5% 0 !important; overflow: hidden}
+.miao_list li:nth-child(5n) { margin: 0 2% 2.5% 0 !important}
+.miao_list li:nth-child(4n) { margin: 0 2% 2.5% 0 !important}
+.miao_list li:nth-child(3n) { margin: 0 0 2.5% 0 !important}
+.miao_list .img_box { height: 300px; overflow: hidden}
+.miao_list .img_box img { height: 300px !important}
+}
+@media (max-width: 520px) {
+.miao_list li { float: left; width: 48% !important; margin: 0 4% 2.5% 0 !important; overflow: hidden}
+.miao_list li:nth-child(5n) { margin: 0 4% 2.5% 0 !important}
+.miao_list li:nth-child(4n) { margin: 0 4% 2.5% 0 !important}
+.miao_list li:nth-child(3n) { margin: 0 4% 2.5% 0 !important}
+.miao_list li:nth-child(2n) { margin: 0 0 2.5% 0 !important}
+.miao_list .img_box { height: 320px; margin-bottom: 0 !important; overflow: hidden}
+.miao_list .img_box img { min-height: 320px; height: auto !important}
+.miao_list h3 { height: 21px !important}
+.miao_list h3 a { font-size: 12px !important}
+.info_box { padding: 10px ; border: 1px solid #F4F4F4; border-top: 0}
+}
+@media (max-width: 1200px) {
+#fwin_login.fwinmask { top: 78px !important; left: 5% !important; margin: 0 !important}
+.flb { padding: 20px !important}
+.phone_box1 { padding: 0 20px !important}
+#fwin_login.fwinmask { width: 90% !important; background: #FFFFFF}
+#fwin_content_login { width: 100% !important}
+.fwin .rfm, .nfl .f_c .rfm, .rfm .px1 { width: 100% !important; box-sizing: border-box}
+#fwin_login.fwinmask table { width: 100% !important}
+.flbc { right: 20px !important; top: 20px !important}
+.login_pn { height: 36px !important; line-height: 36px !important; margin: 0 !important; font-size: 15px !important}
+.member_boxx1 { margin: 20px 0 !important}
+.rfm table { width: 100% !important}
+.rfm { width: 100% !important}
+.rfm th { width: 30% !important}
+.rfm .px { width: 60% !important}
+.fwin .rfm .px { width: 100% !important}
+.tipcol { display: none !important}
+}
+</style>
+<!--{ad/headerbanner/wp a_h}-->
+<link rel="stylesheet" type="text/css" id="time_diy" href="template/elec_20220314_miaoly/style/css/style.css" />
+<div class="header1 cl" style="position: relative;">
+      <div id="body_overlay" style="display: none;"></div>
+            <script type="text/javascript">
+      jQuery(document).ready(function(jQuery) {
+	jQuery('.m_menu').click(function(){
+		jQuery('#body_overlay').fadeIn(50);
+		jQuery('.icon-cancel-fine').fadeIn(50);
+	})
+	jQuery('.icon-cancel-fine').click(function(){
+		jQuery('#body_overlay').fadeOut(50);
+		jQuery('.icon-cancel-fine').fadeOut(50);
+	})
+	jQuery('#body_overlay').click(function(){
+		jQuery('#body_overlay').fadeOut(50);
+		jQuery('.icon-cancel-fine').fadeOut(50);
+	})
+
+})
+    </script>
+      <div class="elecom_navigate menu">
+        <ul>
+          
+          <!--{loop $_G['setting']['navs'] $nav}--> 
+          
+          <!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}-->
+          
+          <li $nav[nav]>
+          <i></i>
+          </li>
+          
+          <!--{/if}--> 
+          
+          <!--{/loop}-->
+          <!--{if $_G['uid']}-->
+          <li><a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">退出登录</a></li>
+          <!--{else}-->
+          <!--{/if}-->
+        </ul>
+        
+        <!--{hook/global_nav_extra}--> 
+        
+      </div>
+</div>
+<div style="width: 100%; background: #FFFFFF;" class="tpboxx1 cl">
+<div class="wp cl">
+  <div class="headerx">
+   <div class="section">
+      <!-- 站点LOGO -->
+      <div class="logo">
+        <!--{eval $mnid = getcurrentnav();}-->
+        <h2><!--{if !isset($_G['setting']['navlogos'][$mnid])}--><a href="{if $_G['setting']['domain']['app']['default']}http://{$_G['setting']['domain']['app']['default']}/{else}./{/if}" title="$_G['setting']['bbname']"><img src="template/elec_20220314_miaoly/style/logo.png"></a><!--{else}--><img src="template/elec_20220314_miaoly/style/logo.png"><!--{/if}--></h2>
+      </div>
+      <a href="search.php?mod=forum" style="position: absolute; right: 15%; top: 19px;"><img src="template/elec_20220314_miaoly/style/search.svg" style="width: 20px; height: 20px;"></a>
+      <div class="m_menu"><em></em><em></em><em></em></div>
+      <script type="text/javascript">
+      jQuery(".m_menu").click(function(){
+
+jQuery('.elecom_navigate').addClass("on");
+
+})
+jQuery(".icon-cancel-fine").click(function(){
+
+jQuery('.elecom_navigate').removeClass("on");
+
+})
+jQuery("#body_overlay").click(function(){
+
+jQuery('.elecom_navigate').removeClass("on");
+
+})
+    </script>
+</div>
+</div>
+</div>
+</div>
+<div class="wp cl" style="position: relative;">
+<div class="wx_show cl" style="width: 360px;
+    height: 380px;
+    padding: 0;
+    margin: 0 auto;
+    margin-left: 360px;
+    background: #FFF;
+    position: fixed;
+    top: 150px;
+    display: none;
+    z-index: 999;
+    border: 0;
+    border-top: 0;
+    box-shadow: none;">
+    <div class="cl">
+    <img src="template/elec_20220314_miaoly/style/wxshow.png" style="float: left; margin: 50px 0 0 50px;">
+    </div>
+    <div class="cl" style="display: block; width: 100%; text-align: center; padding-top: 15px;">
+    <a style="font-size: 16px; color: red; text-align: center;">扫码查看手机版</a>
+    </div>
+</div>
+</div>
+      <div class="search_bg1" style="display: none; width: 100%; height: 100%; position: fixed; top: 0; left: 0px; z-index: 300;"></div>
+      <script type="text/javascript">
+
+
+      jQuery(document).ready(function(jQuery) {
+
+
+	jQuery('.layui-icon').click(function(){
+
+
+		jQuery('.search_bg1').fadeIn(200);
+
+
+		jQuery('.wx_show').fadeIn(300);
+
+
+	})
+
+
+	jQuery('.search_bg1').click(function(){
+
+
+		jQuery('.search_bg1').fadeOut(50);
+
+
+		jQuery('.wx_show').fadeOut(300);
+
+
+	})
+
+
+
+
+
+})
+
+
+    </script>
+<div id="elecom_nav">
+
+  <div class="wp cl">
+
+  <!--{hook/global_cpnav_top}-->
+
+  <!--{hook/global_cpnav_extra1}-->
+
+  <!--{hook/global_cpnav_extra2}-->
+
+  </div>
+
+  <div class="l_box cl" style="padding: 0;">
+
+   <div class="wp cl">
+
+     <!-- 站点LOGO -->
+
+      <div class="navbar-header"> 
+
+         <!--{eval $mnid = getcurrentnav();}-->
+
+		 <h2><!--{if !isset($_G['setting']['navlogos'][$mnid])}--><a href="{if $_G['setting']['domain']['app']['default']}http://{$_G['setting']['domain']['app']['default']}/{else}./{/if}" title="$_G['setting']['bbname']">{$_G['style']['boardlogo']}</a><!--{else}-->$_G['setting']['navlogos'][$mnid]<!--{/if}--></h2>
+
+      </div>
+
+      <!-- 导航 -->
+
+      <div class="navigate">
+
+        <ul>
+
+          <!--{loop $_G['setting']['navs'] $nav}--> 
+
+          <!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}-->
+
+          <li {if $mnid == $nav[navid]}class="a" {/if}
+
+        {if !empty($subnavs)}class="b" {/if}
+
+        $nav[nav]>
+
+          </li>
+
+          <!--{/if}--> 
+
+          <!--{/loop}-->
+
+        </ul>
+
+        <!--{hook/global_nav_extra}--> 
+
+      </div>
+
+      
+
+      <div style="display: none; float: right;"><!--{template member/login_simple}--></div>
+
+      <!-- 用户信息 --> 
+
+      <!--{if $_G['uid']}-->
+
+      <div class="elecom_user logined">
+
+        <div class="elecom_user_info">
+
+          <div class="user-main ">
+
+            <div class="avatar"> <a href="home.php?mod=space&uid=$_G[uid]" target="_blank" title="{lang visit_my_space}" id="umnav" onMouseOver="showMenu({'ctrlid':this.id,'ctrlclass':'a'})"> 
+
+              <!--{avatar($_G[uid],small)}-->
+
+              </a><!--{if $_G[member][newprompt]}--><span class="unread_num png">$_G[member][newprompt]</span><!--{/if}--><!--{if $_G[member][newpm]}--><span class="unread_num2 png">{$_G[member][newpm]}</span><!--{/if}--></div>
+
+            <span class="nickname">{$_G[member][username]}</span><span class="arrow"></span></div>
+
+          <div class="user_menu">
+            <div role="tooltip" id="van-popover-3718" aria-hidden="true" class="van-popover van-popper van-popper-nav van-popper-avatar">
+  <div data-v-5314bca5="" class="vp-container">
+    <div class="cl" style="padding: 20px 20px 0 20px;"><span style="float: left;">会员：</span> <p data-v-5314bca5="" class="nickname1" style="float: left; text-align: left;">{$_G[member][username]}</p><span style="float: left; padding-left: 10px;">您好！</span></div>
+    <div data-v-5314bca5="" class="level-content">
+      <div data-v-5314bca5="" class="level-info"><span data-v-5314bca5="" class="grade"><a id="nte_menu" href="home.php?mod=space&do=notice" class="notification">提醒<!--{if $_G[member][newprompt]}--><span style="padding-left: 5px;color: #CE2727;">$_G[member][newprompt]</span><!--{/if}--></a></span><a href="home.php?mod=spacecp&ac=credit&showcredit=1" class="hint" data-v-5314bca5>{lang credits}: $_G[member][credits]</a></div>
+    </div>
+    <div data-v-5314bca5="" class="links1">
+      <a href="home.php?mod=space&uid=$_G[uid]" data-v-5314bca5="" target="_blank" class="link-item">
+      <div data-v-5314bca5="" class="link-title"><i data-v-5314bca5="" class="link-icon bilifont bili-icon_dingdao_gerenzhongxin"></i> 个人中心 </div>
+      </a>
+      <a data-v-5314bca5="" href="home.php?mod=spacecp" target="_blank" class="link-item">
+      <div data-v-5314bca5="" class="link-title"><i data-v-5314bca5="" class="link-icon bilifont bili-icon_dingdao_tougaoguanli"></i> 信息设置 </div>
+      </a>
+      <!--{if check_diy_perm($topic)}-->
+      <a href="javascript:openDiy();" onMouseOver="showMenu(this.id)" class="link-item" data-v-5314bca5="">
+      <div data-v-5314bca5="" class="link-title"><i data-v-5314bca5="" class="link-icon bilifont bili-icon_dingdao_qianbao"></i> 打开DIY </div>
+      </a>
+      <!--{/if}-->
+      <!--{if ($_G['group']['allowmanagearticle'] || $_G['group']['allowpostarticle'] || $_G['group']['allowdiy'] || getstatus($_G['member']['allowadmincp'], 4) || getstatus($_G['member']['allowadmincp'], 6) || getstatus($_G['member']['allowadmincp'], 2) || getstatus($_G['member']['allowadmincp'], 3))}-->
+      <a data-v-5314bca5="" href="portal.php?mod=portalcp" target="_blank" class="link-item">
+      <div data-v-5314bca5="" class="link-title"><i data-v-5314bca5="" class="link-icon bilifont bili-icon_dingdao_dingdanzhongxin"></i> <!--{if $_G['setting']['portalstatus'] }-->{lang portal_manage}<!--{else}-->{lang portal_block_manage}<!--{/if}--> </div>
+      </a>
+      <!--{/if}--> 
+      <!--{if $_G['uid'] && $_G['group']['radminid'] > 1}-->
+      <a data-v-5314bca5="" href="forum.php?mod=modcp&fid=$_G[fid]" target="_blank" class="link-item">
+      <div data-v-5314bca5="" class="link-title"><i data-v-5314bca5="" class="link-icon bilifont bili-icon_dingdao_zhibozhongxin"></i> {lang forum_manager} </div>
+      </a>
+      <!--{/if}--> 
+      <!--{if $_G['uid'] && getstatus($_G['member']['allowadmincp'], 1)}-->
+      <a data-v-5314bca5="" href="admin.php" target="_blank" class="link-item">
+      <div data-v-5314bca5="" class="link-title"><i data-v-5314bca5="" class="link-icon bilifont bili-icon_dingdao_cheese"></i> {lang admincp} </div>
+      </a>
+      <!--{/if}-->
+      <!--{if $_G['uid'] && $_G['adminid'] == 1 && $_G['setting']['cloud_status']}-->
+              <a data-v-5314bca5="" href="admin.php?frames=yes&action=cloud&operation=applist" target="_blank" class="link-item"><div data-v-5314bca5="" class="link-title"><i data-v-5314bca5="" class="link-icon bilifont bili-icon_dingdao_cheese"></i> {lang cloudcp} </div></a>
+              <!--{/if}--> 
+              <!--{hook/global_myitem_extra}-->
+    </div>
+    <div data-v-5314bca5="" class="logout"><span data-v-5314bca5=""><i data-v-5314bca5="" class="link-icon bilifont bili-icon_dingdao_dengchu"></i> <a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">退出</a> </span></div>
+  </div>
+</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <ul class="usernav">
+
+      </ul>
+
+      <!--{elseif !empty($_G['cookie']['loginuser'])}-->
+
+      <div class="elecom_user">
+
+        <div class="elecom_user_info">
+
+          <div class="user-main ">
+
+            <div class="avatar"> <img src="template/elec_20220314_miaoly/style/noLogin.jpg" alt="" height="32" width="32"></div>
+
+            <span class="arrow"></span></div>
+
+          <div class="user_menu">
+            <div role="tooltip" id="van-popover-3718" aria-hidden="true" class="van-popover van-popper van-popper-nav van-popper-avatar">
+  <div data-v-5314bca5="" class="vp-container">
+  <div class="cl" style="padding: 20px 20px 0 20px;"><span style="float: left;">游客您好！</span></div>
+    <div data-v-5314bca5="" class="links1">
+      <a data-v-5314bca5="" target="_blank" class="link-item">
+      <div data-v-5314bca5="" class="link-title"><i data-v-5314bca5="" class="link-icon bilifont bili-icon_dingdao_gerenzhongxin"></i> <!--{echo dhtmlspecialchars($_G['cookie']['loginuser'])}--> </div>
+      </a>
+      <a data-v-5314bca5="" href="member.php?mod=logging&action=login" onClick="showWindow('login', this.href)" target="_blank" class="link-item">
+      <div data-v-5314bca5="" class="link-title"><i data-v-5314bca5="" class="link-icon bilifont bili-icon_dingdao_tougaoguanli"></i> {lang activation} </div>
+      </a>
+    </div>
+    <div data-v-5314bca5="" class="logout"><span data-v-5314bca5=""><i data-v-5314bca5="" class="link-icon bilifont bili-icon_dingdao_dengchu"></i> <a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">退出</a> </span></div>
+  </div>
+</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!--{elseif !$_G[connectguest]}-->
+
+      <div class="elecom_user lg_box" style="margin: 25px 0 0 20px;">
+
+       <ul>
+
+              <li class="z log"><a href="member.php?mod=logging&action=login" onClick="showWindow('login', this.href)" class="log1" style="padding: 0; background: none;">登录</a></li>
+
+              <li class="z reg"><a href="member.php?mod={$_G[setting][regname]}" class="reg1">注册</a></li>
+
+       </ul>
+
+      </div>
+
+      <!--{else}-->
+
+      <div class="elecom_user">
+
+        <div class="elecom_user_info">
+
+          <div class="user-main ">
+
+            <div class="avatar"> <img src="template/elec_20220314_miaoly/style/noLogin.jpg" alt="" height="32" width="32"></div>
+
+            <span class="arrow"></span></div>
+
+          <div class="user_menu">
+            <div role="tooltip" id="van-popover-3718" aria-hidden="true" class="van-popover van-popper van-popper-nav van-popper-avatar">
+  <div data-v-5314bca5="" class="vp-container">
+  <div class="cl" style="padding: 20px 20px 0 20px;"><span style="float: left;">临时会员：</span> <p data-v-5314bca5="" class="nickname1" style="float: left; text-align: left;">{$_G[member][username]}</p><span style="float: left; padding-left: 10px;">您好！</span></div>
+    <div data-v-5314bca5="" class="logout"><span data-v-5314bca5=""><i data-v-5314bca5="" class="link-icon bilifont bili-icon_dingdao_dengchu"></i> <a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">退出</a> </span></div>
+  </div>
+</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!--{/if}-->
+
+      
+
+      <div href="javascript:void(0)" target="_blank" class="elecom_searchbox" title="搜索" style="width: auto; margin-right: 10px;"><i class="s_icon" style="margin: 0 5px 0 0;"></i><span style="color: #999999;">搜索</span></div>
+
+      <div style="display: none;" class="elecom_search"> 
+
+       <div class="wp cl" style="width: 570px !important; margin: 0 auto; position: relative; z-index: 1000; background: none;">
+
+          <!--{subtemplate common/pubsearchform}-->
+
+          <!--{if $_G['setting']['search']}--> 
+
+<!-- 搜索筛选 -->
+
+<ul id="scbar_type_menu" class="p_pop" style="display: none;">
+
+  <!--{echo implode('', $slist);}-->
+
+</ul>
+
+<script type="text/javascript">
+
+	initSearchmenu('scbar', '$searchparams[url]');
+
+</script> 
+
+<!--{/if}-->
+
+       </div>
+
+       <i class="close-search headericon-close"></i>
+
+      </div>
+
+      <div class="search_bg" style="display: none; width: 100%; height: 100%; position: fixed; top: 0; left: 0px; z-index: 300;"></div>
+
+      <script type="text/javascript">
+
+      jQuery(document).ready(function(jQuery) {
+
+	jQuery('.elecom_searchbox').click(function(){
+
+		jQuery('.search_bg').fadeIn(200);
+
+		jQuery('.elecom_search').fadeIn(300);
+
+	})
+
+	jQuery('.close-search').click(function(){
+
+		jQuery('.search_bg').fadeOut(50);
+
+		jQuery('.elecom_search').fadeOut(300);
+
+	})
+
+
+
+})
+
+    </script>
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+<!--{ad/subnavbanner/a_mu}-->
+
+<div class="mus_box cl">
+  <div id="mus" class="wp cl"> 
+    
+    <!--{if $_G['setting']['subnavs']}--> 
+    
+    <!--{loop $_G[setting][subnavs] $navid $subnav}--> 
+    
+    <!--{if $_G['setting']['navsubhover'] || $mnid == $navid}-->
+    
+    <ul class="cl {if $mnid == $navid}current{/if}" id="snav_$navid" style="display:{if $mnid != $navid}none{/if}">
+      $subnav
+    </ul>
+    
+    <!--{/if}--> 
+    
+    <!--{/loop}--> 
+    
+    <!--{/if}--> 
+    
+  </div>
+</div>
+
+<!--{if !IS_ROBOT}--> 
+
+<!--{if $_G['uid']}-->
+
+<ul id="myprompt_menu" class="p_pop" style="display: none;">
+  <li><a href="home.php?mod=space&do=pm" id="pm_ntc" style="background-repeat: no-repeat; background-position: 0 50%;"><em class="prompt_news{if empty($_G[member][newpm])}_0{/if}"></em>{lang pm_center}</a></li>
+  <li><a href="home.php?mod=follow&do=follower"><em class="prompt_follower{if empty($_G[member][newprompt_num][follower])}_0{/if}"></em><!--{lang notice_interactive_follower}-->{if $_G[member][newprompt_num][follower]}($_G[member][newprompt_num][follower]){/if}</a></li>
+  
+  <!--{if $_G[member][newprompt] && $_G[member][newprompt_num][follow]}-->
+  
+  <li><a href="home.php?mod=follow"><em class="prompt_concern"></em><!--{lang notice_interactive_follow}-->($_G[member][newprompt_num][follow])</a></li>
+  
+  <!--{/if}--> 
+  
+  <!--{if $_G[member][newprompt]}--> 
+  
+  <!--{loop $_G['member']['category_num'] $key $val}-->
+  
+  <li><a href="home.php?mod=space&do=notice&view=$key"><em class="notice_$key"></em><!--{echo lang('template', 'notice_'.$key)}-->(<span class="rq">$val</span>)</a></li>
+  
+  <!--{/loop}--> 
+  
+  <!--{/if}--> 
+  
+  <!--{if empty($_G['cookie']['ignore_notice'])}-->
+  
+  <li class="ignore_noticeli"><a href="javascript:;" onClick="setcookie('ignore_notice', 1);hideMenu('myprompt_menu')" title="{lang temporarily_to_remind}"><em class="ignore_notice"></em></a></li>
+  
+  <!--{/if}-->
+  
+</ul>
+
+<!--{/if}--> 
+
+<!--{if $_G['uid'] && !empty($_G['style']['extstyle'])}-->
+
+<div id="sslct_menu" class="cl p_pop" style="display: none;"> 
+  
+  <!--{if !$_G[style][defaultextstyle]}--><span class="sslct_btn" onClick="extstyle('')" title="{lang default}"><i></i></span><!--{/if}--> 
+  
+  <!--{loop $_G['style']['extstyle'] $extstyle}--> 
+  
+  <span class="sslct_btn" onClick="extstyle('$extstyle[0]')" title="$extstyle[1]"><i style='background:$extstyle[2]'></i></span> 
+  
+  <!--{/loop}--> 
+  
+</div>
+
+<!--{/if}--> 
+
+<!--{subtemplate common/header_qmenu}--> 
+
+<!--{/if}--> 
+
+<!--{if !empty($_G['setting']['plugins']['jsmenu'])}-->
+
+<ul class="p_pop h_pop" id="plugin_menu" style="display: none">
+  
+  <!--{loop $_G['setting']['plugins']['jsmenu'] $module}--> 
+  
+  <!--{if !$module['adminid'] || ($module['adminid'] && $_G['adminid'] > 0 && $module['adminid'] >= $_G['adminid'])}-->
+  
+  <li>$module[url]</li>
+  
+  <!--{/if}--> 
+  
+  <!--{/loop}-->
+  
+</ul>
+
+<!--{/if}--> 
+
+<!-- 二级导航 -->
+
+<div class="nav_slide"> $_G[setting][menunavs] </div>
+
+<!-- 用户菜单 -->
+
+<ul class="sub_menu" id="m_menu" style="display: none;">
+  
+  <!--{if check_diy_perm($topic)}-->
+  
+  <li><a href="javascript:openDiy();" title="{lang open_diy}">打开DIY</a></li>
+  
+  <!--{/if}--> 
+  
+  <!--{loop $_G['setting']['mynavs'] $nav}--> 
+  
+  <!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}-->
+  
+  <li style="display: none;">$nav[code]</li>
+  
+  <!--{/if}--> 
+  
+  <!--{/loop}-->
+  
+  <li><a href="home.php?mod=spacecp">{lang setup}</a></li>
+  
+  <!--{if ($_G['group']['allowmanagearticle'] || $_G['group']['allowpostarticle'] || $_G['group']['allowdiy'] || getstatus($_G['member']['allowadmincp'], 4) || getstatus($_G['member']['allowadmincp'], 6) || getstatus($_G['member']['allowadmincp'], 2) || getstatus($_G['member']['allowadmincp'], 3))}-->
+  
+  <li><a href="portal.php?mod=portalcp"><!--{if $_G['setting']['portalstatus'] }-->{lang portal_manage}<!--{else}-->{lang portal_block_manage}<!--{/if}--></a></li>
+  
+  <!--{/if}--> 
+  
+  <!--{if $_G['uid'] && $_G['group']['radminid'] > 1}-->
+  
+  <li><a href="forum.php?mod=modcp&fid=$_G[fid]" target="_blank">{lang forum_manager}</a></li>
+  
+  <!--{/if}-->
+  
+  <li><a href="home.php?mod=space&do=favorite&view=me">我的收藏</a></li>
+  
+  <!--{if $_G['uid'] && $_G['adminid'] == 1 && $_G['setting']['cloud_status']}-->
+  
+  <li><a href="admin.php?frames=yes&action=cloud&operation=applist" target="_blank">{lang cloudcp}</a></li>
+  
+  <!--{/if}--> 
+  
+  <!--{if $_G['uid'] && getstatus($_G['member']['allowadmincp'], 1)}-->
+  
+  <li><a href="admin.php" target="_blank">{lang admincp}</a></li>
+  
+  <!--{/if}-->
+  
+  <li><!--{hook/global_usernav_extra1}--></li>
+  <li><!--{hook/global_usernav_extra2}--></li>
+  <li><!--{hook/global_usernav_extra3}--></li>
+  <li><!--{hook/global_usernav_extra4}--></li>
+  <li><a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a></li>
+</ul>
+
+<!--{hook/global_header}--> 
+
+<!--{/if}-->
+
+<div id="wp" class="wp serch_wp">
+

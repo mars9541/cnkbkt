@@ -1,0 +1,179 @@
+/**
+ * Created by Administrator on 2017-5-17.
+ */
+function login_succeed(flag){
+
+    //查询用户信息
+    $.ajax({
+        type : "post",
+        url : "../controller/client_info_controller.php",
+        cache:false,
+        dataType : "json",
+        data : {
+            fnName : "client_info"
+        },
+        success : function(clientInfo){
+            if(clientInfo.success){
+                setCookies(clientInfo.data.id, clientInfo.data.name, clientInfo.data.headImage);
+                var ref = '';
+                if (document.referrer.length > 0) {
+                    ref = getCookie("referer_url");
+                }
+                try {
+                    if (ref.length == 0 && opener.location.href.length > 0) {
+                        ref = opener.location.href;
+                    }
+                } catch (e) {}
+                var sourceURL = parseURL(ref);
+                var path = sourceURL.path.split("/");
+                if(flag === 'submission'){
+                    window.location.href = 'submission.php';
+                }else if(sourceURL.host !== window.location.host
+                    || ref === ""
+                    || flag === 'index'
+                    || path[path.length - 1] == 'login.php'
+                    || path[path.length - 1] == "register.php"
+                    || path[path.length - 1] == "passwordForget.php"
+                    || path[path.length - 1] == "associatedAccount.php"){
+                    window.location.href = "index.php";
+
+                }else{
+                    window.location.href = ref;
+
+                }
+            }else{
+                $("#hint_error").text(clientInfo.message);
+                $("#hint_error").show();
+            }
+        }
+    });
+
+}
+
+
+function setCookies(id,name,headImage){
+    token_stated_setCookie();
+    uid_setCookie(id);
+    client_name_setCookie(name);
+    head_image_setCookie(headImage);
+    login_stated_setCookie();
+}
+
+
+function token_stated_setCookie(){
+    setCookie("token_stated",'true', 11*3600*1000);
+}
+function uid_setCookie(id) {
+    setCookie("uid", id, 0);
+}
+function client_name_setCookie(name){
+    setCookie("client_name", name , 0);
+}
+function head_image_setCookie(headImage){
+    setCookie("head_image", headImage, 0);
+}
+function login_stated_setCookie(){
+    setCookie("login_stated", 'true', 365*24*3600*1000);
+}
+//拆分url
+function parseURL(url) {
+    var a =  document.createElement('a');
+    a.href = url;
+    return {
+        source: url,
+        protocol: a.protocol.replace(':',''),
+        host: a.hostname,
+        port: a.port,
+        query: a.search,
+        params: (function(){
+            var ret = {},
+                seg = a.search.replace(/^\?/,'').split('&'),
+                len = seg.length, i = 0, s;
+            for (;i<len;i++) {
+                if (!seg[i]) { continue; }
+                s = seg[i].split('=');
+                ret[s[0]] = s[1];
+            }
+            return ret;
+        })(),
+        file: (a.pathname.match(/\/([^\/?#]+)$/i) || [,''])[1],
+        hash: a.hash.replace('#',''),
+        path: a.pathname.replace(/^([^\/])/,'/$1'),
+        relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [,''])[1],
+        segments: a.pathname.replace(/^\//,'').split('/')
+    };
+}
+
+//设置cookie
+function setCookie(name,value,duration){
+    if(duration === 0){
+        document.cookie = name + "="+ escape (value);
+    }else{
+        var exp = new Date();
+        exp.setTime(exp.getTime() + duration);
+        document.cookie = name + "="+ escape (value)+ ";expires=" + exp.toGMTString();
+    }
+}
+//获取cookie
+function getCookie(c_name)
+{
+    if (document.cookie.length>0)
+    {
+        c_start=document.cookie.indexOf(c_name + "=");
+        if (c_start!=-1)
+        {
+            c_start=c_start + c_name.length+1;
+            c_end=document.cookie.indexOf(";",c_start);
+            if (c_end==-1) c_end=document.cookie.length;
+            return unescape(document.cookie.substring(c_start,c_end));
+        }
+    }
+    return ""
+}
+
+//删除cookies
+function delCookie(name)
+{
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval=getCookie(name);
+    if(cval!=null)
+        document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+}
+
+function login_verification(){
+    if(getCookie("login_stated") === 'true') {
+            get_client_info();
+    } else {
+        $(".login").css("display", "block");
+    }
+}
+
+function get_client_info(){
+    if (getCookie("head_image") == "") {
+        $.ajax({
+            type: "post",
+            url: "../controller/client_info_controller.php",
+            cache: false,
+            dataType: "json",
+            data: {
+                fnName: "client_info"
+            },
+            success: function (clientInfo) {
+                if (clientInfo.success) {
+                    token_stated_setCookie();
+                    uid_setCookie(clientInfo.data.id);
+                    client_name_setCookie(clientInfo.data.name);
+                    head_image_setCookie(clientInfo.data.headImage);
+                    $(".client_head_img").css("background-image","url("+ (clientInfo.data.headImage === null ? '../image/avatar_anonymous.png' : clientInfo.data.headImage) +")");
+                    $("#client_name").text(getCookie("client_name"));
+                    $(".client_info").css("display", "block");
+                }
+            }
+        });
+    }else{
+        $(".client_head_img").css("background-image", "url(" + (getCookie("head_image") == '' || getCookie("head_image") == 'null' ? "../image/avatar_anonymous.png" : getCookie("head_image")) + ")");
+        $("#client_name").text(getCookie("client_name"));
+        $(".client_info").css("display", "block");
+    }
+}

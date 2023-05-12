@@ -1,0 +1,415 @@
+ /* -----------------------------------------------------------------
+
+The Whole CSS written by Elecom.
+(C) Elecom Inc.
+Annoucement here,Copyright
+Shenzhen.Eleccom Technology.使用原代码请联系作者QQ: 2300184378 / 2017-04-09 20:00:06
+
+---------------------------------------------------------------------------------------*/
+
+.column-box .HomeTop {
+    position: relative;
+    height: 402px;
+    text-align: center;
+    z-index: 0;
+    background: url(column_bg1.jpg) 50% no-repeat;
+}
+
+.column-box .HomeBottom {
+    margin-top: 70px;
+    background: url(column_bg2.jpg) repeat-x;
+    text-align: center;
+    color: #2a2a2a;
+    padding-top: 90px;
+    display: block;
+    padding-bottom: 54px;
+}
+
+body .gather-bottom {
+    margin-top: 0px;
+}
+
+.HomeBottom h3 {
+    padding: 26px 0;
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0 auto 18px;
+    border-width: 1px 0;
+    width: 345px;
+    letter-spacing: 14px;
+    white-space: nowrap;
+}
+
+.HomeBottom-button {
+    font-size: 14px;
+    padding: 0;
+    min-height: 0;
+    min-width: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 120px;
+    height: 38px;
+    line-height: 36px;
+    color: #333;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border: 1px solid #333;
+}
+
+.column-box .Button {
+	position: absolute;
+	bottom: 28px;
+	left: 50%;
+    display: inline-block;
+    padding: 0px 16px;
+	margin: 0 0 0 -45px;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    color: #8590a6;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border: 1px solid;
+    border-radius: 3px;
+}
+.column-box .HomeColumn .prev { position: absolute; left: 0; top: 51%; display: block; width: 21px; height: 36px; cursor: pointer; z-index: 999; background: url(../left.png) no-repeat center center}
+.column-box .HomeColumn .next{ position: absolute; right: 0; top: 51%; display: block; width: 21px; height: 36px; cursor: pointer; z-index: 999; background: url(../right.png) no-repeat center center}
+.column-box .HomeTop-btn {
+    position: absolute;
+    top: 343px;
+    left: 50%;
+    width: 120px;
+    height: 38px;
+    margin-left: -56px;
+    line-height: 35px;
+    min-height: 0;
+    min-width: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-color: #333;
+    color: #333;
+}
+
+.column-box .HomeTop a {
+    text-decoration: none;
+}
+
+.column-box .HomeTop-requestBtn {
+    position: absolute;
+    top: 402px;
+    left: 50%;
+    margin-left: -46px;
+    line-height: 12px;
+    font-size: 14px;
+    color: #2897C5;
+}
+
+.column-box .HomeColumn {
+    margin-top: 20px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.column-box .BlockTitle {
+    position: relative;
+    display: block;
+    margin-bottom: 32px;
+    line-height: 22px;
+}
+
+.column-box .Home-blockTitle {
+    width: 610px;
+	margin: 0 auto 23px auto;
+	text-align: center
+}
+
+.column-box .HomeColumn .BlockTitle-title, .column-box .HomeArticle .BlockTitle-title {
+    position: relative;
+    display: inline;
+    padding-right: 16px;
+    font-weight: 600;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.column-box .Home-blockTitle .BlockTitle-title {
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+}
+
+.column-box .BlockTitle-line {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    color: #f0f0f0;
+    background: currentColor;
+}
+
+.column-box .Home-blockTitle .BlockTitle-line {
+    color: #d9d9d9;
+}
+
+.column-box .HomeColumn-List {
+	overflow: hidden
+}
+
+.HomeColumn-List li:nth-child(-n+4) {
+    margin-top: 0;
+}
+
+.Avatar-hemingway {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.HomeColumn-List li {
+	position: relative;
+    float: left;
+    list-style: none;
+    margin: 30px 0 0 50px;
+    width: 238px;
+    height: 310px;
+    text-align: center;
+    color: gray;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 14px;
+    position: relative;
+    border: 1px solid #EEEEEE;
+}
+.HomeColumn-List li:hover { 
+    -webkit-box-shadow: 0 8px 18px rgba(0, 0, 0, .09);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .09)
+}
+
+.HomeColumn-avatar, .HomeColumn-avatar img {
+    width: 80px;
+    height: 80px;
+}
+
+.column-box .HomeColumn-title {
+    margin: 12px 16px 12px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    font-synthesis: style;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.HomeColumn-title a {
+    color: #333;
+}
+
+.column-box .HomeColumn-description {
+    line-height: 24px;
+    margin-bottom: 14px;
+    word-break: break-all;
+    padding-left: 36px;
+    padding-right: 36px;
+	text-align: center
+}
+
+.HomeColumn-description a {
+    color: #555555;
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.column-box .HomeColumn-meta {
+    margin-bottom: 15px;
+    color: #999;
+}
+
+.column-box .Button--green {
+    color: #333333;
+    border-color: #DDDDDD;
+}
+
+.HomeColumn-List li:hover .Button--green, .column-box .Button--green:hover {
+	color: #FFFFFF;
+	border-color: #FF6651;
+    background-color: #FF6651
+}
+
+.column-box .HomeColumn-avatar {
+	display: block;
+    margin: 26px auto 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.column-box .Home-random {
+    text-align: center;
+    margin: 50px 0 0;
+}
+
+.column-box .HomeArticle-List {
+    width: auto;
+    min-height: 540px;
+    margin: 0 auto;
+}
+
+.column-box .HomeArticle-List li {
+    width: 330px;
+    height: 280px;
+    float: left;
+    list-style: none;
+    margin: 0 4px 30px 50px;
+    text-align: center;
+    color: gray;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 8px 18px rgba(0, 0, 0, .06);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .06);
+    border-radius: 4px;
+    background: #fff;
+    font-size: 14px;
+    position: relative;
+}
+
+.HomeArticle-titleImage {
+    width: 100%;
+    height: 200px;
+    background-position: 50%;
+    background-size: cover;
+    position: relative;
+    border-radius: 4px 4px 0 0;
+    margin: 0;
+}
+
+.HomeArticle {
+    margin: 70px auto 0;
+    width: 1200px;
+    position: relative;
+}
+
+.HomeArticle-title {
+    padding: 12px 16px 16px;
+	height: 25px;
+    line-height: 25px;
+    text-align: left;
+    color: #333;
+    font-size: 16px;
+    font-weight: normal;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden
+
+}
+
+.HomeArticle-title:hover {
+    color: #FF6651;
+}
+
+.HomeArticle-meta {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 20px;
+	width: 284px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+    text-align: left;
+    line-height: 16px;
+}
+.HomeArticle-meta span a { display: block; width: 284px; font-size: 12px; color: #666666; text-overflow: ellipsis; white-space: nowrap; overflow: hidden}
+
+.HomeArticle-metaAuthor {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+}
+
+.HomeArticle-metaAuthor a {
+    color: #999;
+}
+
+.HomeArticle-metaAuthor a:hover {
+    color: #259;
+}
+
+.Home-random .Refresh-button-wrapper {
+    padding: 0 11px;
+    height: 30px;
+}
+
+.hoverBtn:hover {
+    color: #333;
+    background-color: #dfe3e4;
+}
+
+
+.rotate img {
+    animation: mymove 1s infinite;
+    animation-timing-function: linear;
+    -moz-animation: mymove 1s infinite; /* Firefox */
+    -webkit-animation: mymove 1s infinite; /* Safari and Chrome */
+    -o-animation: mymove 1s infinite; /* Opera */
+}
+
+@keyframes mymove {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes mymove /* Firefox */
+{
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes mymove /* Safari and Chrome */
+{
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes mymove /* Opera */
+{
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

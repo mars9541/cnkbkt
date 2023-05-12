@@ -1,0 +1,196 @@
+/* -----------------------------------------------------------------
+
+The Whole CSS written by Elecom.
+(C) Elecom Inc.
+Annoucement here,Copyright
+Shenzhen.Eleccom Technology.使用原代码请联系作者QQ: 2300184378 / 2021-10-19 20:00:06
+
+---------------------------------------------------------------------------------------*/
+
+.navfixed {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: 0 3px 16px 0 rgb(0 0 0 / 10%);
+    background: #FFFFFF;
+}
+.header1 { display: none}
+.headerx {
+	display: none;
+    z-index: 9999;
+    height: auto;
+    overflow: visible;
+    position: fixed;
+    top: 0;
+    background: #FFFFFF;
+    box-shadow: none;
+}
+#body_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: rgba(0,0,0,.6);
+    z-index: 10000;
+    display: none;
+}
+.header1 .menu {
+    position: fixed;
+    right: -250px;
+    transition: all 0.5s ease 0s;
+    height: 100%;
+    top: 0;
+    padding-top: 55px;
+    border: 0 !important;
+    background: #1a1a1a;
+    width: 250px;
+    max-width: none !important;
+    z-index: 10000;
+}
+.header1 .menu.on {
+    right: 0 !important;
+}
+.menu ul {
+    float: none !important;
+    height: auto !important;
+    width: 100%;
+    margin: 0 auto;
+}
+.header1 .menu ul li {
+	float: left;
+	margin: 0;
+    position: relative;
+    height: auto !important;
+    font-size: 15px;
+    width: 100%;
+    line-height: 40px;
+    border-bottom: 0;
+    padding: 0;
+    text-align: left;
+}
+.header1 .menu ul li span { display: none}
+.header1 .menu ul li a {
+	display: inline-block;
+	width: 100%;
+    font-size: 15px !important;
+    float: none !important;
+    padding: 0 0 0 20px;
+    height: 40px;
+    line-height: 40px;
+    color: #A6A6A6;
+}
+.headerx { width: 100%}
+.headerx .logo {
+    padding: 9px 0;
+    margin: 0;
+    width: auto;
+}
+.headerx .section {
+	max-width: 1200px;
+    margin: 0 auto;
+    width: 96%;
+}
+.headerx .logo img {
+    height: 40px;
+}
+.m_menu {
+    width: 24px;
+    position: absolute;
+    right: 3%;
+    top: 21.5px;
+    height: 58px;
+}
+.m_menu em { float: left; width: 24px; height: 1px; margin-bottom: 6px; background: #333333}
+.nav_slide .h_pop { display: none}
+
+@media (max-width: 1200px) {
+html, body {
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+}
+.interview1, .report1 { display: none}
+.footer-right-dwon { right: 3% !important}
+#fastpostsml_menu.sllt, #fastpostat_menu.upf { left: 3% !important}
+.display_none, #spanButtonPlaceholder, .fpd span.pipe, .fpd a:nth-child(3), .fpd a:nth-child(3), .fpd a:nth-child(4), .fpd a:nth-child(4), .fpd a:nth-child(5), .fpd a:nth-child(6), .fpd a:nth-child(9) { display: none}
+.pg a, .pg strong, .pgb a, .pg label { margin: 0 2px 4px 2px !important}
+.nav-list li { margin: 0 16px 0 0 !important}
+.nav-list li:last-child { margin: 0 !important}
+.tedt .pt { background: none !important}
+.section { margin: 0 auto; width: 94% !important}
+.header1, .headerx { display: block; box-shadow: 0 3px 6px 0 rgb(0 0 0 / 5%); background: #FFFFFF}
+.tpboxx1 { height: 58px}
+#elecom_nav { display: none}
+.tp_box1 { margin-top: 20px !important}
+.elec_w1180 { width: 100% !important}
+.elec_links { float: none; width: 100%}
+.elec_spread {
+    float: none;
+	text-align: center;
+	border: 0;
+    padding: 0 50px;
+	margin: 30px 0 0 0
+}
+.elec_spread .elec_weixin, .elec_spread .elec_appft { float: none; display: inline-block}
+.elec_spread .elec_weixin, .elec_spread .elec_appft { width: 36%; margin: 0 2% !important}
+.elec_spread .elec_weixin img, .elec_spread .elec_appft img { width: 100% !important; height: auto !important}
+.elec_fttop { height: auto !important}
+.elec_links ul li { width: 33.33% !important; text-align: center}
+.elec_contact { float: none; text-align: center; width: 100%; margin: 0 0 20px 0 !important}
+.elec_contact p:first-child { margin: 10px 0 10px 0 !important}
+.index_right { display: none}
+.wp.serch_wp { width: 100%}
+.m_left_box { width: 100% !important; margin: 0 0 20px 0 !important; min-height: 100px !important}
+.m_left_box1 { position: relative !important; width: 100% !important; min-height: 100px !important; margin: 0 !important; top: 0 !important; left: 0 !important}
+.pindao_list li { width: 25% !important; overflow: hidden}
+.tabBar .hd { position: relative !important}
+.index_left { width: 100% !important}
+.banner_l { float: none !important; width: 100% !important; height: 190px !important}
+.banner_r { float: none !important; width: 100% !important; display: none !important}
+.elecom_banner { width: 100% !important; height: 190px !important}
+.elecom_banner .pic li { height: 190px !important}
+.elecom_banner .pic img { width: 100% !important; height: auto !important}
+.tabBar .hd { width: 92% !important; padding: 4% !important; margin-bottom: 20px !important}
+.tabBar .hd ul { width: 100% !important}
+.tabBar .bd .ui_list { width: 100% !important; padding: 10px 0 0 0 !important; border: 0 !important}
+.tabBar .bd .ui_list h3 { padding: 0 !important}
+.ui_2_ul_li { width: 100% !important; height: auto !important; padding: 15px 0 !important; margin: 0 !important}
+.ui_2_ul_li_imgouter {
+    width: 32% !important;
+    height: 85px !important;
+}
+.ui_2_ul_li_imgouter a.fr { display: block; width: 100%; height: 85px}
+.ui_2_ul_li_imgouter img { width: 100% !important; height: auto; min-height: 85px; border-radius: 4px}
+.ui_2_ul_li_con { width: 65% !important; height: 85px !important}
+.ui_2_ul_li_con p { display: none !important}
+.ui_2_ul_li_con h3 { width: 70% !important; height: 40px !important; white-space: unset !important; text-overflow: unset !important; font-size: 15px !important; font-weight: 400 !important}
+.ui_2_userinfo { bottom: 3px !important}
+#to_top { display: none !important}
+.ui_2_ul_li .ui_2_userinfo span:last-child { margin: 0 !important}
+.article-item .img-cover-wrap { width: 30% !important; max-height: 86px !important; margin: 0 !important}
+.article-item .article-info { float: right; margin: 0; width: 66% !important; display: inline !important}
+.article-item .article-meta { display: none !important}
+.article-item h3 { display: block; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 26px !important}
+.article-item .img-cover img { width: 100% !important; height: auto !important}
+.tabBar .bd .conWrap, .tabBar .bd .conWrap .con { width: 100% !important}
+.footer-wrapper { width: 100% !important; min-width: inherit !important}
+.footer-main { width: 100% !important}
+.footer-main .partner-product, .footer-main .partner-product .item.about .content { display: block !important}
+.footer-main .partner-product .item.production { float: left !important; width: 50% !important; margin: 0 !important}
+.footer-main .partner-product .item.about { float: left !important; width: 50% !important; margin: 0 !important}
+.footer-main .partner-product .item a { width: 50% !important}
+.footer-main .partner-product .item.download { float: left !important; width: 100% !important; text-align: center}
+.footer-main .partner-product .item.download .down-cont { width: 224px !important; display: inline-block}
+.footer-main .partner-product .item.download .down-cont span { width: 92px !important; height: auto}
+.footer-main .partner-product .item.download .down-cont .and, .footer-main .partner-product .item.download .down-cont .ios { width: 112px !important}
+.footer-main .share { width: 100%; display: block; text-align: center; margin: 20px 0 !important}
+.footer-main .share li { display: inline-block; margin: 0 7px !important}
+.footer-main .friendly h3 { margin-right: 20px !important}
+.footer-main .friendly .links1 a { padding-right: 26px !important}
+.footer-main .friendly .links1 a:before { right: 11px !important}
+.footer-main .copyright img { display: none !important}
+#p_btn { display: none}
+.footer-main .friendly .links1 a { font-size: 12px !important}
+}

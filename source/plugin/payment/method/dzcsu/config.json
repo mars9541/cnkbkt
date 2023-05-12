@@ -1,0 +1,17 @@
+{
+    "method_id": "dzcsu",
+    "user_agent": "",
+    "name": "大吱云免签",
+    "title": "扫码支付",
+    "version": "1.0.2",
+    "description": "免签约使用支付宝、微信进行支付",
+    "install": 0,
+    "uninstall": 0,
+    "urls": [
+        {
+            "text": "官网",
+            "url": "https:\/\/pay.dzcsu.com\/",
+            "type": "blank"
+        }
+    ]
+}

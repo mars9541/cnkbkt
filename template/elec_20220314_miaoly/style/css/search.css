@@ -1,0 +1,40 @@
+ /* -----------------------------------------------------------------
+
+The Whole CSS written by Elecom.
+(C) Elecom Inc.
+Annoucement here,Copyright
+Shenzhen.Eleccom Technology.使用原代码请联系作者QQ: 2300184378 / 2017-04-09 20:00:06
+
+---------------------------------------------------------------------------------------*/
+
+body { background: #FFFFFF !important}
+
+/* 定义搜索长宽 */
+.td_srchtxt { float: left; width: 800px; border: 1px solid #EEEEEE; border-right: 0; background: none}
+.td_srchbtn { float: left; width: 90px; height: 50px; border: 1px solid #00a7ea; background: url(../page_search.png) no-repeat center center #00a7ea}
+#scform_srchtxt, #scform_submit { height: 50px; line-height: 50px}
+
+
+/* 定义搜索最低高度 */
+.serch_wp { min-height: 600px; margin: 40px auto 80px auto; background: #FFFFFF; border-radius: 5px}
+#ct { float: none; width: 893px; margin: 0 auto}
+
+
+/* 搜索结果内容介绍优化 */
+.slst { width: 893px}
+.sttl { padding: 0; margin: 20px 0 0 0; border: 0; background: none}
+.slst h3.xs3 { margin-bottom: 5px}
+.slst h3.xs3 a { font-size: 20px; line-height: 30px; text-decoration: none}
+.slst h3.xs3 a:hover { color: red}
+.slst .pbw p { font-size: 15px; margin-bottom: 5px; color: #AAAAAA !important;line-height: 26px}
+.slst p span, .slst p span a, .slst p span a:visited { color: #CCCCCC}
+
+
+.searchform { padding-top: 30px}
+#scform {}
+#scform_form { background: none}
+
+
+#scform_submit { width: 90px}
+#scform_tb .a { color: red}
+#scform_tb li { float: left; list-style: none}

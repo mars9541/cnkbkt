@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X3]]></item>
+	<item id="Time"><![CDATA[2013-06-14 21:46]]></item>
+	<item id="From"><![CDATA[優卡論壇 (http://bbs.ukasky.com/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[付費版塊]]></item>
+			<item id="identifier"><![CDATA[ukasky_payforum]]></item>
+			<item id="description"><![CDATA[付費后才可進入版塊。]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[ukasky_payforum/]]></item>
+			<item id="copyright"><![CDATA[優卡論壇]]></item>
+			<item id="version"><![CDATA[1.1]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[payforum_mobile]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[28]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="1">
+					<item id="name"><![CDATA[payforum]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="2">
+					<item id="name"><![CDATA[payforum]]></item>
+					<item id="menu"><![CDATA[付費版塊]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[7]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2,X2.5,X3]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[開啟]]></item>
+				<item id="description"><![CDATA[是否開啟付費版塊插件功能。]]></item>
+				<item id="variable"><![CDATA[isopen]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[2]]></item>
+				<item id="title"><![CDATA[設置使用的版塊]]></item>
+				<item id="description"><![CDATA[設置哪些版塊需要使用付費功能。]]></item>
+				<item id="variable"><![CDATA[payforums]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[]]></item>
+				</item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[3]]></item>
+				<item id="title"><![CDATA[積分類型]]></item>
+				<item id="description"><![CDATA[設置付費版塊統一扣除的積分類型。]]></item>
+				<item id="variable"><![CDATA[paycredit]]></item>
+				<item id="type"><![CDATA[extcredit]]></item>
+				<item id="value"><![CDATA[2]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[4]]></item>
+				<item id="title"><![CDATA[積分消耗數量]]></item>
+				<item id="description"><![CDATA[設置付費版塊統一扣除的積分數量。]]></item>
+				<item id="variable"><![CDATA[paynum]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[100]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[5]]></item>
+				<item id="title"><![CDATA[一次購買有效天數]]></item>
+				<item id="description"><![CDATA[購買一次有效天數，過期需重新購買。]]></item>
+				<item id="variable"><![CDATA[paydays]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[30]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[6]]></item>
+				<item id="title"><![CDATA[特殊版塊設置]]></item>
+				<item id="description"><![CDATA[設置特殊版塊，格式為“版塊ID|積分類型標示ID|扣除積分數量|有效天數”；多個版塊設置請換行。例子“36|2|100|30”]]></item>
+				<item id="variable"><![CDATA[setforum]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[7]]></item>
+				<item id="title"><![CDATA[不受限制的用戶組]]></item>
+				<item id="description"><![CDATA[被選中的用戶組不收付費版塊影響。]]></item>
+				<item id="variable"><![CDATA[allowgroups]]></item>
+				<item id="type"><![CDATA[groups]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[]]></item>
+				</item>
+			</item>
+			<item id="7">
+				<item id="displayorder"><![CDATA[8]]></item>
+				<item id="title"><![CDATA[SEO模式]]></item>
+				<item id="description"><![CDATA[是否開啟SEO模式，可以讓百度、穀歌等搜索引擎收錄內容。]]></item>
+				<item id="variable"><![CDATA[isSEO]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="language">
+			<item id="scriptlang">
+				<item id="noneedpay"><![CDATA[該版塊無需付費！]]></item>
+				<item id="lackextcredits"><![CDATA[沒有足夠的]]></item>
+				<item id="haspay"><![CDATA[您已支付，請勿重複操作。]]></item>
+				<item id="paysuccess"><![CDATA[支付成功！]]></item>
+				<item id="overtime"><![CDATA[權限已過期，歡迎再次購買。]]></item>
+				<item id="noprivilege"><![CDATA[無權限版塊，進入購買版塊權限。]]></item>
+			</item>
+			<item id="templatelang">
+				<item id="payinfo"><![CDATA[支付信息]]></item>
+				<item id="forumname"><![CDATA[版塊名稱]]></item>
+				<item id="paynum"><![CDATA[支付金額]]></item>
+				<item id="validdays"><![CDATA[有效期]]></item>
+				<item id="day"><![CDATA[天]]></item>
+				<item id="myuser"><![CDATA[用戶]]></item>
+				<item id="myhave"><![CDATA[擁有]]></item>
+				<item id="clickhere"><![CDATA[點擊這裡充值]]></item>
+				<item id="noinfo"><![CDATA[沒有相關記錄]]></item>
+				<item id="myrecord"><![CDATA[付費列表]]></item>
+				<item id="number"><![CDATA[編號]]></item>
+				<item id="paytime"><![CDATA[支付時間]]></item>
+				<item id="endtime"><![CDATA[過期時間]]></item>
+			</item>
+			<item id="installlang">
+				<item id="english"><![CDATA[chinese]]></item>
+			</item>
+		</item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+		<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+	</item>
+</root>

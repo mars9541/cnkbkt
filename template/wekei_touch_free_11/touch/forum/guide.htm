@@ -1,0 +1,58 @@
+<!--{template common/header}-->
+
+
+<!-- 图片模块 -->
+
+
+<div class="vk_wp m_t_0 bg_icon cl" style="height: 200px;">
+
+    <!-- 搜索模块 -->
+    <div class="cl " style="padding-top: 100px;">
+        <!--{if !empty($srchtype)}--><input type="hidden" name="srchtype" value="$srchtype" /><!--{/if}-->
+        <form id="searchform" class="searchform" method="post" autocomplete="off" action="search.php?mod=forum&mobile=2">
+            <input type="hidden" name="formhash" value="{FORMHASH}" />
+
+            <!--{if !empty($srchtype)}--><input type="hidden" name="srchtype" value="$srchtype" /><!--{/if}-->
+            <div class="vk_index_search">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input value="$keyword" autocomplete="off" class="input" name="srchtxt" id="scform_srchtxt" value="" placeholder="{lang enter_content}">
+                                </td>
+                                <td width="66" align="center" class="scbar_btn_td">
+                                    <div><input type="hidden" name="searchsubmit" value="yes"><input type="submit" value=" " class="vk_search_btn_inner" id="scform_submit"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+
+            <!--{eval $policymsgs = $p = '';}-->
+            <!--{loop $_G['setting']['creditspolicy']['search'] $id $policy}-->
+            <!--{block policymsg}--><!--{if $_G['setting']['extcredits'][$id][img]}-->$_G['setting']['extcredits'][$id][img] <!--{/if}-->$_G['setting']['extcredits'][$id][title] $policy $_G['setting']['extcredits'][$id][unit]<!--{/block}-->
+            <!--{eval $policymsgs .= $p.$policymsg;$p = ', ';}-->
+            <!--{/loop}-->
+            <!--{if $policymsgs}--><p>{lang search_credit_msg}</p><!--{/if}-->
+        </form>
+    </div>
+
+</div>
+
+
+
+<!-- main threadlist start -->
+<div class="threadlist">
+	<h2 class="thread_tit">{lang guide_newthread}</h2>
+
+	<!--{loop $data $key $list}-->
+		<!--{subtemplate forum/guide_list_row}-->
+	<!--{/loop}-->
+
+</div>
+<!-- main threadlist end -->
+
+$multipage
+
+<div class="pullrefresh" style="display:none;"></div>
+<!--{template common/footer}-->

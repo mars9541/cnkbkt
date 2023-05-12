@@ -1,0 +1,145 @@
+<!--{if $_G['setting']['mobile']['mobilehotthread'] && $_GET['forumlist'] != 1}-->
+	<!--{eval dheader('Location:forum.php?mod=guide&view=new');exit;}-->
+<!--{/if}-->
+<!--{template common/header}-->
+
+<script type="text/javascript">
+	function getvisitclienthref() {
+		var visitclienthref = '';
+		if(ios) {
+			visitclienthref = 'https://itunes.apple.com/cn/app/zhang-shang-lun-tan/id489399408?mt=8';
+		} else if(andriod) {
+			visitclienthref = 'http://www.discuz.net/mobile.php?platform=android';
+		}
+		return visitclienthref;
+	}
+</script>
+
+<!--{if $_GET['visitclient']}-->
+<!--{else}-->
+
+<!-- header start -->
+<!--{if $showvisitclient}-->
+<!--{/if}-->
+
+<!-- header end -->
+<!--{hook/index_top_mobile}-->
+
+
+
+
+
+<!-- main forumlist start -->
+
+<!-- 图片模块 -->
+
+
+<div class="vk_wp m_t_0 bg_icon cl" style="height: 200px;">
+
+    <!-- 搜索模块 -->
+    <div class="cl " style="padding-top: 100px;">
+        <!--{if !empty($srchtype)}--><input type="hidden" name="srchtype" value="$srchtype" /><!--{/if}-->
+        <form id="searchform" class="searchform" method="post" autocomplete="off" action="search.php?mod=forum&mobile=2">
+            <input type="hidden" name="formhash" value="{FORMHASH}" />
+
+            <!--{if !empty($srchtype)}--><input type="hidden" name="srchtype" value="$srchtype" /><!--{/if}-->
+            <div class="vk_index_search">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input value="$keyword" autocomplete="off" class="input" name="srchtxt" id="scform_srchtxt" value="" placeholder="{lang enter_content}">
+                                </td>
+                                <td width="66" align="center" class="scbar_btn_td">
+                                    <div><input type="hidden" name="searchsubmit" value="yes"><input type="submit" value=" " class="vk_search_btn_inner" id="scform_submit"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+
+            <!--{eval $policymsgs = $p = '';}-->
+            <!--{loop $_G['setting']['creditspolicy']['search'] $id $policy}-->
+            <!--{block policymsg}--><!--{if $_G['setting']['extcredits'][$id][img]}-->$_G['setting']['extcredits'][$id][img] <!--{/if}-->$_G['setting']['extcredits'][$id][title] $policy $_G['setting']['extcredits'][$id][unit]<!--{/block}-->
+            <!--{eval $policymsgs .= $p.$policymsg;$p = ', ';}-->
+            <!--{/loop}-->
+            <!--{if $policymsgs}--><p>{lang search_credit_msg}</p><!--{/if}-->
+        </form>
+    </div>
+
+</div>
+
+
+
+<!-- 统计模块 - 两行 -->
+<div class="wp vk_forum_num">
+	<ul>
+		<li class="vk_stats_icon_1"> {lang index_today} <p><em>$todayposts</em></p> </li>
+		<li class="vk_stats_icon_2"> {lang index_yesterday} <p><em>$postdata[0]</em></p> </li>
+		<li class="vk_stats_icon_3"> {lang index_posts} <p><em>$posts</em></p> </li>
+		<li class="vk_stats_icon_4"> {lang index_members} <p><em>$_G['cache']['userstats']['totalmembers']</em></p> </li>
+	</ul>
+</div>
+
+
+
+
+
+<div class="wp" id="wp">
+
+
+	<!--{loop $catlist $key $cat}-->
+	<div class="bm bmw fl">
+		<div class="subforumshow bm_h cl" href="#sub_forum_$cat[fid]">
+			<span class="o"><img  width="50" height="26"  src="$_G['style']['styleimgdir']/collapsed_<!--{if !$_G[setting][mobile][mobileforumview]}-->yes<!--{else}-->no<!--{/if}-->.png"/></span>
+		<h2><a href="javascript:;">$cat[name]</a></h2>
+		</div>
+		<div id="sub_forum_$cat[fid]" class="vk_forum ">
+			<ul class="cl">
+				<!--{loop $cat[forums] $forumid}-->
+				<!--{eval $forum=$forumlist[$forumid];}-->
+				<li class="vk_bg_none vk_pic_hd">
+                    <div class="cl">
+					  <!--{if $forum[icon]}--> 
+					  $forum[icon] 
+					  <!--{else}--> 
+					  <a href="forum.php?mod=forumdisplay&fid={$forum['fid']}">
+					  <img src="$_G['style']['styleimgdir']/forum.png" /> 
+					  </a>
+					  <!--{/if}-->
+                    </div>
+					  <p class="vk_forum_name"><a href="forum.php?mod=forumdisplay&fid={$forum['fid']}"><!--{if $forum[todayposts] > 0}--><!--<span class="num">$forum[todayposts]</span>--><!--{/if}-->{$forum[name]}</a></p>
+                      <p class="vk_forum_time"><span >{lang index_threads} {$forum[threads]} &nbsp; {lang thread} {$forum[posts]} </span> 							
+				
+				</li>
+				<!--{/loop}-->
+			</ul>
+		</div>
+	</div>
+	<!--{/loop}-->
+</div>
+<!-- main forumlist end -->
+<!--{hook/index_middle_mobile}-->
+<script type="text/javascript">
+	(function() {
+		<!--{if !$_G[setting][mobile][mobileforumview]}-->
+			$('.sub_forum').css('display', 'block');
+		<!--{else}-->
+			$('.sub_forum').css('display', 'none');
+		<!--{/if}-->
+		$('.subforumshow').on('click', function() {
+			var obj = $(this);
+			var subobj = $(obj.attr('href'));
+			if(subobj.css('display') == 'none') {
+				subobj.css('display', 'block');
+				obj.find('img').attr('src', '$_G['style']['styleimgdir']/collapsed_yes.png');
+			} else {
+				subobj.css('display', 'none');
+				obj.find('img').attr('src', '$_G['style']['styleimgdir']/collapsed_no.png');
+			}
+		});
+	 })();
+</script>
+
+<!--{/if}-->
+<!--{template common/footer}-->

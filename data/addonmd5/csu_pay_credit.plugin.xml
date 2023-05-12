@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[csu_pay_credit.plugin]]></item>
+	<item id="RevisionID"><![CDATA[82147]]></item>
+	<item id="SN"><![CDATA[2022041711sm6tply663]]></item>
+	<item id="RevisionDateline"><![CDATA[1618217822]]></item>
+	<item id="Data">
+		<item id="/csu_pay_credit.inc.php"><![CDATA[347d3d6cf11a2f22111477b59798c03e]]></item>
+		<item id="/template/index.htm"><![CDATA[1a9cc7a3783db51d59bdf29fdc109f6f]]></item>
+		<item id="/template/mobile/index.htm"><![CDATA[1a9cc7a3783db51d59bdf29fdc109f6f]]></item>
+		<item id="/template/mobile/csu_pay_credit.htm"><![CDATA[558f747c2ece59f192a5500976c7fa92]]></item>
+		<item id="/template/touch/index.htm"><![CDATA[1a9cc7a3783db51d59bdf29fdc109f6f]]></item>
+		<item id="/template/touch/csu_pay_credit.htm"><![CDATA[558f747c2ece59f192a5500976c7fa92]]></item>
+		<item id="/template/csu_pay_credit.htm"><![CDATA[a5c7db7362f27c62c28d5649c43fe64a]]></item>
+		<item id="/csu_pay_credit_mobile.class.php"><![CDATA[15041fa7a6566f5ec5204caad0b72815]]></item>
+		<item id="/discuz_plugin_csu_pay_credit_TC_UTF8.xml"><![CDATA[448840e2fd3efb3196e3ebe0df45f227]]></item>
+		<item id="/pay_credit.class.php"><![CDATA[bafc4e8ffa2dc6979855bee3b2963b41]]></item>
+		<item id="/check.php"><![CDATA[e0da886013532b626b262c1ee6621778]]></item>
+		<item id="/install.php"><![CDATA[435bf07701d5d8879b78729260c8d24d]]></item>
+		<item id="/enable.php"><![CDATA[020ad35f7412aa6044a45a86696562cf]]></item>
+		<item id="/index.htm"><![CDATA[1a9cc7a3783db51d59bdf29fdc109f6f]]></item>
+		<item id="/discuz_plugin_csu_pay_credit_SC_UTF8.xml"><![CDATA[6182c2861939cd911d8fb913fa8c36fe]]></item>
+		<item id="/uninstall.php"><![CDATA[0671df5e66a4ec67d3f43822ce94cae2]]></item>
+		<item id="/csu_pay_credit.class.php"><![CDATA[9cee36fdde70c2d3307d71ec0f7cd114]]></item>
+	</item>
+</root>

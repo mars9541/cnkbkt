@@ -1,0 +1,51 @@
+[
+    {
+        "title": "接口地址",
+        "key": "gateway",
+        "type": "text",
+        "default": "https:\/\/api.mch.weixin.qq.com\/",
+        "comment": ""
+    },
+    {
+        "title": "APPID",
+        "key": "appid",
+        "type": "text",
+        "default": "",
+        "comment": ""
+    },
+    {
+        "title": "APP SECRET",
+        "key": "appsecret",
+        "type": "text",
+        "default": "",
+        "comment": ""
+    },
+    {
+        "title": "商户号",
+        "key": "mch_id",
+        "type": "text",
+        "default": "",
+        "comment": ""
+    },
+    {
+        "title": "API密钥",
+        "key": "mch_key",
+        "type": "text",
+        "default": "",
+        "comment": ""
+    },
+    {
+        "title": "证书pem格式存放位置",
+        "key": "apiclient_cert",
+        "type": "text",
+        "default": "source\/plugin\/payment\/api\/wepay\/cert.pem",
+        "comment": "强烈建议修改文件名以防止被外部访问<br>详情见：https:\/\/pay.weixin.qq.com\/wiki\/doc\/api\/jsapi.php?chapter=4_3"
+    },
+    {
+        "title": "证书密钥pem格式存放位置",
+        "key": "apiclient_key",
+        "type": "text",
+        "default": "source\/plugin\/payment\/api\/wepay\/key.pem",
+        "comment": "强烈建议修改文件名以防止被外部访问"
+    }
+]

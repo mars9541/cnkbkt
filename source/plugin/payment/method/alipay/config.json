@@ -1,0 +1,22 @@
+{
+    "method_id": "alipay",
+    "user_agent": "alipay",
+    "name": "支付宝扫码付",
+    "title": "支付宝",
+    "version": "2.0.0",
+    "description": "支付宝，全球领先的独立第三方支付平台，致力于为广大用户提供安全快速的电子支付\/网上支付\/安全支付\/手机支付体验，及转账收款\/水电煤缴费\/信用卡还款\/AA收款等生活服务应用。申请地址：<a href=\\\\\\\\\\\\\\\"https:\/\/open.alipay.com\\\\\\\\\\\\\\\" target=\\\\\\\\\\\\\\\"_blank\\\\\\\\\\\\\\\">https:\/\/open.alipay.com<\/a>",
+    "install": 0,
+    "uninstall": 0,
+    "urls": [
+        {
+            "text": "官网",
+            "url": "https:\/\/openhome.alipay.com\/",
+            "type": "blank"
+        },
+        {
+            "text": "申请说明",
+            "url": "https:\/\/www.kancloud.cn\/dqzhiyu\/dzcsu\/1514168",
+            "type": "blank"
+        }
+    ]
+}

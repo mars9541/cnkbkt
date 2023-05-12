@@ -1,0 +1,10 @@
+{
+    "method_id": "credit",
+    "user_agent": "",
+    "name": "积分支付",
+    "title": "余额支付",
+    "version": "2.0.0",
+    "description": "使用论坛积分余额进行支付（建议在设置中命名为余额支付）",
+    "install": 0,
+    "uninstall": 0
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "title": "接口地址",
+        "key": "host",
+        "type": "text",
+        "default": "https:\/\/api.pay.dzcsu.com\/",
+        "comment": ""
+    },
+    {
+        "title": "APPID",
+        "key": "appid",
+        "type": "text",
+        "default": "",
+        "comment": ""
+    },
+    {
+        "title": "SECRET",
+        "key": "secret",
+        "type": "text",
+        "default": "",
+        "comment": ""
+    }
+]

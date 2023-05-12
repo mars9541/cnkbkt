@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[xcforumtagtothread.plugin]]></item>
+	<item id="RevisionID"><![CDATA[84887]]></item>
+	<item id="SN"><![CDATA[2022041208kt9H1tT0ZO]]></item>
+	<item id="RevisionDateline"><![CDATA[1650289012]]></item>
+	<item id="Data">
+		<item id="/template/selectlist.htm"><![CDATA[530779eac673aaaa29d8a92ec754debb]]></item>
+		<item id="/managekwforum.inc.php"><![CDATA[e79ca1533580c40cc422d1243e683214]]></item>
+		<item id="/discuz_plugin_xcforumtagtothread_SC_UTF8.xml"><![CDATA[65dc04419dfd452ff7d66bd4f6472066]]></item>
+		<item id="/install.php"><![CDATA[03fb5c5ca7c8c54d843b7e2b24c2470d]]></item>
+		<item id="/uninstall.php"><![CDATA[c488926ebf5dcfd50d6bf2fba4236d07]]></item>
+		<item id="/managekeyword.inc.php"><![CDATA[cf21f84fc2a84b753a0d922a0143112a]]></item>
+		<item id="/discuz_plugin_xcforumtagtothread_TC_UTF8.xml"><![CDATA[63f8103ebbbd64f1852e83ac0a55e676]]></item>
+		<item id="/xcother.inc.php"><![CDATA[09786cb8bef4734e2b42868030ffd76e]]></item>
+		<item id="/function/function_core.php"><![CDATA[e90c6f3bf105656fe7a7408359061710]]></item>
+		<item id="/cache/cache_xcforumtagtothread.php"><![CDATA[5f91db27b7c3680c4ed19576eb71ab51]]></item>
+		<item id="/xctagtitle.class.php"><![CDATA[fd4b81f373ff31f5f12d37afe859bdec]]></item>
+		<item id="/mjsons.class.php"><![CDATA[a2e788a6d19e76e0c550fe3b25f385d8]]></item>
+	</item>
+</root>

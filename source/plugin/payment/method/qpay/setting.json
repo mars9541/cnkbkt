@@ -1,0 +1,37 @@
+[{
+    "title": "商户号",
+    "key": "mch_id",
+    "type": "text",
+    "default": "",
+    "comment": ""
+}, {
+    "title": "API密钥",
+    "key": "mch_key",
+    "type": "text",
+    "default": "",
+    "comment": ""
+}, {
+    "title": "证书pem格式存放位置",
+    "key": "apiclient_cert",
+    "type": "text",
+    "default": "source\/plugin\/payment\/method\/qpay\/cert.pem",
+    "comment": "强烈建议修改文件名以防止被外部访问<br>详情见：https:\/\/qpay.qq.com\/buss\/wiki\/38\/1192"
+}, {
+    "title": "证书密钥pem格式存放位置",
+    "key": "apiclient_key",
+    "type": "text",
+    "default": "source\/plugin\/payment\/method\/qpay\/key.pem",
+    "comment": "强烈建议修改文件名以防止被外部访问"
+}, {
+    "title": "操作员ID",
+    "key": "op_user_id",
+    "type": "text",
+    "default": "",
+    "comment": "用于退款<br>QQ钱包操作员帐号, 默认为商户号"
+}, {
+    "title": "操作员登录密码",
+    "key": "op_user_passwd",
+    "type": "text",
+    "default": "",
+    "comment": "用于退款<br>QQ钱包操作员登录密码<br>请填写登录密码md5加密后的32位小写字符串"
+}]

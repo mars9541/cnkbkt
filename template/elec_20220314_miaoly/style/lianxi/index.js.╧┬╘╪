@@ -1,0 +1,248 @@
+$(function () {
+    //菜单栏显示隐藏
+    $('.last-move-menu').on('click', function () {
+        $('.last-move-menu-list').slideToggle();
+    })
+
+    //文章详情点击回复出现弹窗
+    $(document).on("click", ".reply-click", function () {
+        if (getCookie("login_stated") != 'true') {
+            window.location.href = "login.php";
+        } else {
+            $(this).parent().next('.comment-wrap').slideToggle();
+            $('.comment-textarea').focus();
+        }
+    })
+
+    $(function () {
+        var rheight = $(".footer-right-wrap").height();
+        //$(".footer-left-wrap").style.minHeight(rheight+"px");
+        $(".footer-left-wrap").css({"minHeight": rheight + "px"});
+    })
+
+    //时间格式转换    
+    $(function () {
+        $('.side-article-list span').each(function () {
+            var mill = $(this).attr('createtime');
+            if (mill != undefined && !isNaN(mill) && mill != 0) {
+                $(this).html(pintuPc.millToAgo(mill));
+            }
+        })
+        $('.article-time').each(function () {
+            var mill = $(this).attr('createtime');
+            if (mill != undefined && !isNaN(mill) && mill != 0) {
+                $(this).html(pintuPc.millToAgo(mill));
+            }
+        })
+    })
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    //分类导航相关
+    var currentClassId = 0;//当前选中的分类ID
+    var currentPage = 0;//当前页数
+    var currentType = 'recommend';//当前查询类型(查推荐/查分类ID)
+    var duration,url = window.location.href;
+    if(url){
+        duration = url.indexOf("week")>0?'week':(url.indexOf("month")>0?'month':'quarter');
+    }
+    $('.classify-list li').on('click', function () {
+        $(this).addClass('current').siblings().removeClass('current');
+        var classId = parseInt($(this).children("a").attr("classId"));
+        if (classId != currentClassId) {
+            currentPage = 0;
+            currentClassId = classId;
+        }
+        var moreArticleHtml = '';
+        currentType = 'classId';
+        if (currentClassId === 0) {
+            currentType = 'recommend';
+            $('.recommend-item').show();
+        } else {
+            $('.recommend-item').hide();
+        }
+        if(currentClassId === -1){
+            currentType = 'referenceEnum';
+            // currentClassId = -1;
+        }
+        index_left_content_replace(currentType, currentClassId, currentPage, duration, 'replace');
+    });
+
+    $('#load_more_news').on('click', function () {
+        currentPage++;
+        $('#load_more_news').hide();
+        $("#endeavor_load").show();
+        index_left_content_replace(currentType, currentClassId, currentPage, duration, 'more');
+    });
+    function index_left_content_replace(type, id, page, duration, replaceType) {
+        pintuPc.getArticleList(type, id, page, duration, function () {
+            if (arguments[0] == 'fail')
+                return;
+            var articleList = arguments[0];
+            var html = '';
+            for (var i = 0; i < articleList.length; i++) {
+                html += '<div  class="article-list" >';
+                html += '<div class="article-photo">';
+                html += '<a href="a' + articleList[i].id + '.html?' + articleList[i].op + '" target="_blank">';
+                if (articleList[i].imgUrl === null || articleList[i].imgUrl === "") {
+                    html += '<img src="../image/image_default.png" alt="' + articleList[i].title + '">';
+                } else {
+                    html += '<img src="' + articleList[i].imgUrl + '?x-oss-process=style/article-list" alt="' + articleList[i].title + '">';
+                }
+               if (articleList[i].referenceEnum === 'original'){
+                    html += '<div class="original_label">原创</div>';
+               }
+                html += '</a></div><div class="article-text"> <h2 class="article-title">';
+                html += '<a href="a' + articleList[i].id + '.html?' + articleList[i].op + '" target="_blank" >' + articleList[i].title + '</a>';
+                html += '</h2><p class="article-content">' + articleList[i].abstracts + '</p>';
+                html += '<ul class="article-data">';
+                if (articleList[i].sign && articleList[i].sign.trim()) {
+                    html += '<li class="article-writer">文/' + articleList[i].sign + '</li>';
+                }
+                html += '<li class="article-time" createtime="' + articleList[i].onlineTime + '"></li>';
+                html += '<li class="article-lable">';
+                for (var j = 0; j < (articleList[i].tagsList.length >= 3 ? 3 : articleList[i].tagsList.length); j++) {
+                    // html += '<span >'+articleList[i].tagsList[j].value+'</span>';
+                    html += '<a target="_blank" href="articleListLabel.php?type=tagId&id=' + articleList[i].tagsList[j].id + '&name=' + articleList[i].tagsList[j].value + '">' + articleList[i].tagsList[j].value + '</a>';
+                }
+                html += '</li></ul></div></div>';
+                if(type == 'recommend' && (i + stick_length)== 2 && page == 0){
+                    html +=get_abvert('homeFirstBanner', 'advert', 'advertByPosition', 'carousel');
+                }
+                if(type == 'recommend' && (i + stick_length)== 8 && page == 0){
+                    html +=get_abvert('homeListAdvert', 'advert', 'listAdvert', 'generalize');
+                    html +=get_abvert('homeSecondBanner', 'advert', 'advertByPosition', 'carousel');
+                }
+            }
+            html = pintuPc.htmlReplace(html);
+            $("#endeavor_load").hide();
+            if (replaceType == 'replace') {
+                $(".article-item").remove();
+                $('.recommend-item').after(
+                    '<div class="article-item">' +
+                    '<div class="article-item-main">' + html + '</div>' +
+                    '<div class="load-more" id="load_more_news">点击加载更多</div>' +
+                    '<div class="load-more loading_box" id="endeavor_load" ' +
+                    'style="display: none;">努力加载中<div class="bounce1"></div>' +
+                    '<div class="bounce2"></div><div class="bounce3"></div></div></div>'
+                );
+                $('.load-more').on('click', function () {
+                    currentPage++;
+                    index_left_content_replace(currentType, currentClassId, currentPage, duration, 'more');
+                });
+            }
+            else if (replaceType == 'more')
+                $('.article-item-main').append(html);
+
+            if (articleList.length < 15) {
+                $('#load_more_news').hide();
+            } else {
+                $('#load_more_news').show();
+            }
+            removeRepeatArticle();
+
+            setTimeout(function () {
+                //时间格式转化
+                $('.article-time').each(function () {
+                    var mill = $(this).attr('createtime');
+                    if (mill != undefined && !isNaN(mill) && mill != 0) {
+                        $(this).html(pintuPc.millToAgo(mill));
+                    }
+                })
+            }, 500);
+
+        });
+    }
+
+    var currentArticles = [];
+
+    function removeRepeatArticle() {
+        currentArticles = [];
+        $('.article-list').each(function () {
+            var href = $(this).children().children().attr('href');
+            var isRepeat = false;
+            for (var i = 0; i < currentArticles.length; i++) {
+                if (currentArticles[i] == href) {
+                    isRepeat = true;
+                    $(this).hide();
+                    continue;
+                }
+            }
+            if (!isRepeat)
+                currentArticles.push(href);
+        });
+    }
+})
+//flag 标记是 首页推荐的轮播图广告还是 推荐广告
+function get_abvert(position, type, fnName, flag) {
+    var html = '';
+    $.ajax({
+        type : "post",
+        url : "../service/ajax_abvert_service.php",
+        data :{
+            fnName : fnName,
+            position : position,
+            type : type
+        },
+        dataType : "json",
+        cache : false,
+        async: false,
+        success : function (data){
+            if(data.success  && data.data.length != 0){
+                data = data.data;
+                if (flag === 'generalize') {
+                    for (var i = 0; i < data.length; i++) {
+                        html += '<div class="article-list advert-list">';
+                        html += '<div class="article-photo">';
+                        html += '<a onclick="browse_statistics('+ data[i].id +',\'ADVERT\')" href="'+ data[i].href +'" target="_blank">';
+                        html += '<img src="'+ data[i].imageUrl +'?x-oss-process=style/article-list" alt="'+ data[i].title +'">';
+                        html += '<div class="advert-title">广告</div>';
+                        html += '</a>';
+                        html += '</div>';
+                        html += '<div class="article-text">';
+                        html += '<h2 class="article-title">';
+                        html += '<a onclick="browse_statistics('+ data[i].id +',\'ADVERT\')" href="'+ data[i].href +'" target="_blank" >'+ data[i].title +'</a>';
+                        html += '</h2>';
+                        html += '</div>';
+                        html += '</div>';
+                    }
+                }
+                if (flag === 'carousel') {
+                    html += '<div class="content-ad">';
+                    html += '<div class="swiper-container swiper-container-ad-two">';
+                    html += '<div class="swiper-wrapper">';
+                    for (var m = 0; m < data.length; m++) {
+                        html += '<a onclick="browse_statistics('+ data[m].id +',\'ADVERT\')" href="'+ data[m].href +'" target="_blank" class="swiper-slide">';
+                        html += '<div style="background-image: url('+ data[m].imageUrl +')"></div>';
+                        html += '</a>';
+                    }
+                    html += '</div>';
+                    html += '<div class="swiper-pagination swiper-p3 swiper-pagination-clickable"></div>';
+                    html += '</div>';
+                    html += '</div>';
+                }
+            }
+        }
+    })
+    return html;
+}
+
+function getCookie(c_name)
+{
+    if (document.cookie.length>0)
+    {
+        c_start=document.cookie.indexOf(c_name + "=");
+        if (c_start!=-1)
+        {
+            c_start=c_start + c_name.length+1;
+            c_end=document.cookie.indexOf(";",c_start);
+            if (c_end==-1) c_end=document.cookie.length;
+            return unescape(document.cookie.substring(c_start,c_end));
+        }
+    }
+    return ""
+}

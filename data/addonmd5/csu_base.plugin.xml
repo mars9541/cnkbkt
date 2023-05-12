@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[csu_base.plugin]]></item>
+	<item id="RevisionID"><![CDATA[87119]]></item>
+	<item id="SN"><![CDATA[2022041711IE199pEBvp]]></item>
+	<item id="RevisionDateline"><![CDATA[1617990250]]></item>
+	<item id="Data">
+		<item id="/csubase.class.php"><![CDATA[e6cf173e6d7d0dc57d0ea2f1dfe6ca75]]></item>
+		<item id="/js/jquery-3.4.1.min.js"><![CDATA[0bdd2ac62f52a305da94d43bf8b2e727]]></item>
+		<item id="/js/index.htm"><![CDATA[1a9cc7a3783db51d59bdf29fdc109f6f]]></item>
+		<item id="/index.htm"><![CDATA[1a9cc7a3783db51d59bdf29fdc109f6f]]></item>
+		<item id="/hook.class.php"><![CDATA[4c07d50179dec114a615ee7abb90610c]]></item>
+		<item id="/sql.class.php"><![CDATA[73f0fa8d5c5ccd9875fc6a66dcc73c89]]></item>
+		<item id="/admin.common.php"><![CDATA[0172538b258ee756b4d7305ff9140e79]]></item>
+		<item id="/css/common.css"><![CDATA[a11690ba684023f29e3d138cfa2638c7]]></item>
+		<item id="/css/index.htm"><![CDATA[1a9cc7a3783db51d59bdf29fdc109f6f]]></item>
+		<item id="/discuz_plugin_csu_base_TC_UTF8.xml"><![CDATA[f5965baca06f4cdd284ac4d47186174a]]></item>
+		<item id="/discuz_plugin_csu_base_SC_UTF8.xml"><![CDATA[dd2af7b54f958b7e8a2c712e0600e994]]></item>
+		<item id="/qrcode.class.php"><![CDATA[6e4949ac97acce06de82b2b09988926f]]></item>
+	</item>
+</root>

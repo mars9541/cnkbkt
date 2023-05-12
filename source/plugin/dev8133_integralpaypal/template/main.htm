@@ -1,0 +1,200 @@
+{template common/header}
+<link rel="stylesheet" type="text/css" href="source/plugin/dev8133_integralpaypal/static/css/pay.css">
+<link rel="stylesheet" type="text/css" href="source/plugin/dev8133_integralpaypal/static/css/iconfont.css">
+<script src="source/plugin/dev8133_integralpaypal/static/js/jquery-3.3.1.min.js"></script>
+<script src="source/plugin/dev8133_integralpaypal/static/layer_mobile/layer.js"></script>
+
+<style>
+.pay-cls{
+    display:inline;
+    line-height:24px;
+    word-break:break-all;
+    word-wrap : break-word ;
+    float:left;
+    margin-right:19px;
+    margin-bottom:19px;
+}
+ #nav {
+ 	margin-top:45px;
+ 	margin-left:30px;
+ }
+ .main-box{
+ 
+ font-family: "Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+ 
+ }
+ 
+.input-cls{
+	border-radius: 3px;
+	border: solid 1px #BFC2CC;
+	width:206px;
+	height:35px;
+	font-size:16px;
+	padding-left:5px;
+}
+.banner{
+	margin:10px;
+}
+	.banner img{
+		width:100%;
+		border-radius: 10px;
+
+	}
+</style>
+<div class="main-box" >
+<div class="user-box container-center">
+		<div class="main-box-bd" style="margin-top:15px;margin-bottom: 30px">
+			<div class="banner">
+				<a target="_blank" href="{$pcbanner[1]}"><img src="{$pcbanner[0]}"></a></div>
+		<div id="nav">
+				<ul id="jfitem">
+				<!--{loop $czjfdata $val}-->
+						<li class='pay-cls suit-item {if $deaultjf['id']==$val['id']} sel {/if}' data-type='pz' data-id="{$val['id']}" data-price="{$val['price']}"  data-text="{$val['remark']}">
+							<!--{if $val['ishowicon']}-->
+							<i class="tag-pos tag-suit"><span class="before"></span><span
+								class="center">{lang dev8133_integralpaypal:mainstr_2}</span><span class="after"></span></i>
+							<!--{/if}-->
+							<div class="suit-item-in">
+
+								<p class="price" style="padding-bottom: 16px;border-bottom: 1px solid #f0f0f0;font-weight:100">
+									{$val['price']}<span style="font-size:12px;">$config['payCode']</span>
+
+									<del style="font-size: 16px;font-family:Arial;color:#999; ">
+									{eval echo intval($val['price']*2)} $config['payCode']</del>
+								</p>
+								<p class="duration"><strong style="font-size: 40px;">{$val['intcount']}</strong>{$_G['setting']['extcredits'][$val['intetype']]['title']}</p>
+								<!--{if $val['zsintcount']}-->
+									<p class="desc" style='color:#f6644c'>
+										{lang dev8133_integralpaypal:mainstr_3}{$val['zsintcount']}{$_G['setting']['extcredits'][$val['zsintetype']]['title']}
+									</p>
+								<!--{/if}-->
+									
+							</div>
+						</li>
+				<!--{/loop}-->
+				
+						<li class='pay-cls suit-item' data-type='zdy'>
+							<div class="suit-item-in" style="margin-top:20px;">
+								<p class="duration">{lang dev8133_integralpaypal:mainstr_14}</p>
+								<p class="price" style="font-weight:400;font-size:20px;">
+									{lang dev8133_integralpaypal:mainstr_15}
+								</p>
+									
+							</div>
+						</li>
+			</ul>
+						
+		</div>
+			<form id="submitpost" method="post" action="plugin.php?id=dev8133_integralpaypal:dev8133_integralpaypal">
+		<div style="clear:both;"></div>
+		<div class="suit-desc" id="zdyinput" style="display:none;">
+              <p class="suit-desc-text" >
+              	<input type='number' name="zdynum"  id="zdynum" value="{$config['minje']}" class="input-cls" >&nbsp;&nbsp;{$_G['setting']['extcredits'][$config['zdyjf']]['title']}&nbsp;<font style='color:#999'>[ {lang dev8133_integralpaypal:mainstr_155}{$_G['setting']['extcredits'][$config['zdyjf']]['title']}{lang dev8133_integralpaypal:mainstr_156}{$config['zdybl']}{$config['payCode']}]</font>
+              </p>
+          </div>
+		
+		<div style="clear:both;"></div>
+		<div class="suit-desc">
+              <p class="suit-desc-text" id="suit-desc-text1">
+              {$deaultjf['remark']}
+              </p>
+          </div>
+
+		<div style="padding: 0 0 0 30px;">
+                    <div class="pay-item" style="    font-weight: bold;padding-top: 5px;margin-right: 40px">
+                        <div class="pay-item-l">
+                            <span class="fz-20">{lang dev8133_integralpaypal:mainstr_4}</span>
+                        </div>
+                    </div>
+                    <div class="pay-method" style="margin-top:10px">
+                                <ul class="choose-list-icon clearfix">
+                                    	<li title="alipay" class="bank-wx sel" >
+                                    		<i class="ico" style="background: url(source/plugin/dev8133_integralpaypal/static/images/pay_alipay.png) no-repeat;background-size: 100%;">
+											</i>
+                                    		<span>PayPal</span>
+										</li>
+                                </ul>
+								<input type='hidden' name="submodac" value="submityes" />
+								<input type='hidden' name='formhash' value="{FORMHASH}" />
+								<input type='hidden' name="jfid" id='jfid' value="{$deaultjf['id']}" />
+                    </div>
+                    
+                    <div class="pay-item" style="margin-top:17px">
+                        <div class="pay-item-l">
+                            <span class="fz-20">{lang dev8133_integralpaypal:mainstr_5}</span>
+                        </div>
+                        <div class="pay-item-r va-bottom">
+                            <span class="price price-grey" id="total_price">{$deaultjf['price']}</span><span id="price_type">{$config['payCode']}</span>
+                        </div>
+                        <div class="pay-item-r"></div>
+                    </div>
+                    <div class="pay-item" style="margin-top:15px;margin-bottom:15px">
+                        <button id="pay_submit"  type="button" class="btn-pay fz-20 hid btn-red">{lang dev8133_integralpaypal:mainstr_15982}</button>
+                    </div>
+
+                </div>
+			</form>
+		</div>
+		</div>				
+		</div>	
+		
+		<script>var jq8133 = jQuery.noConflict();</script>
+		<script>
+		jq8133(function(){
+			jq8133("#jfitem li").click(function() {
+					jq8133(this).siblings('li').removeClass('sel');
+					jq8133(this).addClass('sel');
+					var price = jq8133(this).attr("data-price");
+					var text = jq8133(this).attr("data-text");
+					var type = jq8133(this).attr("data-type");
+					if(type == "pz"){
+						jq8133("#total_price").text(price);
+						jq8133("#suit-desc-text1").css('display','block');
+						jq8133("#suit-desc-text1").text(text);
+						var did = jq8133(this).attr("data-id");
+						jq8133("#jfid").val(did);
+						jq8133("#zdyinput").css('display','none');
+					}else if(type == "zdy"){
+						jq8133("#zdyinput").css('display','block');
+						jq8133("#suit-desc-text1").css('display','none');
+						jq8133("#jfid").val("zdy");
+
+						var zdyczje = jq8133('#zdynum').val();
+						var blje = ("{$config['zdybl']}");
+						var sumje = zdyczje*blje;
+						sumje = sumje.toFixed(2);
+						jq8133("#total_price").text(sumje);
+						
+					}
+				});
+			jq8133('#zdynum').bind('input propertychange keyup', function() {
+				var zdyczje = jq8133(this).val();
+				var blje = ("{$config['zdybl']}");
+				var sumje = zdyczje*blje;
+				sumje = sumje.toFixed(2);
+				jq8133("#total_price").text(sumje);
+			});
+			
+			jq8133("#pay_submit").click(function() {
+				if("{$uid}" == 0){
+					showDialog('{lang dev8133_integralpaypal:mainstr_8}', 'confirm', '', 'parent.location.href=\'member.php?mod=logging&action=login&referer='+"{$_G['siteurl']}"+'plugin.php?id=dev8133_integralpaypal\'',1)
+					return false;
+				}
+
+				jq8133("#submitpost").submit();
+
+			});
+			
+			
+			
+	
+			});
+		
+		
+		
+		
+		</script>
+   
+
+
+{template common/footer}

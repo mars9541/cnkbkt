@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[zzbuluo_baidu360push.plugin]]></item>
+	<item id="RevisionID"><![CDATA[81238]]></item>
+	<item id="SN"><![CDATA[2022041201iequE0Dufu]]></item>
+	<item id="RevisionDateline"><![CDATA[1593177431]]></item>
+	<item id="Data">
+		<item id="/installlang.lang.php"><![CDATA[f9bec9a19483af3f6156f77041aa908e]]></item>
+		<item id="/template/index.htm"><![CDATA[cc070212714624e0b896bab51096c323]]></item>
+		<item id="/template/index.html"><![CDATA[cc070212714624e0b896bab51096c323]]></item>
+		<item id="/template/faq.htm"><![CDATA[8392e492549b34711c43a2d6aa85e106]]></item>
+		<item id="/demo.php"><![CDATA[b056de553d2358c69ce03503e351a781]]></item>
+		<item id="/upgrade.php"><![CDATA[d07cdff19bf18fa31984b1ad618ffa3d]]></item>
+		<item id="/discuz_plugin_zzbuluo_baidu360push_SC_UTF8.xml"><![CDATA[b0bbfc91b63673671f7581a0807ac149]]></item>
+		<item id="/discuz_plugin_zzbuluo_baidu360push_TC_UTF8.xml"><![CDATA[54d84bb2eda165b1e399165e01c4c191]]></item>
+		<item id="/check.php"><![CDATA[8a825ca6229416faf04a5be8990a5989]]></item>
+		<item id="/install.php"><![CDATA[d07cdff19bf18fa31984b1ad618ffa3d]]></item>
+		<item id="/enable.php"><![CDATA[7a22f157653ba5fd99033c1781589ba3]]></item>
+		<item id="/changelog.inc.php"><![CDATA[29a1e1dfc3b993871f0116a2ffbac737]]></item>
+		<item id="/index.htm"><![CDATA[cc070212714624e0b896bab51096c323]]></item>
+		<item id="/hook.class.php"><![CDATA[098ce4dd025810fa8a06f3c9e154bb21]]></item>
+		<item id="/uninstall.php"><![CDATA[dec4193f3c88f1df6e592f711e3e1a75]]></item>
+		<item id="/index.html"><![CDATA[cc070212714624e0b896bab51096c323]]></item>
+		<item id="/config.inc.php"><![CDATA[2816daa1b367e7b06596207ce82a7740]]></item>
+		<item id="/thank.inc.php"><![CDATA[d58ab4277a34b73c1a913df6c3bde03e]]></item>
+		<item id="/mobilehook.class.php"><![CDATA[97339320df8f5f0aa27b32d29260d8aa]]></item>
+		<item id="/pluginvar.func.php"><![CDATA[30c45e5357dd445629eee032ec0b0e85]]></item>
+		<item id="/images/manage.css"><![CDATA[6b41fb8ea9a32acbc5c6365a85ee2f66]]></item>
+		<item id="/images/index.htm"><![CDATA[cc070212714624e0b896bab51096c323]]></item>
+		<item id="/images/index.html"><![CDATA[cc070212714624e0b896bab51096c323]]></item>
+		<item id="/images/bg_tab_mid.gif"><![CDATA[da79a1002b9c209a9760211e9a08dd20]]></item>
+		<item id="/images/faq.gif"><![CDATA[2016bd6b1d980e1609ecad8d4c40085b]]></item>
+		<item id="/images/bg_tab.gif"><![CDATA[d8ddde434d1e604f36abf1936617f99c]]></item>
+		<item id="/disable.php"><![CDATA[1f2d2ee4573a09579c979da5fbac5950]]></item>
+		<item id="/addon.inc.php"><![CDATA[c96d401c95d00572ddecb2c644780001]]></item>
+		<item id="/faq.inc.php"><![CDATA[6747c81cd9b8f0652830fff7b995d288]]></item>
+		<item id="/feedback.inc.php"><![CDATA[1e5b50890e02f2ecbafb90d750a1eff6]]></item>
+		<item id="/source/function/function_core.php"><![CDATA[7099a73effd175e6990a4cd564e2200d]]></item>
+		<item id="/source/function/function_var.php"><![CDATA[30c45e5357dd445629eee032ec0b0e85]]></item>
+	</item>
+</root>

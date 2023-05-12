@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[ck8_pay.plugin]]></item>
+	<item id="RevisionID"><![CDATA[79422]]></item>
+	<item id="SN"><![CDATA[2022041022F33tpVat29]]></item>
+	<item id="RevisionDateline"><![CDATA[1562514361]]></item>
+	<item id="Data">
+		<item id="/template/wxpay.htm"><![CDATA[3c4e12641e699036a525923be435a818]]></item>
+		<item id="/discuz_plugin_ck8_pay_TC_UTF8.xml"><![CDATA[a40df059c138304a219b7298920fec43]]></item>
+		<item id="/install.php"><![CDATA[1a49f589a67912e160a048aee5353223]]></item>
+		<item id="/cert/index.html"><![CDATA[d41d8cd98f00b204e9800998ecf8427e]]></item>
+		<item id="/uninstall.php"><![CDATA[947cd7ac43d24b9e370fa45461d319a5]]></item>
+		<item id="/pay_dispose.inc.php"><![CDATA[d3f8afced9d3793be9bd454eac3d4b83]]></item>
+		<item id="/class/class_qrcode.php"><![CDATA[ec76984793607ccaeebc98d6c8c40ffa]]></item>
+		<item id="/lib/WxpayService.class.php"><![CDATA[440cf9ee9e4718c1be533c80d85c4385]]></item>
+		<item id="/lib/AlipayService.class.php"><![CDATA[ea55cfd8f03c760d277c5e8f4da0e175]]></item>
+		<item id="/r.html"><![CDATA[bfb91575d13a23c35003aa7b4df941a1]]></item>
+		<item id="/function.php"><![CDATA[fe90386798e944a757bacbca438c740a]]></item>
+		<item id="/cache/index.html"><![CDATA[d41d8cd98f00b204e9800998ecf8427e]]></item>
+		<item id="/discuz_plugin_ck8_pay_SC_UTF8.xml"><![CDATA[0973ad3ff28c4dc0cabcef5af8c8cd8f]]></item>
+		<item id="/app_other.inc.php"><![CDATA[efed9626ccd2c8a86758ace36b99a185]]></item>
+		<item id="/admin_paylist.inc.php"><![CDATA[20d245d08c571db4565228c0ac927d09]]></item>
+		<item id="/table/table_ck8_pay_log.php"><![CDATA[9a0c0c59591a04199eb8b5f84cfed06d]]></item>
+	</item>
+</root>

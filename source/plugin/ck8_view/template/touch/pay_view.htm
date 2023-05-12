@@ -1,0 +1,74 @@
+<!--{template common/header}-->
+<!--{if empty($_GET['inajax'])}-->
+<div id="pt" class="bm cl">
+	<div class="z"><a href="{$_G['siteurl']}" class="nvhm" >$_G[setting][bbname]</a> <em>&rsaquo;</em>{lang ck8_view:langview024}</div>
+</div>
+<div id="ct" class="wp cl">
+	<div class="mn">
+		<div class="bm bw0">
+<!--{/if}-->
+	<div class="float" id="coom">
+		<h3 class="flb">
+		    {lang ck8_view:langview024}
+			<!--{if !empty($_GET['inajax'])}--><a href="javascript:;" class="close" onclick="popup.close();">{lang ck8_view:langview037}</a><!--{/if}-->
+		</h3>
+		<div class="c">
+			<table class="ck8-table ck8-border">
+				<thead>
+					<tr>
+					<th>{lang ck8_view:langview027}</th><th>{lang ck8_view:langview028}</th><th>{lang ck8_view:langview029}</th><th>{lang ck8_view:langview030}</th><th>{lang ck8_view:langview031}</th><th>{lang ck8_view:langview032}</th>
+					</tr>
+				</thead>
+				<tbody id="listpage">
+				<!--{loop $g_lists $k $v}-->
+					<tr id="lists">
+                       <th>{$v['log_uid']}</th>
+					   <!--{if $v['pay_type'] == 1}-->
+					   <th>{$v['log_money']}</th>
+					   <!--{else}-->
+					   <th>--</th>
+					   <!--{/if}-->
+					   <th>{$v['log_money2']}</th><th>{$v['log_pay_type']}</th><th>{$v['log_authorid_reap']}</th><th>{$v['log_date']}</th>
+					</tr>
+                <!--{/loop}-->
+                </tbody>
+			</table>
+			<div id="end"><div class="ck8-loading-wrap"><a href="javascript:;" onclick="ajax_page()" id="pages">{lang ck8_view:langview025}</a></div></div>
+		</div>
+	</div>
+<!--{if empty($_GET['inajax'])}-->
+		</div>
+	</div>
+</div>
+<!--{/if}-->
+<script type="text/javascript">
+$('#coom').css('width',($(window).width()-35) +'px');
+var page = 2;
+function ajax_page(){
+	$.ajax({
+		type : 'GET',
+		url :'plugin.php?id=ck8_view:ck8_pay&action=viewpayments&tid=$_GET[tid]&token=$_GET[token]&pid=$_GET[pid]&page='+page,
+		dataType : 'html'
+	})
+	.success(function(s) {
+	    var html_ = appendHtml(s);
+		if (html_.indexOf('<tr id="lists">') == -1){
+			$("#pages").html('{lang ck8_view:langview026}');
+			return false;
+		}
+		$("#listpage").append(html_);
+		page++;
+	})
+	.error(function() {
+	    popup.open('ajax_error', 'alert');
+	});
+    return false;
+}
+function appendHtml(h){  
+	h = h.replace(/\\n|\\r/g, "");
+	h = h.substring(h.indexOf('<tbody id=\"listpage\">'), h.indexOf('<div id=\"end\">'));
+	ht = h.substring(h.indexOf('<tr id=\"lists\">'), h.indexOf('</tbody>'));
+	return ht;
+};
+</script>
+<!--{template common/footer}-->

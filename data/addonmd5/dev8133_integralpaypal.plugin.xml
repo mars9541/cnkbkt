@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[dev8133_integralpaypal.plugin]]></item>
+	<item id="RevisionID"><![CDATA[91983]]></item>
+	<item id="SN"><![CDATA[2022041702RBA7XKli22]]></item>
+	<item id="RevisionDateline"><![CDATA[1635210983]]></item>
+	<item id="Data">
+		<item id="/template/admin.htm"><![CDATA[6b7e368eff76d2bd1a6ef2f9289449b4]]></item>
+		<item id="/template/admin_header.htm"><![CDATA[b40234419941559f5b78881637f61403]]></item>
+		<item id="/template/main.htm"><![CDATA[65fbdd10b465aaefbfac354da7717517]]></item>
+		<item id="/discuz_plugin_dev8133_integralpaypal_TC_UTF8.xml"><![CDATA[627393126d83390d85cf90dfd6612168]]></item>
+		<item id="/module/dev8133_main.php"><![CDATA[dc79cca19291105239b04f59c364eab9]]></item>
+		<item id="/module/dev8133_sh.php"><![CDATA[221d56957b60a8163dec68090f1136be]]></item>
+		<item id="/install.php"><![CDATA[a258a7e06c3880038dfbd5b19c38a954]]></item>
+		<item id="/static/js/jquery-3.3.1.min.js"><![CDATA[a09e13ee94d51c524b7e2a728c7d4039]]></item>
+		<item id="/static/js/swiper.jquery.min.js"><![CDATA[b117060487d6ec17a9af7c5604a2c149]]></item>
+		<item id="/static/layer_mobile/layer.js"><![CDATA[79b7829af0bbfea5760aa606bf1a02c7]]></item>
+		<item id="/static/layer_mobile/need/layer.css"><![CDATA[0594a72cf0c6ec081e582812a2ae6b4e]]></item>
+		<item id="/static/css/swiper.min.css"><![CDATA[8b2490e3308554ad256c58eef08f833d]]></item>
+		<item id="/static/css/pay.css"><![CDATA[c994d2c8f67bf047a09636d5b6276ee7]]></item>
+		<item id="/static/css/paym.css"><![CDATA[fa21d3260141c0b1b4fec6a92d863815]]></item>
+		<item id="/static/css/iconfont.css"><![CDATA[ecb600503be1f98b7eae2ecf7b841a5e]]></item>
+		<item id="/static/images/pay_alipay.png"><![CDATA[0a2f32463c8f44f42d41bcdd070bded1]]></item>
+		<item id="/static/images/banner.jpeg"><![CDATA[feee8090b77d0548b63580739dc26a81]]></item>
+		<item id="/adminsh.inc.php"><![CDATA[c20a6d344f5f2801bdc9b426c844f6a2]]></item>
+		<item id="/uninstall.php"><![CDATA[7d7ce1027393ad1e487f9fa4a578120d]]></item>
+		<item id="/lib/paypal.php"><![CDATA[2fae684fdd93af4796cea546a15f8cc6]]></item>
+		<item id="/adminjf.inc.php"><![CDATA[158aa169b0d7449afc059ea5d016714e]]></item>
+		<item id="/returnpaypal.inc.php"><![CDATA[f4cd354dbd3c7f03e550c02b3baccb09]]></item>
+		<item id="/dev8133_integralpaypal.inc.php"><![CDATA[69e0841d9d1360bb4d2078062516c0b6]]></item>
+		<item id="/discuz_plugin_dev8133_integralpaypal_SC_UTF8.xml"><![CDATA[93d4845692d1e61b24fed2676c95813e]]></item>
+		<item id="/table/index.htm"><![CDATA[d41d8cd98f00b204e9800998ecf8427e]]></item>
+		<item id="/table/table_dev8133_integralpaypal.php"><![CDATA[366eaf6b74af3a1cfad88310fbfb8218]]></item>
+		<item id="/table/table_dev8133_integralpaypal_order.php"><![CDATA[453812cc3ddb83114a3547f40fea5bd5]]></item>
+	</item>
+</root>

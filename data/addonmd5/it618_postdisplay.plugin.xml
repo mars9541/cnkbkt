@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[it618_postdisplay.plugin]]></item>
+	<item id="RevisionID"><![CDATA[12877]]></item>
+	<item id="SN"><![CDATA[2022051611d3O228s183]]></item>
+	<item id="RevisionDateline"><![CDATA[1663222046]]></item>
+	<item id="Data">
+		<item id="/template/it618editor.htm"><![CDATA[68d0f1700d6721d7434e58e58f29ea80]]></item>
+		<item id="/help.inc.php"><![CDATA[969dfb7808911e1376816d4aadc1f5cb]]></item>
+		<item id="/postdisplay.class.php"><![CDATA[df514a7becbfe74bb0691e6c5f5729ec]]></item>
+		<item id="/discuz_plugin_it618_postdisplay_TC_UTF8.xml"><![CDATA[54ed8ee4423a430eacc47eaf3ae45d9b]]></item>
+		<item id="/images/postdisplay0.png"><![CDATA[0152bf9ef554b14518f7474f77626c85]]></item>
+		<item id="/images/postdisplay.gif"><![CDATA[e1cfc27743da1890b3fb0abb016e3cdc]]></item>
+		<item id="/images/postdisplay1.png"><![CDATA[a51b9a463f5393f43c544bf7122568a3]]></item>
+		<item id="/discuz_plugin_it618_postdisplay_SC_UTF8.xml"><![CDATA[c657b2be84c791a95a571107c96eb85d]]></item>
+	</item>
+</root>

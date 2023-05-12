@@ -1,0 +1,434 @@
+body { background: #FFFFFF !important}
+#quater_bar_line { position: relative}
+#Quater_headtop { position: relative; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08)}
+
+.disclaimer___TAfnM { display: none}
+.rizhi { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid #EEEEEE !important}
+.rizhi:last-child { border-bottom: 0 !important}
+.rizhi .titlex { font-size: 18px !important; font-weight: 400 !important}
+.rizhi .summary { line-height: 20px; font-size: 13px; color: #787878}
+.vw .ph {
+    padding: 15px 0 10px;
+    color: #444;
+}
+.vw .o {
+    margin-top: 15px;
+    padding-top: 5px;
+    border-top: 1px solid #CDCDCD;
+    text-align: right;
+}
+
+.t_info { font-size: 13px}
+.t_info span { padding-right: 20px}
+
+.line1 {
+    width: 20px;
+    height: 1px;
+    background: #ddd;
+    float: right;
+	margin-bottom: 20px;
+    position: relative;
+}
+.tbmu { padding-right: 0}
+.post-works .cover a em { position: absolute; left: 50%; top: 50%; width: 80px; height: 80px; line-height: 80px; text-align: center; color: #FFFFFF; font-size: 14px; margin: -40px 0 0 -40px; border-radius: 50%; background: rgba(0,0,0,0.5)}
+.footer dl dt p, .footer dl dt address { color: #9B9B9B}
+
+a:hover { text-decoration: none}
+.pages { padding: 10px 0}
+.pgs.mtm { padding-bottom: 30px}
+
+.w_bg1 { float: right; width: 300px; height: auto; background: none}
+.mem_w_box { width: 300px; margin: 0 auto; margin-top: 0}
+.tab1 { float: left; width: 100px}
+.tab1 li { float: left; width: 100%; text-align: right; height: 22px; line-height: 22px; padding: 0; margin-bottom: 20px; font-size: 18px}
+.tab1 li a { display: inline-block; height: 22px; line-height: 22px; color: #222222; font-size: 18px}
+.tab1 li.current a { display: inline-block; color: #0080ff; border-bottom: 0}
+
+.person_card_top {
+	position: relative;
+    height: 159px;
+    background: url(t_bg.png) no-repeat center top;
+    background-size: 280px auto;
+    margin-bottom: -1px;
+}
+.person_card_top .person_head {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 22px auto 0;
+}
+.person_card_top .person_head img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.pos {
+    position: relative;
+}
+
+
+.person_card {
+    width: 280px;
+    margin-top: 0;
+}
+.person_card_top .hot_num {
+    width: 95px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #333333;
+    font-size: 18px;
+    margin: 0 auto;
+    font-weight: bold;
+    display: block;
+}
+.person_card_top .hot_num em { padding-left: 20px; background: url(fire.png) no-repeat left 0}
+.person_card_top .hot_num {}
+
+.text-center {
+    text-align: center;
+}
+
+
+.person_fans {
+    height: 60px;
+}
+.person_fans a {
+	float: left;
+    font-size: 14px;
+    color: rgba(0,0,0,.5);
+    width: 33.33%;
+	padding: 0;
+	margin-right: 0;
+    text-align: center;
+    display: inline-block;
+}
+.person_fans em {
+}
+.person_fans a span {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(0,0,0,.8);
+    display: inherit;
+}
+
+
+
+.person_name {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: #333333;
+    line-height: 1;
+}
+.person_intro {
+    font-size: 14px;
+    color: #BBBBBB;
+    text-align: center;
+    line-height: 20px;
+    padding: 0 20px 10px 20px;
+    box-sizing: border-box;
+    margin-top: 9px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.other_edit {
+    padding: 30px 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #EDEFF2;
+}
+.other_edit a {
+    display: inline-block;
+    width: 104px;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    border: 1px solid #DDDDDD;
+    color: #BBBBBB;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.edit a:last-of-type, .other_edit a:last-of-type {
+    border: 1px solid #0080ff;
+    background-color: #0080ff;
+    margin-left: 20px;
+    color: white;
+}
+
+
+.image_contain { float: left; width: 100%; margin-top: 0; padding: 0; border: 0; border-radius: 0; background: none}
+.myself_card li {
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #999999;
+    font-size: 14px;
+}
+
+.recent_look li {
+    width: 50px;
+    height: 90px;
+    text-align: center;
+    margin-right: 44px;
+}
+.recent_look li img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 6px;
+}
+.emp { padding: 20px 0}
+.leave_msg {
+    width: 610px !important;
+	height: 56px;
+    padding: 10px;
+    margin: 0;
+    border-radius: 2px;
+    border: 0 !important;
+    background: #F6F6F6;
+}
+
+.comment_list li {
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.comment_list1 li { padding: 10px 5px}
+.comment_list li:hover { background: #F5F7FA}
+.com_head {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.comment_list1 .com_head { width: 36px; height: 36px}
+.comment_list1 .conmment-info a { font-size: 12px}
+.comment_list1 .conmment-info p { font-size: 12px}
+.com_head img {
+    width: 50px;
+    height: 50px;
+}
+.comment_list1 .com_head img { width: 36px; height: 36px}
+.conmment-info {
+    margin-left: 10px;
+    width: 80%;
+}
+.conmment-info a {
+    display: inline-block;
+    font-size: 16px;
+    color: #333333;
+    font-weight: 500;
+}
+.conmment-info .time {
+    color: #BBBBBB;
+    display: inline-block;
+    margin-left: 5px;
+}
+.conmment-info p {
+    line-height: 20px;
+    font-size: 14px;
+    color: #333333;
+    font-weight: 500;
+}
+.conmment-info p.detail {
+    color: #606266;
+    font-weight: normal;
+    margin-top: 2px;
+}
+
+
+.more_comment { text-align: center; padding-top: 20px}
+.more_comment a { float: none; display: inline-block; background: #3498db; width: 100px;
+    height: 42px;
+    background-color: #0080ff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 42px;
+    border-radius: 20px;
+    color: white;
+    border: 0;
+    box-shadow: none;}
+
+
+#moodfm textarea { width: 610px !important; padding: 10px; margin: 0; border-radius: 2px; border: 0 !important; background: #F6F6F6}
+
+.pic .c img { max-width: 100%}
+.mlnv img { max-width: 80px; padding: 0 !important; margin: 0 !important; border: 0 !important}
+.mlnv a { max-width: 80px; max-height: 45px; display: inline-block; margin-right: 14px; overflow: hidden}
+.mla li, .mlp li { width: 140px}
+.mlp li { height: 100px}
+.mlp a { display: inline-block; max-width: 120px; height: 65px; overflow: hidden}
+.mlp img { padding: 0; border: 0}
+.ml p, .ml span { padding-top: 5px}
+
+.tbmu { padding-top: 0 !important; padding-bottom: 0 !important; border-bottom: 0 !important}
+.tbmu .pipe { display: none}
+.tedt { width: 100%; border: 0}
+.tedt .area { border: 1px solid #EEEEEE}
+
+.mem_pad {
+	width: 298px;
+    padding-top: 0;
+    position: relative;
+	z-index: 1;
+	border: 1px solid #e5e5e5;
+    border-radius: 2px;
+}
+.top-line {
+    height: 4px;
+    background: #4285f4;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 300px;
+    border-radius: 2px 2px 0 0;
+}
+.h-avatar {
+    position: relative;
+    float: left;
+	margin-right: 30px
+}
+.h-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 84px;
+    background-image: url(touming.png);
+    background-repeat: repeat-x;
+	z-index: 1
+}
+.mem_user1 {
+    position: relative;
+    z-index: 1;
+}
+.member_box {
+    margin-left: 0;
+	padding-top: 0;
+    padding-bottom: 20px;
+	z-index: 2;
+	border-bottom: 1px dashed #E3E3E3;
+    position: relative;
+}
+.h-avatar {
+    position: relative;
+    float: left;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+}
+.h-avatar .avatar-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 0px;
+    background: rgba(0,0,0,.6);
+    font-size: 14px;
+    color: #fff;
+    line-height: 80px;
+    text-align: center;
+    opacity: 0;
+    border-radius: 100%;
+    transition: opacity .2s;
+}
+.h-avatar .avatar-cover:hover { opacity: 1}
+#h-avatar {
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    border-radius: 40px;
+}
+.h-basic {
+    color: #555555;
+    font-size: 26px;
+    margin-left: 0;
+}
+#h-name {
+    display: inline-block;
+    font-weight: bold;
+    line-height: 30px;
+    font-size: 20px;
+	color: rgba(0,0,0,.84);
+    vertical-align: middle;
+}
+.h-basic-spacing {
+    margin-top: 12px;
+	margin-bottom: 5px;
+	font-size: 14px;
+	color: #555555
+}
+
+
+.h-action {
+    z-index: 1;
+	text-align: center
+}
+a.h-f-btn1, .h-f-btn a {
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    background: #FF6651;
+    border-radius: 4px;
+	display: block;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    margin: 0 0 0 20px;
+}
+.h-f-btn:hover, .h-f-btn:hover a { color: #FFFFFF; background: #4370f5}
+
+
+.change { float: left; width: 16px; height: 16px; margin: 1px 0 0 6px; text-indent: 9999px; background: url(write.svg) no-repeat 0 0}
+
+
+.imgx { display: inline-block; float: left; width: 20px; height: 21px; margin-top: 23px; margin-right: 5px; background-image: url(icon.png)}
+.imgx.img1 { background-position: 0 0}
+.imgx.img2 { background-position: -66px 0}
+.imgx.img3 { background-position: -132px 0}
+.imgx.img4 { background-position: -198px 0}
+.imgx.img5 { background-position: -264px 0}
+.imgx.img6 { background-position: -330px 0}
+.imgx.img7 { background-position: -396px 0}
+
+
+#sslct_menu { border: 0; border-radius: 5px; text-align: center}
+.sslct_btn { width: 90px; height: 30px; border-radius: 3px; border: 0 !important; margin-right: 10px}
+.sslct_btn i { width: 90px; height: 30px; border-radius: 3px}
+
+
+.kr-flow-bar-time-icon {
+    display: inline-block;
+    padding: 5px;
+    background: url(home.d1523964.png) no-repeat;
+    background-size: 246px 1012px;
+    background-position: 0 -115px;
+    position: relative;
+    top: 1px;
+    right: 5px;
+}
+
+
+
+
+
+.bg-box-radius { float: left; width: 100px; text-align: right}
+.bg-box-radius1 { float: right; width: 1030px}
+.bg-box-radius .sort-list-box a { display: inline-block; width: 100px; text-align: right; font-size: 18px; line-height: 44px}
+.bg-box-radius .sort-list-box a.a { color: #0080ff}
+#favorite_ul li { padding: 14px 0 !important}
+#favorite_ul li span img { float: left; margin-top: 3px; margin-right: 5px}
+#favorite_ul li input { float: left; margin-top: 5px}
+.pn em, .pn strong { font-weight: 400}
+.bbda { border-bottom: 1px solid #EEEEEE}

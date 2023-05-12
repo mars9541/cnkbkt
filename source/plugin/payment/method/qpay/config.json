@@ -1,0 +1,22 @@
+{
+    "method_id": "qpay",
+    "user_agent": "qq\/",
+    "name": "QQ钱包",
+    "title": "QQ钱包",
+    "version": "2.0.0",
+    "description": "QQ钱包是腾讯公司的支付业务品牌，QQ钱包提供付款码支付、扫码支付、公众号支付、APP支付等多种支付方式。QQ钱包致力于为广大用户提供安全快捷的电子支付\/网上支付\/安全支付\/手机支付\/移动支付体验，及转账\/收款\/水电煤缴费\/信用卡还款\/AA收款等生活服务应用。",
+    "install": 0,
+    "uninstall": 0,
+    "urls": [
+        {
+            "text": "官网",
+            "url": "https:\/\/mp.qpay.tenpay.com\/",
+            "type": "blank"
+        },
+        {
+            "text": "申请说明",
+            "url": "https:\/\/www.kancloud.cn\/dqzhiyu\/dzcsu\/1514166",
+            "type": "blank"
+        }
+    ]
+}

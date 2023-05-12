@@ -1,0 +1,104 @@
+<!--{template common/header}-->
+<!--{if empty($_GET['inajax'])}-->
+<div id="pt" class="bm cl">
+	<div class="z"><a href="{$_G['siteurl']}" class="nvhm">{$_G[setting][bbname]}</a> <em>&rsaquo;</em>{lang ck8_view:langview008}</div>
+</div>
+<div id="ct" class="wp cl">
+	<div class="mn">
+		<div class="bm bw0">
+<!--{/if}-->
+<form id="pay_view" method="post" autocomplete="off" action="plugin.php?id=ck8_view:ck8_pay&action=payview&paydisposesubmit=yes">
+	<div class="float" id="coom">
+		<h3 class="flb">
+			{lang ck8_view:langview008}
+			<!--{if !empty($_GET['inajax'])}--><a href="javascript:;" class="close" onclick="popup.close();">{lang ck8_view:langview037}</a><!--{/if}-->
+		</h3>
+		<input type="hidden" name="formhash" value="{FORMHASH}" />
+		<input type="hidden" name="tid" value="{$tid}" />
+		<input type="hidden" name="pid" value="{$pid}" />
+		<input type="hidden" name="token" value="{$token}" />
+		<!--{if !empty($_GET['inajax'])}--><input type="hidden" name="handlekey" value="pay_view" /><!--{/if}-->
+		<div class="cl">
+			<div class="titles">
+				<p>{lang ck8_view:langview009}<em>{$credits}</em>&nbsp;{$creditstitle}</p>
+				<!--{if in_array(1,$pay_type)}-->
+					<p>{lang ck8_view:langview010}<em>{$money}</em>&nbsp;{$creditstitle}</p>
+					<!--{if $credits < $money}-->
+					<p class="tss">
+					{lang ck8_view:langview011}
+					<a href="{$config['credits_url']}" class="ck8-btnsp" style="background-color:{$config['bj_colour']};color:{$config['font_colour']};">{lang ck8_view:langview012}</a>
+					</p>
+					<!--{/if}-->
+				<!--{/if}-->
+				<!--{if in_array(2,$pay_type) || in_array(3,$pay_type)}-->
+				<p>{lang ck8_view:langview013}<em>{eval echo round(($money / $config['credits_percentage']),2);}</em>&nbsp;{lang ck8_view:langview014}</p>
+				<!--{/if}-->
+			</div>
+			<!--{if isset($pay_type)}-->
+			<span class="pay_select">{lang ck8_view:langview015}</span>
+			<div class="pay_type cl">
+				<ul>
+				<!--{if in_array(1,$pay_type)}-->
+				<li><label class="ck8-radios" for="zffs"><input type="radio" name="zffs" id="jfzf" value="jfzf" checked="checked"></label>{lang ck8_view:langview017}</li>
+				<!--{/if}-->
+				<!--{if in_array(2,$pay_type)}-->
+				<li><label class="ck8-radios" for="zffs"><input type="radio" name="zffs" id="wxzf" value="wxzf"></label>{lang ck8_view:langview018}</li>
+				<!--{/if}-->
+				<!--{if in_array(3,$pay_type)}-->
+				<li><label class="ck8-radios" for="zffs"><input type="radio" name="zffs" id="zfbzf" value="zfbzf"></label>{lang ck8_view:langview019}</li>
+				<!--{/if}-->
+				</ul>
+			</div>
+			<!--{/if}-->
+		</div>
+		<div style="display:block;margin-top:10px;">
+		    <button class="ck8-btn btnt formdialogs y" type="submit" value="true" name="paydisposesubmit" style="background-color:{$config['bj_colour']};color:{$config['font_colour']};">{lang ck8_view:langview016}</button>
+		</div>
+	</div>
+</form>
+<script type="text/javascript" reload="1">
+	$('#coom').css('width',($(window).width()-35) +'px');
+	$('.formdialogs').one("click",function(){
+		popup.open('<img src="' + IMGDIR + '/imageloading.gif">');
+		var obj = $(this);
+		var formobj = $(this.form);
+		$.ajax({
+			type:'POST',
+			url:formobj.attr('action') + '&handlekey='+ formobj.attr('id') +'&inajax=1',
+			data:formobj.serialize(),
+			dataType:'xml'
+		})
+		.success(function(s) {
+		    var s = s.lastChild.firstChild.nodeValue
+			popup.close();
+			if (s.indexOf('{lang ck8_view:langview039}') != -1){
+				var arr = [],p = /<script[^\>]*?>([^\x00]*?)<\/script>/ig;
+				arr = p.exec(s);
+				eval(arr[1]);
+			    return false;
+			}
+			evalscript(s);
+		})
+		.error(function() {
+			window.location.href = obj.attr('href');
+			popup.close();
+		});
+		return false;
+	});
+	function succeedhandle_pay_view(url,msg,arr){
+		if(arr.pay_type == 'wxzf' || arr.pay_type == 'zfbzf'){
+		    window.location.href = url;
+		}else{
+		    popup.open(msg, 'alert');
+		}
+	}
+	function errorhandle_pay_view(msg,arr){
+		popup.open(msg, 'alert');
+	}
+</script>
+<!--{if empty($_GET['inajax'])}-->
+		</div>
+	</div>
+</div>
+<!--{/if}-->
+<!--{template common/footer}-->

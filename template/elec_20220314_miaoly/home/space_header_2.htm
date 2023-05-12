@@ -1,0 +1,115 @@
+<!--{eval $_G[cookie][extstyle] = false;}-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<!--{if $_G['config']['output']['iecompatible']}--><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE{$_G['config']['output']['iecompatible']}" /><!--{/if}-->
+	<title><!--{if !empty($navtitle)}-->$navtitle - <!--{/if}--><!--{if empty($nobbname)}--> $_G['setting']['bbname'] - <!--{/if}--> Powered by ymg6.com!</title>
+	$_G['setting']['seohead']
+
+	<meta name="keywords" content="{if !empty($metakeywords)}{echo dhtmlspecialchars($metakeywords)}{/if}" />
+	<meta name="description" content="{if !empty($metadescription)}{echo dhtmlspecialchars($metadescription)} {/if}{if empty($nobbname)},$_G['setting']['bbname']{/if}" />
+	<meta name="generator" content="Discuz! $_G['setting']['version']" />
+	<meta name="author" content="Discuz! Team and Comsenz UI Team" />
+	<meta name="copyright" content="2001-2013 Comsenz Inc." />
+	<meta name="MSSmartTagsPreventParsing" content="True" />
+	<meta http-equiv="MSThemeCompatible" content="Yes" />
+	<base href="{$_G['siteurl']}" />
+	<!--{csstemplate}-->
+	<script type="text/javascript">var STYLEID = '{STYLEID}', STATICURL = '{STATICURL}', IMGDIR = '{IMGDIR}', VERHASH = '{VERHASH}', charset = '{CHARSET}', discuz_uid = '$_G[uid]', cookiepre = '{$_G[config][cookie][cookiepre]}', cookiedomain = '{$_G[config][cookie][cookiedomain]}', cookiepath = '{$_G[config][cookie][cookiepath]}', showusercard = '{$_G[setting][showusercard]}', attackevasive = '{$_G[config][security][attackevasive]}', disallowfloat = '{$_G[setting][disallowfloat]}', creditnotice = '<!--{if $_G['setting']['creditnotice']}-->$_G['setting']['creditnames']<!--{/if}-->', defaultstyle = '$_G[style][defaultextstyle]', REPORTURL = '$_G[currenturl_encode]', SITEURL = '$_G[siteurl]', JSPATH = '$_G[setting][jspath]', CSSPATH = '$_G[setting][csspath]', DYNAMICURL = '$_G[dynamicurl]';</script>
+	<script type="text/javascript" src="{$_G[setting][jspath]}common.js?{VERHASH}"></script>
+	<!--{if empty($_GET['diy'])}--><!--{eval $_GET['diy'] = '';}--><!--{/if}-->
+	<!--{if !isset($topic)}--><!--{eval $topic = array();}--><!--{/if}-->
+
+	<link rel="stylesheet" href="template/elec_20220314_miaoly/home/css/vime.css">
+	<script type="text/javascript">window.onerror=function(){return true;} </script>
+</head>
+
+<body id="space" onkeydown="if(event.keyCode==27) return false;">
+	<div id="append_parent"></div>
+	<div id="ajaxwaitid"></div>
+
+	<!--{if $space['self'] && $_GET['diy'] == 'yes' && $do == 'index' }-->
+	<link rel="stylesheet" type="text/css" href='{$_G['setting']['csspath']}{STYLEID}_css_diy.css?{VERHASH}' />
+	<!--{subtemplate home/space_diy}-->
+	<!--{/if}-->
+
+	<div id="toptb" class="v cl">
+		<!--{if $_G['uid']}-->
+			<div class="y">
+				<a href="home.php?mod=space&uid=$_G[uid]" class="xw1" title="{lang visit_my_space}">{$_G[member][username]}</a>
+				<a href="javascript:;" id="myspace" class="showmenu cur1" onmouseover="showMenu(this.id);">{lang my_nav}</a>
+				<!--{hook/global_usernav_extra1}-->
+				<a href="home.php?mod=spacecp">{lang setup}</a>
+				<a href="home.php?mod=space&do=pm" id="pm_ntc" {if $_G[member][newpm]} class="new"{/if}>{lang pm_center}<!--{if $_G[member][newpm]}-->($_G[member][newpm])<!--{/if}--></a>
+				<a href="home.php?mod=space&do=notice" id="myprompt" {if $_G[member][newprompt]} class="new"{/if}>{lang remind}<!--{if $_G[member][newprompt]}-->($_G[member][newprompt])<!--{/if}--></a><span id="myprompt_check"></span>
+				<!--{if $_G['group']['allowmanagearticle'] || $_G['group']['allowdiy']|| getstatus($_G['member']['allowadmincp'], 4) || getstatus($_G['member']['allowadmincp'], 2) || getstatus($_G['member']['allowadmincp'], 3) || in_array($_G['uid'], $_G['setting']['ext_portalmanager'])}--><a href="portal.php?mod=portalcp">{lang portal_manage}</a><!--{/if}-->
+				<!--{if $_G['uid'] && $_G['group']['radminid'] > 1}--><a href="forum.php?mod=modcp&fid=$_G[fid]">{lang forum_manager}</a><!--{/if}-->
+				<!--{if $_G['uid'] && ($_G['group']['radminid'] == 1 || getstatus($_G['member']['allowadmincp'], 1))}--><a href="admin.php">{lang admincp}</a><!--{/if}-->
+				<!--{hook/global_usernav_extra2}-->
+				<a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a>
+			</div>
+		<!--{elseif !empty($_G['cookie']['loginuser'])}-->
+			<div class="y">
+				<a id="loginuser" class="xw1">$_G['cookie']['loginuser']</a>
+				<a href="member.php?mod=logging&action=login" onclick="showWindow('login', this.href)">{lang activation}</a>
+				<a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a>
+			</div>
+		<!--{elseif $_G['connectguest']}-->
+			<div class="y">
+				{lang connect_fill_profile_to_view}
+			</div>
+		<!--{else}-->
+			<div class="y">
+				<a href="member.php?mod={$_G[setting][regname]}">$_G['setting']['reglinkname']</a>
+				<a href="member.php?mod=logging&action=login" onclick="showWindow('login', this.href)">{lang login}</a>
+			</div>
+		<!--{/if}-->
+		<div class="z">
+			<a href="./" title="$_G['setting']['bbname']" class="xw1">$_G['setting']['bbname']</a>
+			<a href="home.php?mod=space&do=home" id="navs" class="showmenu" onmouseover="showMenu(this.id);">{lang return_homepage}</a>
+		</div>
+	</div>
+	<!--{if $space['status'] == -1 && $_G['adminid'] == 1 }-->
+		<p class="ptw xw1 xi1 hm"><img src="{IMGDIR}/locked.gif" alt="Locked" class="vm" /> {lang message_banned}</p>
+	<!--{/if}-->
+
+
+	<!--{if !empty($_G['setting']['plugins']['jsmenu'])}-->
+		<ul class="p_pop h_pop" id="plugin_menu" style="display: none">
+		<!--{loop $_G['setting']['plugins']['jsmenu'] $module}-->
+		     <!--{if !$module['adminid'] || ($module['adminid'] && $_G['adminid'] > 0 && $module['adminid'] >= $_G['adminid'])}-->
+		     <li>$module[url]</li>
+		     <!--{/if}-->
+		<!--{/loop}-->
+		</ul>
+	<!--{/if}-->
+	$_G[setting][menunavs]
+
+	<!--{eval $mnid = getcurrentnav();}-->
+	<ul id="navs_menu" class="p_pop topnav_pop" style="display:none;">
+	<!--{loop $_G['setting']['navs'] $nav}-->
+		<!--{eval $nav_showmenu = strpos($nav['nav'], 'onmouseover="showMenu(');}-->
+		<!--{eval $nav_navshow = strpos($nav['nav'], 'onmouseover="navShow(')}-->
+		<!--{if $nav_hidden !== false || $nav_navshow !== false}-->
+		<!--{eval $nav['nav'] = preg_replace("/onmouseover\=\"(.*?)\"/i", '',$nav['nav'])}-->
+		<!--{/if}-->
+		<!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}--><li {$nav[nav]}></li><!--{/if}-->
+	<!--{/loop}-->
+	</ul>
+	<ul id="myspace_menu" class="p_pop" style="display:none;">
+		<li><a href="home.php?mod=space">{lang my_space}</a></li>
+		<!--{loop $_G['setting']['mynavs'] $nav}-->
+			<!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}-->
+				<li>$nav[code]</li>
+			<!--{/if}-->
+		<!--{/loop}-->
+	</ul>
+
+
+	<div id="body">
+
+	<div id="wp" class="main-wrapper">
+
+

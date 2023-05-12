@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X3.2]]></item>
+	<item id="Time"><![CDATA[2020-06-26 21:04]]></item>
+	<item id="From"><![CDATA[1314學習網 (http://www.1314study.com/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[[1314]百度360搜索自動收錄]]></item>
+			<item id="identifier"><![CDATA[zzbuluo_baidu360push]]></item>
+			<item id="description"><![CDATA[使用問題請到1314學習網反餽：http://www.1314study.com]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[zzbuluo_baidu360push/]]></item>
+			<item id="copyright"><![CDATA[1314學習網 (http://www.1314study.com/)]]></item>
+			<item id="version"><![CDATA[v2.5.3]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[mobilehook]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[28]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="1">
+					<item id="name"><![CDATA[config]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[插件設置]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[1]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="2">
+					<item id="name"><![CDATA[hook]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[2]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="3">
+					<item id="name"><![CDATA[feedback]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[<b>問題反餽</b>]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[7]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="4">
+					<item id="name"><![CDATA[addon]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[<b style=color:red>獲取更多插件</b>]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[9]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X1.5,X2,X2.5,X3,X3.1,X3.2,X3.3,X3.4,X3.5,F1.0,L1.0]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[360自動收錄功能js代碼]]></item>
+				<item id="description"><![CDATA[http://zhanzhang.so.com/ 獲取js代碼]]></item>
+				<item id="variable"><![CDATA[zzbuluo_360js]]></item>
+				<item id="type"><![CDATA[textarea_1314]]></item>
+				<item id="value"><![CDATA[<script>
+(function(){
+   var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?a5db231f49bcdc92d054c3ba67e44d0e":"https://jspassport.ssl.qhimg.com/11.0.1.js?a5db231f49bcdc92d054c3ba67e44d0e";
+   document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script>]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[3]]></item>
+				<item id="title"><![CDATA[自動優化提交]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[zzbuluo_jp]]></item>
+				<item id="type"><![CDATA[radio_1314]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[4]]></item>
+				<item id="title"><![CDATA[【不提交的】版塊]]></item>
+				<item id="description"><![CDATA[衹針對論罈]]></item>
+				<item id="variable"><![CDATA[zzbuluo_forums]]></item>
+				<item id="type"><![CDATA[forums_1314]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[]]></item>
+				</item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[5]]></item>
+				<item id="title"><![CDATA[開啓360自動收錄]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[zzbuluo_360radio]]></item>
+				<item id="type"><![CDATA[radio_1314]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[6]]></item>
+				<item id="title"><![CDATA[開啓百度自動收錄]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[zzbuluo_bdradio]]></item>
+				<item id="type"><![CDATA[radio_1314]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[7]]></item>
+				<item id="title"><![CDATA[是否開啓電腦耑收錄]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[zzbuluo_pcradio]]></item>
+				<item id="type"><![CDATA[radio_1314]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[8]]></item>
+				<item id="title"><![CDATA[是否開啓手機耑收錄]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[zzbuluo_mbdradio]]></item>
+				<item id="type"><![CDATA[radio_1314]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+		<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+		<item id="upgradefile"><![CDATA[upgrade.php]]></item>
+		<item id="checkfile"><![CDATA[check.php]]></item>
+		<item id="enablefile"><![CDATA[enable.php]]></item>
+		<item id="disablefile"><![CDATA[disable.php]]></item>
+	</item>
+</root>

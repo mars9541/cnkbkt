@@ -1,0 +1,116 @@
+<!--{template common/header}-->
+<style>
+.floatwraps {
+    overflow: auto;
+    overflow-x: hidden;
+    margin-bottom: 10px;
+    max-height:380px;
+}
+.list th{
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    text-align: center;
+}
+.lists th{
+    border-bottom: 1px solid #e5e5e5 !important;
+}
+.ck8-loading-wrap,#ck8-load-more,ck8-page{
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+	color:#888;
+}
+.ck8-loading-wrap a{
+    border-radius: 15px;
+    padding: 5px 0px;
+    background: #e2f3f9;
+    color: #00a5e0;
+    background-color: rgba(205, 242, 255, 0.95);
+    width: 95%;
+    display: inline-block;
+	text-decoration: none !important;
+}
+</style>
+<!--{if empty($_GET['infloat'])}-->
+<div id="pt" class="bm cl">
+	<div class="z"><a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em>{lang ck8_view:langview024}</div>
+</div>
+<div id="ct" class="wp cl">
+	<div class="mn">
+		<div class="bm bw0">
+<!--{/if}-->
+	<div class="f_c">
+		<h3 class="flb">
+			<em id="return_$_GET['handlekey']">{lang ck8_view:langview024}</em>
+			<span>
+				<!--{if !empty($_GET['infloat'])}--><a href="javascript:;" class="flbc" onclick="hideWindow('$_GET['handlekey']')" title="{lang close}">{lang close}</a><!--{/if}-->
+			</span>
+		</h3>
+		<div class="c floatwraps">
+			<table class="list" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
+				<thead class="lists">
+					<tr>
+					<th>{lang ck8_view:langview027}</th><th>{lang ck8_view:langview028}</th><th>{lang ck8_view:langview029}</th><th>{lang ck8_view:langview030}</th><th>{lang ck8_view:langview031}</th><th>{lang ck8_view:langview032}</th>
+					</tr>
+				</thead>
+				<tbody id="listpage">
+				<!--{loop $g_lists $k $v}-->
+					<tr id="lists">
+                       <th>{$v['log_uid']}</th>
+					   <!--{if $v['pay_type'] == 1}-->
+					   <th>{$v['log_money']}</th>
+					   <!--{else}-->
+					   <th>--</th>
+					   <!--{/if}-->
+					   <th>{$v['log_money2']}</th><th>{$v['log_pay_type']}</th><th>{$v['log_authorid_reap']}</th><th>{$v['log_date']}</th>
+					</tr>
+                <!--{/loop}-->
+                </tbody>
+			</table>
+			<div id="end"><div class="ck8-loading-wrap"><a href="javascript:;" onclick="ajax_page()" id="pages">{lang ck8_view:langview025}</a></div></div>
+		</div>
+	</div>
+<!--{if empty($_GET['infloat'])}-->
+		</div>
+	</div>
+</div>
+<!--{/if}-->
+<script type="text/javascript">
+var page = 2;
+function ajax_page(){
+	var xmlHttp = null;
+	if(window.ActiveXObject){
+		xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}else if(window.XMLHttpRequest){
+		xmlHttp = new XMLHttpRequest()
+	}
+	if(xmlHttp != null){
+		xmlHttp.open('GET','plugin.php?id=ck8_view:ck8_pay&action=viewpayments&tid=$_GET[tid]&token=$_GET[token]&pid=$_GET[pid]&page='+page,true);
+		xmlHttp.send(null);
+		xmlHttp.onreadystatechange=function(){
+			if(xmlHttp.readyState == 4){
+				if(xmlHttp.status == 200){
+				    var s = xmlHttp.responseText;
+					var html_ = appendHtml(s);
+					if (html_.indexOf('<tr id="lists">') == -1){
+						document.getElementById("pages").innerHTML = '{lang ck8_view:langview026}';
+						return false;
+					}
+					document.getElementById("listpage").innerHTML += html_;
+				}else{
+					alert('ajax_error'+ xmlHttp.status)
+				}
+			}
+		}
+	}
+	page++;
+}
+function appendHtml(h){  
+	h = h.replace(/\\n|\\r/g, "");
+	h = h.substring(h.indexOf('<tbody id=\"listpage\">'), h.indexOf('<div id=\"end\">'));
+	ht = h.substring(h.indexOf('<tr id=\"lists\">'), h.indexOf('</tbody>'));
+	return ht;
+};
+</script>
+<!--{template common/footer}-->

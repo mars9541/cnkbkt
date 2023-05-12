@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X3]]></item>
+	<item id="Time"><![CDATA[2023-01-12 19:00]]></item>
+	<item id="From"><![CDATA[http://www.1314study.com/]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[[1314]SEO智能伪静态]]></item>
+			<item id="identifier"><![CDATA[addon_seo_rewrite]]></item>
+			<item id="description"><![CDATA[使用问题请到1314学习网反馈：http://www.1314study.com]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[addon_seo_rewrite/]]></item>
+			<item id="copyright"><![CDATA[1314学习网（www.1314study.com）]]></item>
+			<item id="version"><![CDATA[3.7.43]]></item>
+		</item>
+		<item id="version"><![CDATA[X1.5,X2,X2.5,X3,X3.1,X3.2,X3.3,X3.4,X3.5,F1.0,L1.0]]></item>
+		<item id="language">
+			<item id="scriptlang">
+				<item id="slang_001"><![CDATA[请填写名称]]></item>
+				<item id="slang_002"><![CDATA[请选择分类]]></item>
+				<item id="slang_003"><![CDATA[请填写描述]]></item>
+				<item id="slang_004"><![CDATA[请选择分类]]></item>
+				<item id="slang_005"><![CDATA[你上传的文件过大，系统限制]]></item>
+				<item id="slang_006"><![CDATA[请上传文件]]></item>
+				<item id="slang_007"><![CDATA[请填写网盘下载地址]]></item>
+				<item id="slang_008"><![CDATA[文件格式错误，只允许上传jpg、gif、png、bmp格式图片]]></item>
+				<item id="slang_009"><![CDATA[请上传图标]]></item>
+				<item id="slang_010"><![CDATA[提交成功]]></item>
+				<item id="slang_011"><![CDATA[发布]]></item>
+				<item id="rewrite_message_apache1"><![CDATA[<br>
+<h1>Apache Web Server(独立主机用户)</h1>
+<pre class=colorbox>
+&lt;IfModule mod_rewrite.c&gt;
+	RewriteEngine On
+{apache1}&lt;/IfModule&gt;
+</pre>]]></item>
+				<item id="rewrite_message_apache2"><![CDATA[<h1>Apache Web Server(虚拟主机用户)</h1>
+<pre class=colorbox>
+# 将 RewriteEngine 模式打开
+RewriteEngine On
+
+# RewriteBase 后边为论坛目录，插件自动识别，如果识别错误请自行修改为你论坛的目录
+# 如 www.xxx.com/bbs，对应的目录就是/bbs，如果程序放在根目录中，使用 RewriteBase /
+RewriteBase {siteroot}
+
+# Rewrite 系统规则请勿修改
+{apache2}
+</pre>]]></item>
+				<item id="rewrite_message_kangle"><![CDATA[<h1>kangle Web Server</h1>
+<pre class=colorbox>
+# Rewrite 系统规则请勿修改
+{apache2}
+</pre>]]></item>
+				<item id="rewrite_message_iis1"><![CDATA[<h1>IIS Web Server(独立主机用户)</h1>
+<pre class=colorbox>
+[ISAPI_Rewrite]
+
+# 3600 = 1 hour
+CacheClockRate 3600
+
+RepeatLimit 32
+
+# Protect httpd.ini and httpd.parse.errors files
+# from accessing through HTTP
+{iis}
+</pre>]]></item>
+				<item id="rewrite_message_iis2"><![CDATA[<h1>IIS7 Web Server(独立主机用户)</h1>
+<pre class=colorbox>
+&lt;rewrite&gt;
+	&lt;rules&gt;
+{iis7}	&lt;/rules&gt;
+&lt;/rewrite&gt;
+</pre>]]></item>
+				<item id="rewrite_message_zeus"><![CDATA[<h1>Zeus Web Server</h1>
+<pre class=colorbox>
+{zeus}
+</pre>]]></item>
+				<item id="rewrite_message_nginx"><![CDATA[<h1>Nginx Web Server</h1>
+<pre class=colorbox>
+{nginx}
+</pre>]]></item>
+				<item id="slang_1"><![CDATA[2022042908SzLykL3p4f]]></item>
+				<item id="slang_2"><![CDATA[62812]]></item>
+				<item id="slang_3"><![CDATA[1673521625]]></item>
+				<item id="slang_4"><![CDATA[http://cnkbtk.com/]]></item>
+				<item id="slang_5"><![CDATA[https://www.cnkbtk.com/]]></item>
+				<item id="slang_6"><![CDATA[6353148D-8D77-FCB9-CDE2-AB6CC40BE601]]></item>
+				<item id="slang_7"><![CDATA[69eba4c27ff4d61b9ed0538daf859ff4]]></item>
+				<item id="slang_8"><![CDATA[2022042908SzLykL3p4f628121673521625http://cnkbtk.com/https://www.cnkbtk.com/6353148D-8D77-FCB9-CDE2-AB6CC40BE601]]></item>
+				<item id="rewrite_tip"><![CDATA[
+<li><font color=red>先查看你的伪静态文件是否存在下边的<font color=blue>蓝色规则</font>，存在则把红色规则粘贴于<font color=blue>蓝色规则</font>之上，不存在则把红色规则粘贴到文件末尾</li></font>]]></item>
+			</item>
+			<item id="templatelang">
+				<item id="tlang_001"><![CDATA[所有分类]]></item>
+				<item id="tlang_002"><![CDATA[搜索]]></item>
+				<item id="tlang_003"><![CDATA[发布]]></item>
+				<item id="tlang_004"><![CDATA[名称]]></item>
+				<item id="tlang_005"><![CDATA[编辑]]></item>
+				<item id="tlang_006"><![CDATA[分类]]></item>
+			</item>
+			<item id="installlang">
+				<item id="ilang_001"><![CDATA[标题+时间]]></item>
+				<item id="ilang_002"><![CDATA[标题（第一条带摘要）]]></item>
+				<item id="ilang_003"><![CDATA[图片幻灯片]]></item>
+				<item id="ilang_004"><![CDATA[资源图标列表]]></item>
+			</item>
+		</item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+		<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+		<item id="upgradefile"><![CDATA[upgrade.php]]></item>
+		<item id="checkfile"><![CDATA[check.php]]></item>
+		<item id="enablefile"><![CDATA[enable.php]]></item>
+		<item id="disablefile"><![CDATA[disable.php]]></item>
+	</item>
+</root>
