@@ -2,7 +2,6 @@
 
 include 'config.php';
 
-
 //创建notify表
 mysql_query("
   create table notify(
@@ -17,9 +16,6 @@ mysql_query("
   )
 ");
 
-
-
-
 //接收信息
 $price = $_POST["paymoney"];       //商品金额
 $orderName = $_POST["ordername"];   //商品名称
@@ -30,16 +26,6 @@ $device = $_POST["device"]; //设备号
 //入数据库
 if(!empty($price)){
  mysql_query("INSERT INTO notify (id,paymoney,device,paytime,dingdan,ordername,paytype,state) VALUES (null,'$price','$device', now(),'$orderNumber', '$orderName', '$payType', '0')");
-};
-
-  
+};  
 
 ?>
-
-
-
-
-
-
-
-
