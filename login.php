@@ -1,7 +1,6 @@
 <?php
 include 'config.php';
 
-
 //登录
 if(!empty($_POST['uname'])){
     $name=$_POST['uname'];
@@ -46,33 +45,31 @@ if(!empty($_POST['true_'])){
    echo json_encode($arrys,JSON_UNESCAPED_UNICODE);
 };
 
-
-
   //创建目录
-  $dir = iconv("UTF-8", "GBK", "./uppayimg");
-  if (!file_exists($dir)){
-          mkdir ($dir,0777,true);
-  };
+$dir = iconv("UTF-8", "GBK", "./uppayimg");
+if (!file_exists($dir)){
+        mkdir ($dir,0777,true);
+};
 
-  $fileinfo = $_FILES['file'];//将文件信息赋给变量$fileinfo
-  if($fileinfo){
-    //判断是什么格式图片
-    $img_name=strrchr($fileinfo['name'],'.');
-    switch ($img_name) 
-    { 
-    case ".png": 
-        $imgname=date('YmdHis').'_img_'.'.png';
-        break; 
-    case ".jpg": 
-        $imgname=date('YmdHis').'_img_'.'.jpg';
-        break; 
-    default: 
-        break;
-    }; 
-    move_uploaded_file($fileinfo['tmp_name'],"./uppayimg/".$imgname);  //上传到文件夹 
-    echo $imgname;
+$fileinfo = $_FILES['file'];//将文件信息赋给变量$fileinfo
+if($fileinfo){
+  //判断是什么格式图片
+  $img_name=strrchr($fileinfo['name'],'.');
+  switch ($img_name) 
+  { 
+  case ".png": 
+      $imgname=date('YmdHis').'_img_'.'.png';
+      break; 
+  case ".jpg": 
+      $imgname=date('YmdHis').'_img_'.'.jpg';
+      break; 
+  default: 
+      break;
+  }; 
+  move_uploaded_file($fileinfo['tmp_name'],"./uppayimg/".$imgname);  //上传到文件夹 
+  echo $imgname;
 
-  };
+};
 
 // 接收收款码信息
 $datas=$_POST['datas'];
@@ -202,15 +199,5 @@ if (!empty($_POST['hd_successpay'])) {
       echo json_encode($users,JSON_UNESCAPED_UNICODE);  
   };
 };
-
-
-
-
-
-
-
-
-
-
 
 ?>
