@@ -17,9 +17,6 @@ while($zongpay_time_array=mysql_fetch_array($zongpay_time)){
     };
 };
 
-
-
-
 $searchresult=mysql_query("select * from zongpay where dingdan='$number'");
 $arr=mysql_fetch_array($searchresult);
 if($arr){
@@ -41,9 +38,5 @@ if($arr){
        }
     };
 };
-
-
-
-
 
 ?>
