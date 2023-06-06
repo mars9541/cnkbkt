@@ -9,7 +9,6 @@ $orderName = $_POST["orderName"];   //商品名称
 $payType = $_POST["payType"];       //支付方式
 $orderNumber = $_POST["orderNumber"]; //订单号
 
-
 //删除超时记录
 $jilu_money_time=mysql_query("select * from jilu_money");  
 //循环
@@ -28,7 +27,6 @@ while($time_array=mysql_fetch_array($jilu_money_time)){
      mysql_query("delete from jilu_money where id='$idx'");  
   };  
 };
-
 
 //改变状态
 $zongpay_time=mysql_query("select * from zongpay");  
@@ -51,8 +49,6 @@ while($zongpay_time_array=mysql_fetch_array($zongpay_time)){
   };  
 };
 
-
-
 session_start();
 if($_SESSION['orderNumber']==$orderNumber){
   $windowname='0';
@@ -61,7 +57,6 @@ if($_SESSION['orderNumber']==$orderNumber){
 }else{
 $_SESSION['orderNumber']=$orderNumber; //存储订单号  
  
-
 //浮动金额 
 $jilu_money=mysql_query("select * from jilu_money where money");
 $jilu_money_arr=mysql_fetch_array($jilu_money);
@@ -128,8 +123,6 @@ mysql_query("insert into jilu_money (id,money,time) VALUES (null,'$price',now())
 };
 $_SESSION['price']=$price; //存储金额数据 
 
-
-
 //返回前端收款码
 if (!empty($payType) && !empty($price)) { 
     //查询收款码
@@ -154,8 +147,6 @@ if (!empty($payType) && !empty($price)) {
   
 };
 
-
-
 switch ($_POST["payType"]) { 
 case "wx": 
     $paytitle_='微信';
@@ -177,18 +168,6 @@ case "zsm":
     break; 
 default: 
 
-};   
-  
-  
-
-  
+}; 
 
 ?>
-
-
-
-
-
-
-
-
