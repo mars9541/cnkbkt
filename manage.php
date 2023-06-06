@@ -17,14 +17,4 @@ function send_post($url, $post_data) {
   return $result;
 };
 
-
-
-
-
-
- 
-
-
-
-
 ?>
